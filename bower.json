@@ -1,11 +1,11 @@
 {
-  "name": "paper-core",
+  "name": "zorium-paper",
   "version": "0.0.1",
   "homepage": "http://zorium.org",
   "authors": [
     "Zolmeister <zolikahan@gmail.com>"
   ],
-  "description": "zorium paper essentials",
+  "description": "zorium paper",
   "keywords": [
     "zorium",
     "paper",
