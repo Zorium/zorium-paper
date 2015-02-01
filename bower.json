@@ -13,6 +13,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "zorium": "zorium/zorium#~0.2.14"
+    "zorium": "zorium/zorium#^0.6.6",
+    "lodash": "~3.0.1"
   }
 }
