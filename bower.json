@@ -11,5 +11,8 @@
     "paper",
     "material"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "zorium": "zorium/zorium#~0.2.14"
+  }
 }

@@ -1,0 +1,65 @@
+@require 'nib'
+@require '../base'
+json('../colors.json')
+
+.z-radio-button
+  display: inline-block
+  white-space: nowrap
+  min-height: 48px
+  min-width: 48px
+  line-height: 48px
+  border-radius: 50%
+  position: relative
+  cursor: pointer
+  overflow: hidden
+  -webkit-tap-highlight-color: transparent
+
+  > .ring
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -8px
+    margin-left: -8px
+    width: 12px
+    height: 12px
+    border-radius: 50%
+    border: solid 2px
+    transition: border-color 0.28s
+    border-color: $black54
+
+  > .fill
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -4px
+    margin-left: -4px
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    transform: scale(0)
+    transition: transform ease 0.28s
+
+  &[checked]
+    > .ring
+      border-color: #009688
+
+    > .fill
+      transform: scale(1)
+
+  &[disabled]
+    > .ring
+      border-color: $black26
+
+    > .fill
+      background: $black26
+
+  &.is-dark
+    > .ring
+      border-color: $white70
+
+    &[disabled]
+      > .ring
+        border-color: $white30
+
+      > .fill
+        background: $white30

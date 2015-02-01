@@ -1,0 +1,87 @@
+@require 'nib'
+@require '../base'
+json('../colors.json')
+
+@keyframes z-checkbox-expand
+  0%
+    transform: rotate(70deg)
+    height: 6px
+  100%
+    transform: rotate(45deg)
+    height: 8px
+
+.z-checkbox
+  display: inline-block
+  white-space: nowrap
+  outline: 0
+  min-height: 48px
+  min-width: 48px
+  line-height: 48px
+  -webkit-tap-highlight-color: transparent
+
+  position: relative
+  cursor: pointer
+  transform: translateZ(0)
+
+  > .checkbox
+    position: absolute
+    display: inline-block
+    width: 18px
+    height: 18px
+    top: 50%
+    left: 50%
+    margin-top: -9px
+    margin-left: -9px
+    box-sizing: border-box
+    border: solid 2px $black54
+    border-radius: 2px
+    pointer-events: none
+    transition: background-color 140ms, border-color 140ms
+    border-color: $black54
+
+
+  > .checkmark
+    transform: rotate(45deg)
+    position: absolute
+    display: none
+    top: 50%
+    left: 50%
+    width: 4px
+    height: 8px
+    margin-top: -6px
+    margin-left: -3px
+    border-style: solid
+    border-top: none
+    border-left: none
+    border-right-width: 2px
+    border-bottom-width: 2px
+    border-color: $white
+
+  &[checked]
+    > .checkmark
+      display: inline-block
+      animation: z-checkbox-expand 140ms ease-out forwards
+
+  &[disabled]
+    pointer-events: none
+
+    > .checkbox
+      border-color: $black26
+
+  &[disabled][checked]
+    > .checkbox
+      border: none
+      background: $black26
+
+  &.is-dark
+    > .checkbox
+      border-color: $white70
+
+    &[disabled]
+      > .checkbox
+        border-color: $white30
+
+    &[disabled][checked]
+      > .checkbox
+        border: none
+        background: $white30
