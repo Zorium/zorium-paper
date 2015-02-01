@@ -1,6 +1,6 @@
 z = require 'zorium'
-paperColors = require 'zorium/colors.json'
 
+paperColors = require '../colors.json'
 Ripple = require '../ripple'
 styles = require './index.styl'
 
