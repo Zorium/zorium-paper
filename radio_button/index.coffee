@@ -30,7 +30,7 @@ module.exports = class RadioButton
         paperColors.$grey800
       else colors.c500
 
-    z '.z-radio-button',
+    z '.zp-radio-button',
       {
         className: z.classKebab {
           isDark

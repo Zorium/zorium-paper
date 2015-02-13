@@ -33,7 +33,7 @@ module.exports = class Button
     }
     backgroundColor ?= colors.c500
 
-    z '.z-button',
+    z '.zp-button',
       className: z.classKebab {
         isRaised
         isFlat

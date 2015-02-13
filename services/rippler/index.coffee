@@ -14,7 +14,7 @@ class Rippler
 
     $$rippleEffect = document.createElement 'div'
     $$rippleEffect.className =
-      "z-services-rippler #{isSmall and 'is-small' or ''}"
+      "zp-services-rippler #{isSmall and 'is-small' or ''}"
     $$rippleEffect.style.backgroundColor = color
 
     x = mouseX - left

@@ -12,7 +12,7 @@ module.exports = class Dialog
     content ?= ''
     onleave ?= (-> null)
 
-    z '.z-dialog',
+    z '.zp-dialog',
       z '.backdrop', onclick: onleave
       z '.dialog',
         z '.info',

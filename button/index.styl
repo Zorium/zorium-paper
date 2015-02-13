@@ -2,7 +2,7 @@
 @require '../base'
 json('../colors.json')
 
-.z-button
+.zp-button
   min-height: 48px
   min-width: 48px
   display: inline-block
@@ -15,7 +15,7 @@ json('../colors.json')
   -webkit-tap-highlight-color: transparent
 
   > .button
-    z-font-button()
+    zp-font-button()
     display: inline-block
     position: relative
     box-sizing: border-box
@@ -38,10 +38,10 @@ json('../colors.json')
 
   &.is-raised
     > .button
-      z-shadow-1()
+      zp-shadow-1()
 
       &:active
-        z-shadow-2()
+        zp-shadow-2()
 
       &[disabled]
         box-shadow: none

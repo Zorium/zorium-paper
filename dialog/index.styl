@@ -2,7 +2,7 @@
 @require '../base'
 json('../colors.json')
 
-.z-dialog
+.zp-dialog
   position: fixed
   top: 0
   left: 0
@@ -24,7 +24,7 @@ json('../colors.json')
     z-index: 1000000
 
   > .dialog
-    z-shadow-3()
+    zp-shadow-3()
     z-index: 1000003
     background: $white
     min-width: 280px
@@ -34,11 +34,11 @@ json('../colors.json')
       padding: 24px 24px 16px 24px
 
       > .title
-        z-font-title()
+        zp-font-title()
         margin-bottom: 16px
 
       > .content
-        z-font-body1()
+        zp-font-body1()
         color: $black54
 
     > .actions

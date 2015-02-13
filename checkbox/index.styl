@@ -2,7 +2,7 @@
 @require '../base'
 json('../colors.json')
 
-@keyframes z-checkbox-expand
+@keyframes zp-checkbox-expand
   0%
     transform: rotate(70deg)
     height: 6px
@@ -10,7 +10,7 @@ json('../colors.json')
     transform: rotate(45deg)
     height: 8px
 
-.z-checkbox
+.zp-checkbox
   display: inline-block
   white-space: nowrap
   outline: 0
@@ -60,7 +60,7 @@ json('../colors.json')
   &[checked]
     > .checkmark
       display: inline-block
-      animation: z-checkbox-expand 140ms ease-out forwards
+      animation: zp-checkbox-expand 140ms ease-out forwards
 
   &[disabled]
     pointer-events: none

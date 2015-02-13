@@ -14,7 +14,7 @@ module.exports = class FloatingActionButton
       c500: paperColors.$black
     }
 
-    z '.z-floating-action-button', {
+    z '.zp-floating-action-button', {
       className: z.classKebab {isMini}
       onclick: onclick
       onmousedown: z.ev (e, $$el) ->

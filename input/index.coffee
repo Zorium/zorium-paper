@@ -28,7 +28,7 @@ module.exports = class Input
     isFloating ?= false
     isDisabled ?= false
 
-    z '.z-input',
+    z '.zp-input',
       className: z.classKebab {
         isDark
         isFloating

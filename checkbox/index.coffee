@@ -32,7 +32,7 @@ module.exports = class Checkbox
         paperColors.$grey800
       else colors.c500
 
-    z '.z-checkbox',
+    z '.zp-checkbox',
       {
         className: z.classKebab {
           isDark
