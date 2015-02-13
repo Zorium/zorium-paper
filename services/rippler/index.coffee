@@ -2,7 +2,7 @@ z = require 'zorium'
 
 styles = require './index.styl'
 
-module.exports = class Ripple
+class Rippler
   constructor: ->
     styles.use()
 
@@ -13,7 +13,8 @@ module.exports = class Ripple
     {width, height, top, left} = $$el.getBoundingClientRect()
 
     $$rippleEffect = document.createElement 'div'
-    $$rippleEffect.className = "z-ripple #{isSmall and 'is-small' or ''}"
+    $$rippleEffect.className =
+      "z-services-rippler #{isSmall and 'is-small' or ''}"
     $$rippleEffect.style.backgroundColor = color
 
     x = mouseX - left
@@ -39,3 +40,5 @@ module.exports = class Ripple
       window.setTimeout ->
         $$rippleEffect.parentElement.removeChild $$rippleEffect
       , 1400
+
+module.exports = new Rippler()

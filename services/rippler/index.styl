@@ -1,8 +1,8 @@
 @require 'nib'
 
-json('../colors.json')
+json('../../colors.json')
 
-@keyframes z-ripple-animation
+@keyframes z-services-rippler-animation
   from
     width: 10px
     height: 10px
@@ -16,7 +16,7 @@ json('../colors.json')
     margin-left: -500px
     opacity: 0
 
-@keyframes z-ripple-animation-small
+@keyframes z-services-rippler-animation-small
   from
     width: 10px
     height: 10px
@@ -30,12 +30,12 @@ json('../colors.json')
     margin-left: -24px
     opacity: 0
 
-.z-ripple
+.z-services-rippler
   position: absolute
   border-radius: 50%
   background: $white
-  animation: z-ripple-animation 1.5s
+  animation: z-services-rippler-animation 1.5s
   pointer-events: none
 
   &.is-small
-    animation: z-ripple-animation-small 0.5s
+    animation: z-services-rippler-animation-small 0.5s

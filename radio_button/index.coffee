@@ -1,7 +1,7 @@
 z = require 'zorium'
 
 paperColors = require '../colors.json'
-Ripple = require '../ripple'
+RipplerService = require '../services/rippler'
 styles = require './index.styl'
 
 module.exports = class RadioButton
@@ -12,11 +12,10 @@ module.exports = class RadioButton
 
     @state = z.state {
       isChecked
-      $ripple: new Ripple()
     }
 
   render: ({colors, isDisabled, isDark}) =>
-    {isChecked, $ripple} = @state()
+    {isChecked} = @state()
 
     colors ?= {
       c500: paperColors.$black
@@ -41,7 +40,7 @@ module.exports = class RadioButton
           disabled: if isDisabled then true else undefined
         onmousedown: z.ev (e, $$el) =>
           unless isDisabled
-            $ripple.ripple {
+            RipplerService.ripple {
               $$el
               color: rippleColor
               isSmall: true

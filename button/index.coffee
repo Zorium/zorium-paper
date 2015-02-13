@@ -1,7 +1,7 @@
 z = require 'zorium'
 
 paperColors = require '../colors.json'
-Ripple = require '../ripple'
+RipplerService = require '../services/rippler'
 styles = require './index.styl'
 
 module.exports = class Button
@@ -10,11 +10,10 @@ module.exports = class Button
 
     @state = z.state
       backgroundColor: null
-      $ripple: new Ripple()
 
   render: ({text, isDisabled, listeners, isRaised,
             isShort, isDark, isFlat, colors, onclick}) =>
-    {$ripple, backgroundColor} = @state()
+    {backgroundColor} = @state()
 
     isRaised ?= false
     isFlat = not isRaised
@@ -55,7 +54,7 @@ module.exports = class Button
 
           onmousedown: z.ev (e, $$el) =>
             @state.set backgroundColor: colors.c700
-            $ripple.ripple {
+            RipplerService.ripple {
               $$el
               color: colors.ink or colors.c200
               mouseX: e.clientX

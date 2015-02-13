@@ -1,7 +1,7 @@
 z = require 'zorium'
 
 paperColors = require '../colors.json'
-Ripple = require '../ripple'
+RipplerService = require '../services/rippler'
 styles = require './index.styl'
 
 module.exports = class Checkbox
@@ -12,11 +12,10 @@ module.exports = class Checkbox
 
     @state = z.state {
       isChecked
-      $ripple: new Ripple()
     }
 
   render: ({colors, isDisabled, isDark}) =>
-    {isChecked, $ripple} = @state()
+    {isChecked} = @state()
 
     colors ?= {
       c500: paperColors.$black
@@ -43,7 +42,7 @@ module.exports = class Checkbox
           checked: if isChecked then true else undefined
         onmousedown: z.ev (e, $$el) =>
           unless isDisabled
-            $ripple.ripple {
+            RipplerService.ripple {
               $$el
               color: rippleColor
               isSmall: true
