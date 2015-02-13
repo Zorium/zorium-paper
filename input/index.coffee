@@ -4,9 +4,22 @@ paperColors = require '../colors.json'
 styles = require './index.styl'
 
 module.exports = class Input
-  constructor: ({colors, hintText, isFloating,
-                isDisabled, @o_value, @o_error, isDark}) ->
+  constructor: ({@o_value, @o_error} = {}) ->
     styles.use()
+
+    @o_value ?= z.observe ''
+    @o_error ?= z.observe null
+
+    @o_isFocused = z.observe false
+
+    @state = z.state {
+      isFocused: @o_isFocused
+      value: @o_value
+      error: @o_error
+    }
+
+  render: ({colors, hintText, isFloating, isDisabled, isDark}) =>
+    {value, error, isFocused} = @state()
 
     colors ?= {
       c500: paperColors.$black
@@ -14,24 +27,7 @@ module.exports = class Input
     hintText ?= ''
     isFloating ?= false
     isDisabled ?= false
-    @o_value ?= z.observe ''
-    @o_error ?= z.observe null
 
-    @o_isFocused = z.observe false
-
-    @state = z.state {
-      colors
-      hintText
-      isFocused: @o_isFocused
-      value: @o_value
-      error: @o_error
-      isFloating
-      isDisabled
-      isDark
-    }
-
-  render: ({colors, hintText, isFloating,
-            isDisabled, value, isFocused, error, isDark}) ->
     z '.z-input',
       className: z.classKebab {
         isDark

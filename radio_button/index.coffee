@@ -4,26 +4,26 @@ paperColors = require '../colors.json'
 Ripple = require '../ripple'
 styles = require './index.styl'
 
-module.exports = class RadioButtom
-  constructor: ({colors, isChecked, isDisabled, isDark}) ->
+module.exports = class RadioButton
+  constructor: ({isChecked} = {}) ->
     styles.use()
+
+    isChecked ?= false
+
+    @state = z.state {
+      isChecked
+      $ripple: new Ripple()
+    }
+
+  render: ({colors, isDisabled, isDark}) =>
+    {isChecked, $ripple} = @state()
 
     colors ?= {
       c500: paperColors.$black
     }
-    isChecked ?= false
     isDisabled ?= false
     isDark ?= false
 
-    @state = z.state {
-      colors
-      isChecked
-      isDisabled
-      isDark
-      $ripple: new Ripple()
-    }
-
-  render: ({colors, isChecked, isDisabled, isDark, $ripple}) =>
     rippleColor = switch
       when isChecked and isDark
         paperColors.$grey200

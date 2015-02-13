@@ -24,6 +24,8 @@ Usage:
 ```coffee
 Button = require 'zorium-paper/button'
 paperColors = require 'zorium-paper/colors.json'
-$button = new Button
+$button = new Button()
+
+z $button,
   text: 'click me'
 ```

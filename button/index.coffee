@@ -5,9 +5,16 @@ Ripple = require '../ripple'
 styles = require './index.styl'
 
 module.exports = class Button
-  constructor: ({text, isRaised, isDisabled,
-                 onclick, isDark, isShort, colors}) ->
+  constructor: ->
     styles.use()
+
+    @state = z.state
+      backgroundColor: null
+      $ripple: new Ripple()
+
+  render: ({text, isDisabled, listeners, isRaised,
+            isShort, isDark, isFlat, colors, onclick}) =>
+    {$ripple, backgroundColor} = @state()
 
     isRaised ?= false
     isFlat = not isRaised
@@ -15,7 +22,6 @@ module.exports = class Button
     isDark ?= false
     onclick ?= (-> null)
     colors ?= {}
-
     colors = _.defaults colors, {
       cText: if colors.ink and not isDisabled \
                    then colors.ink
@@ -26,22 +32,7 @@ module.exports = class Button
       c700: null
       ink: null
     }
-
-    @state = z.state {
-      text
-      listeners:
-        onclick: onclick
-      isRaised
-      isFlat
-      isDisabled
-      isDark
-      isShort
-      colors
-      $ripple: new Ripple()
-    }
-
-  render: ({text, isDisabled, listeners, $ripple, isRaised,
-            isShort, isDark, isFlat, colors}) =>
+    backgroundColor ?= colors.c500
 
     z '.z-button',
       className: z.classKebab {
@@ -55,7 +46,7 @@ module.exports = class Button
           attributes:
             if isDisabled
               disabled: true
-          onclick: listeners.onclick
+          onclick: onclick
           onmouseover: =>
             @state.set backgroundColor: colors.c600
 
@@ -75,7 +66,7 @@ module.exports = class Button
             @state.set backgroundColor: colors.c600
 
           style:
-            backgroundColor: if isDisabled then null else colors.c500
+            backgroundColor: if isDisabled then null else backgroundColor
             color: if isDisabled then null else colors.cText
         },
         text

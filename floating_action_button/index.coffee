@@ -5,27 +5,24 @@ Ripple = require '../ripple'
 styles = require './index.styl'
 
 module.exports = class FloatingActionButton
-  constructor: ({$icon, colors, isMini, onclick}) ->
+  constructor: ->
     styles.use()
+
+    @state = z.state {
+      $ripple: new Ripple()
+    }
+
+  render: ({$icon, colors, isMini, onclick}) =>
+    {$ripple} = @state()
 
     isMini ?= false
     colors ?= {
-      c500: paperColors.$balck
+      c500: paperColors.$black
     }
 
-    @state = z.state {
-      $icon
-      colors
-      isMini
-      $ripple: new Ripple()
-      listeners:
-        onclick: onclick
-    }
-
-  render: ({$icon, colors, isMini, listeners, $ripple}) ->
     z '.z-floating-action-button', {
       className: z.classKebab {isMini}
-      onclick: listeners.onclick
+      onclick: onclick
       onmousedown: z.ev (e, $$el) ->
         $ripple.ripple {
           $$el
