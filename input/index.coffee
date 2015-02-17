@@ -37,7 +37,12 @@ module.exports = class Input
         isDisabled
         isError: error?
       }
-      z '.hint', hintText
+      z '.hint', {
+        style:
+          color: if isFocused and not error? \
+                 then colors.c500 else null
+      },
+        hintText
       z 'input.input',
         attributes:
           disabled: if isDisabled then true else undefined
