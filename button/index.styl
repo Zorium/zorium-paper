@@ -5,6 +5,7 @@ json('../colors.json')
 .zp-button
   min-height: 48px
   min-width: 48px
+  max-width: 100%
   display: inline-block
   position: relative
   background: transparent
@@ -20,8 +21,9 @@ json('../colors.json')
     position: relative
     box-sizing: border-box
     padding: 0 8px
-    min-width: 88px
     min-height: 36px
+    min-width: 88px
+    max-width: 100%
     line-height: 36px
     margin: 4px
     background: transparent
@@ -31,6 +33,8 @@ json('../colors.json')
     user-select: none
     cursor: pointer
     overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 
     &[disabled]
       cursor: auto
@@ -53,6 +57,12 @@ json('../colors.json')
       &[disabled]
         background: $white12
         color: $white30
+
+  &.is-full-width
+    width: 100%
+
+      > .button
+        width: 100%
 
   &.is-short
     > .button
