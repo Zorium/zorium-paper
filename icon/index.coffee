@@ -8,9 +8,10 @@ module.exports = class Icon
   constructor: ->
     styles.use()
 
-  render: ({icon, isDark, isInactive}) ->
+  render: ({icon, isDark, isInactive, shouldRipple}) ->
     icon ?= 'cake-variant'
     isDark ?= false
+    shouldRipple ?= true
 
     rippleColor = switch
       when isDark
@@ -25,11 +26,12 @@ module.exports = class Icon
           isInactive
         }
         onmousedown: z.ev (e, $$el) ->
-          RipplerService.ripple {
-            $$el
-            color: rippleColor
-            isSmall: true
-          }
+          if shouldRipple
+            RipplerService.ripple {
+              $$el
+              color: rippleColor
+              isSmall: true
+            }
       },
       z '.icon',
         className: icon
