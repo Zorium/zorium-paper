@@ -18,13 +18,14 @@ module.exports = class Input
       error: @o_error
     }
 
-  render: ({colors, hintText, isFloating, isDisabled, isDark}) =>
+  render: ({colors, hintText, type, isFloating, isDisabled, isDark}) =>
     {value, error, isFocused} = @state()
 
     colors ?= {
       c500: paperColors.$black
     }
     hintText ?= ''
+    type ?= 'text'
     isFloating ?= false
     isDisabled ?= false
 
@@ -37,10 +38,16 @@ module.exports = class Input
         isDisabled
         isError: error?
       }
-      z '.hint', hintText
+      z '.hint', {
+        style:
+          color: if isFocused and not error? \
+                 then colors.c500 else null
+      },
+        hintText
       z 'input.input',
         attributes:
           disabled: if isDisabled then true else undefined
+          type: type
         value: value
         oninput: z.ev (e, $$el) =>
           @o_value.set $$el.value

@@ -11,7 +11,7 @@ module.exports = class Button
     @state = z.state
       backgroundColor: null
 
-  render: ({text, isDisabled, listeners, isRaised,
+  render: ({text, isDisabled, listeners, isRaised, isFullWidth,
             isShort, isDark, isFlat, colors, onclick, type}) =>
     {backgroundColor} = @state()
 
@@ -39,6 +39,7 @@ module.exports = class Button
         isRaised
         isFlat
         isShort
+        isFullWidth
         isDark
       }
       z '.ripple-box',
