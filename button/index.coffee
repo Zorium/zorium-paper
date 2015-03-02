@@ -11,10 +11,11 @@ module.exports = class Button
     @state = z.state
       backgroundColor: null
 
-  render: ({text, isDisabled, listeners, isRaised,
-            isShort, isDark, isFlat, colors, onclick}) =>
+  render: ({text, isDisabled, listeners, isRaised, isFullWidth,
+            isShort, isDark, isFlat, colors, onclick, type}) =>
     {backgroundColor} = @state()
 
+    type ?= 'button'
     isRaised ?= false
     isFlat = not isRaised
     isDisabled ?= false
@@ -38,34 +39,35 @@ module.exports = class Button
         isRaised
         isFlat
         isShort
+        isFullWidth
         isDark
       }
-      z '.button',
-        {
-          attributes:
-            if isDisabled
-              disabled: true
-          onclick: onclick
-          onmouseover: =>
-            @state.set backgroundColor: colors.c600
+      z '.ripple-box',
+        onmousedown: z.ev (e, $$el) =>
+          @state.set backgroundColor: colors.c700
+          RipplerService.ripple {
+            $$el
+            color: colors.ink or colors.c200
+            mouseX: e.clientX
+            mouseY: e.clientY
+          }
+        z 'input.button',
+          {
+            attributes:
+              disabled: if isDisabled then true else undefined
+              type: type
+            value: text
+            onclick: onclick
+            onmouseover: =>
+              @state.set backgroundColor: colors.c600
 
-          onmouseout: =>
-            @state.set backgroundColor: colors.c500
+            onmouseout: =>
+              @state.set backgroundColor: colors.c500
 
-          onmousedown: z.ev (e, $$el) =>
-            @state.set backgroundColor: colors.c700
-            RipplerService.ripple {
-              $$el
-              color: colors.ink or colors.c200
-              mouseX: e.clientX
-              mouseY: e.clientY
-            }
+            onmouseup: z.ev (e, $$el) =>
+              @state.set backgroundColor: colors.c600
 
-          onmouseup: z.ev (e, $$el) =>
-            @state.set backgroundColor: colors.c600
-
-          style:
-            backgroundColor: if isDisabled then null else backgroundColor
-            color: if isDisabled then null else colors.cText
-        },
-        text
+            style:
+              backgroundColor: if isDisabled then null else backgroundColor
+              color: if isDisabled then null else colors.cText
+          }
