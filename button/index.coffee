@@ -35,10 +35,12 @@ module.exports = class Button
       else
         null
 
+  # TODO: deprecate text infavor of $content
   render: ({text, isDisabled, listeners, isRaised, isFullWidth,
-            isShort, isDark, isFlat, colors, onclick, type}) =>
+            isShort, isDark, isFlat, colors, onclick, type, $content}) =>
     {backgroundColor, isHovered, isActive} = @state()
 
+    $content ?= text
     type ?= 'button'
     isRaised ?= false
     isFlat = not isRaised
@@ -83,23 +85,22 @@ module.exports = class Button
         @state.set isHovered: false
         onclick(e)
 
-      z '.ripple-box',
-        onmousedown: z.ev (e, $$el) =>
-          @state.set isActive: true
-          unless isDisabled
-            RipplerService.ripple {
-              $$el
-              color: colors.ink or colors.c200
-              mouseX: e.clientX
-              mouseY: e.clientY
-            }
-        z 'input.button',
-          {
-            attributes:
-              disabled: if isDisabled then true else undefined
-              type: type
-            value: text
-            style:
-              backgroundColor: if isDisabled then null else backgroundColor
-              color: if isDisabled then null else colors.cText
-          }
+      z 'button.button',
+        {
+          attributes:
+            disabled: if isDisabled then true else undefined
+            type: type
+          onmousedown: z.ev (e, $$el) =>
+            @state.set isActive: true
+            unless isDisabled
+              RipplerService.ripple {
+                $$el
+                color: colors.ink or colors.c200
+                mouseX: e.clientX
+                mouseY: e.clientY
+              }
+          style:
+            backgroundColor: if isDisabled then null else backgroundColor
+            color: if isDisabled then null else colors.cText
+        },
+        $content

@@ -17,93 +17,77 @@ json('../colors.json')
   padding: 4px
   -webkit-tap-highlight-color: transparent
 
-  > .ripple-box
+  > .button
+    zp-font-button()
     display: inline-block
     position: relative
-    overflow: hidden
+    box-sizing: border-box
+    vertical-align: middle
+    padding: 0 8px
+    min-height: 36px
+    min-width: 88px
+    max-width: 100%
+    line-height: 36px
+    background: transparent
+    text-align: center
+    outline: none
     border-radius: 2px
-
-    > .button
-      zp-font-button()
-      display: inline-block
-      position: relative
-      box-sizing: border-box
-      padding: 0 8px
-      min-height: 36px
-      min-width: 88px
-      max-width: 100%
-      line-height: 36px
-      background: transparent
-      text-align: center
-      outline: none
-      border-radius: 2px
-      user-select: none
-      cursor: pointer
-      overflow: hidden
-      text-overflow: ellipsis
-      white-space: nowrap
-      border: none
-      -webkit-tap-highlight-color: transparent
+    user-select: none
+    cursor: pointer
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    border: none
+    -webkit-tap-highlight-color: transparent
 
   &.is-disabled
     cursor: default
     pointer-events: none
 
-    > .ripple-box
+    > .button
       cursor: default
-
-      > .button
-        pointer-events: none
+      pointer-events: none
 
   &.is-raised
-    > .ripple-box
-        zp-shadow-1()
+    > .button
+      zp-shadow-1()
 
-        &:active
-          zp-shadow-2()
+      &:active
+        zp-shadow-2()
 
   &.is-raised&.is-dark
-    > .ripple-box
-      > .button
-        color: $white
+    > .button
+      color: $white
 
   &.is-raised&.is-disabled
-    > .ripple-box
+    > .button
       box-shadow: none
-
-      > .button
-        background: $black12
-        color: $black26
+      background: $black12
+      color: $black26
 
   &.is-raised&.is-dark&.is-disabled
-    > .ripple-box
-      > .button
-          background: $white12
-          color: $white30
+    > .button
+        background: $white12
+        color: $white30
 
   &.is-full-width
     width: 100%
 
-    > .ripple-box
-      > .button
-        width: 100%
+    > .button
+      width: 100%
 
   &.is-short
-    > .ripple-box
-      > .button
-        min-width: 48px
+    > .button
+      min-width: 48px
 
   &.is-flat&.is-dark
-    > .ripple-box
-      > .button
-        color: $white
+    > .button
+      color: $white
 
   &.is-flat&.is-disabled
-    > .ripple-box
-      > .button
-        color: $black26
+    > .button
+      color: $black26
 
   &.is-flat&.is-dark&.is-disabled
-    > .ripple-box
-      > .button
-        color: $white30
+    > .button
+      color: $white30
