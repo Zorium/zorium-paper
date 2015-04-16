@@ -1,12 +1,10 @@
 z = require 'zorium'
 _ = require 'lodash'
 
-styles = require './index.styl'
+if window?
+  require './index.styl'
 
 module.exports = class Dialog
-  constructor: ->
-    styles.use()
-
   render: ({title, content, actions, onleave}) ->
     actions ?= []
     content ?= ''

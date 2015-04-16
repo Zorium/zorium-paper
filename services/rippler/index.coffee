@@ -1,11 +1,9 @@
 z = require 'zorium'
 
-styles = require './index.styl'
+if window?
+  require './index.styl'
 
 class Rippler
-  constructor: ->
-    styles.use()
-
   ripple: ({$$el, color, mouseX, mouseY, isSmall}) ->
     isSmall ?= false
     isCenter = not mouseX? and not mouseY?

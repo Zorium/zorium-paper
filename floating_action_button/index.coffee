@@ -2,12 +2,11 @@ z = require 'zorium'
 
 paperColors = require '../colors.json'
 RipplerService = require '../services/rippler'
-styles = require './index.styl'
+
+if window?
+  require './index.styl'
 
 module.exports = class FloatingActionButton
-  constructor: ->
-    styles.use()
-
   render: ({$icon, colors, isMini, onclick}) ->
     isMini ?= false
     colors ?= {

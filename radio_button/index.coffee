@@ -2,12 +2,12 @@ z = require 'zorium'
 
 paperColors = require '../colors.json'
 RipplerService = require '../services/rippler'
-styles = require './index.styl'
+
+if window?
+  require './index.styl'
 
 module.exports = class RadioButton
   constructor: ({isChecked} = {}) ->
-    styles.use()
-
     isChecked ?= false
 
     @state = z.state {
@@ -15,7 +15,7 @@ module.exports = class RadioButton
     }
 
   render: ({colors, isDisabled, isDark}) =>
-    {isChecked} = @state()
+    {isChecked} = @state.getValue()
 
     colors ?= {
       c500: paperColors.$black
@@ -45,7 +45,7 @@ module.exports = class RadioButton
               color: rippleColor
               isSmall: true
             }
-            @state.set isChecked: not @state().isChecked
+            @state.set isChecked: not @state.getValue().isChecked
       },
       z '.ring', {
         style:

@@ -1,12 +1,12 @@
 z = require 'zorium'
 
 paperColors = require '../colors.json'
-styles = require './index.styl'
+
+if window?
+  require './index.styl'
 
 module.exports = class Input
   constructor: ({@o_value, @o_error} = {}) ->
-    styles.use()
-
     @o_value ?= z.observe ''
     @o_error ?= z.observe null
 
@@ -19,7 +19,7 @@ module.exports = class Input
     }
 
   render: ({colors, hintText, type, isFloating, isDisabled, isDark}) =>
-    {value, error, isFocused} = @state()
+    {value, error, isFocused} = @state.getValue()
 
     colors ?= {
       c500: paperColors.$black
