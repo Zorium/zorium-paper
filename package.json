@@ -17,15 +17,9 @@
   },
   "homepage": "https://github.com/Zorium/zorium-paper",
   "dependencies": {
-    "coffee-loader": "^0.7.2",
     "coffee-script": "^1.9.2",
-    "css-loader": "^0.10.1",
-    "json-loader": "^0.5.1",
     "lodash": "^3.7.0",
     "rx-lite": "^2.5.2",
-    "style-loader": "^0.10.2",
-    "stylus": "^0.50.0",
-    "stylus-loader": "^1.1.0",
     "zorium": "^1.0.0-rc3"
   }
 }
