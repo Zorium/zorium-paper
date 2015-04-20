@@ -21,7 +21,6 @@ module.exports = class Input
 
   render: ({colors, hintText, type, isFloating, isDisabled, isDark}) =>
     {value, error, isFocused} = @state.getValue()
-    console.log 'what', value
 
     colors ?= {
       c500: paperColors.$black
