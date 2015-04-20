@@ -7,16 +7,16 @@ if window?
   require './index.styl'
 
 module.exports = class Input
-  constructor: ({@valueSubject, @errorSubject} = {}) ->
-    @valueSubject ?= new Rx.BehaviorSubject ''
-    @errorSubject ?= new Rx.BehaviorSubject null
+  constructor: ({@value, @error} = {}) ->
+    @value ?= new Rx.BehaviorSubject ''
+    @error ?= new Rx.BehaviorSubject null
 
-    @isFocusedSubject = new Rx.BehaviorSubject false
+    @isFocused = new Rx.BehaviorSubject false
 
     @state = z.state {
-      isFocused: @isFocusedSubject
-      value: @valueSubject
-      error: @errorSubject
+      isFocused: @isFocused
+      value: @value
+      error: @error
     }
 
   render: ({colors, hintText, type, isFloating, isDisabled, isDark}) =>
@@ -51,11 +51,11 @@ module.exports = class Input
           type: type
         value: value
         oninput: z.ev (e, $$el) =>
-          @valueSubject.onNext $$el.value
+          @value.onNext $$el.value
         onfocus: z.ev (e, $$el) =>
-          @isFocusedSubject.onNext true
+          @isFocused.onNext true
         onblur: z.ev (e, $$el) =>
-          @isFocusedSubject.onNext false
+          @isFocused.onNext false
       z '.underline',
         style:
           backgroundColor: if isFocused and not error? \
