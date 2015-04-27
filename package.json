@@ -20,6 +20,6 @@
     "coffee-script": "^1.9.2",
     "lodash": "^3.7.0",
     "rx-lite": "^2.5.2",
-    "zorium": "^1.0.0-rc3"
+    "zorium": "^1.0.0-rc8"
   }
 }
