@@ -5,9 +5,9 @@ if window?
   require './index.styl'
 
 module.exports = class Dialog
-  render: ({title, content, actions, onleave}) ->
+  render: ({title, $content, actions, onleave}) ->
     actions ?= []
-    content ?= ''
+    $content ?= ''
     onleave ?= (-> null)
 
     z '.zp-dialog',
@@ -16,7 +16,7 @@ module.exports = class Dialog
         z '.info',
           if title
             z '.title', title
-          z '.content', content
+          z '.content', $content
         unless _.isEmpty actions
           z '.actions',
             _.pluck actions, '$el'

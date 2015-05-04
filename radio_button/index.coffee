@@ -7,11 +7,11 @@ if window?
   require './index.styl'
 
 module.exports = class RadioButton
-  constructor: ({isChecked} = {}) ->
-    isChecked ?= false
+  constructor: ({@isChecked} = {}) ->
+    @isChecked ?= new Rx.BehaviorSubject(false)
 
     @state = z.state {
-      isChecked
+      isChecked: @isChecked
     }
 
   render: ({colors, isDisabled, isDark}) =>
@@ -45,7 +45,7 @@ module.exports = class RadioButton
               color: rippleColor
               isSmall: true
             }
-            @state.set isChecked: not @state.getValue().isChecked
+            @isChecked.onNext not isChecked
       },
       z '.ring', {
         style:

@@ -1,4 +1,5 @@
 z = require 'zorium'
+Rx = require 'rx-lite'
 
 paperColors = require '../colors.json'
 RipplerService = require '../services/rippler'
@@ -7,11 +8,11 @@ if window?
   require './index.styl'
 
 module.exports = class Checkbox
-  constructor: ({isChecked} = {}) ->
-    isChecked ?= false
+  constructor: ({@isChecked} = {}) ->
+    @isChecked ?= new Rx.BehaviorSubject(false)
 
     @state = z.state {
-      isChecked
+      isChecked: @isChecked
     }
 
   render: ({colors, isDisabled, isDark}) =>
@@ -47,7 +48,7 @@ module.exports = class Checkbox
               color: rippleColor
               isSmall: true
             }
-            @state.set isChecked: not @state.getValue().isChecked
+            @isChecked.onNext not isChecked
       },
       z '.checkbox', {
         style:
