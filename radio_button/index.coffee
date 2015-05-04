@@ -1,4 +1,5 @@
 z = require 'zorium'
+Rx = require 'rx-lite'
 
 paperColors = require '../colors.json'
 RipplerService = require '../services/rippler'
