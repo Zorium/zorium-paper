@@ -2,9 +2,12 @@ json('../colors.json')
 
 @font-face
   font-family: 'zp-icon'
-  src: url('//cdn.wtf/d/zorium/community_material_design_icons/material_design_icons.woff') format("woff"),
-      url('//cdn.wtf/d/zorium/community_material_design_icons/material_design_icons.ttf') format("truetype"),
-      url('//cdn.wtf/d/zorium/community_material_design_icons/material_design_icons.eot?#iefix') format("embedded-opentype")
+  src: url("https://cdn.wtf/d/zorium/paper/v0.4/material_design_icons_webfont.eot?v=1.0.62")
+  src: url("https://cdn.wtf/d/zorium/paper/v0.4/material_design_icons_webfont.eot?#iefix&v=1.0.62") format("embedded-opentype"),
+    url("https://cdn.wtf/d/zorium/paper/v0.4/material_design_icons_webfont.woff2?v=1.0.62") format("woff2"),
+    url("https://cdn.wtf/d/zorium/paper/v0.4/material_design_icons_webfont.woff?v=1.0.62") format("woff"),
+    url("https://cdn.wtf/d/zorium/paper/v0.4/material_design_icons_webfont.ttf?v=1.0.62") format("truetype"),
+    url("https://cdn.wtf/d/zorium/paper/v0.4/material_design_icons_webfont.svg?v=1.0.62#materialdesigniconsregular") format("svg")
   font-weight: 400
   font-style: normal
 
@@ -15,16 +18,11 @@ json('../colors.json')
   vertical-align: middle
   text-align: center
   line-height: 1
-  width: 48px
-  height: 48px
-  cursor: pointer
   -webkit-tap-highlight-color: rgba(0,0,0,0)
 
   > .icon
     font-family: 'zp-icon'
     display: block
-    vertical-align: middle
-    line-height: 48px
     font-weight: 400
     font-style: normal
     speak: none
@@ -49,3530 +47,4259 @@ json('../colors.json')
     > .icon
       color: $white30
 
-  > .account-alert
-    &:before
-      content: "\f101"
+  &.is-touch-target
+    width: 48px
+    height: 48px
+    cursor: pointer
 
-  > .account-box-outline
-    &:before
-      content: "\f102"
+    > .icon
+      line-height: 48px
 
-  > .account-box
-    &:before
-      content: "\f103"
-
-  > .account-check
-    &:before
-      content: "\f104"
-
-  > .account-circle
-    &:before
-      content: "\f105"
-
-  > .account-key
-    &:before
-      content: "\f106"
-
-  > .account-location
-    &:before
-      content: "\f107"
-
-  > .account-minus
-    &:before
-      content: "\f108"
-
-  > .account-multiple-outline
-    &:before
-      content: "\f109"
-
-  > .account-multiple-plus
-    &:before
-      content: "\f10a"
-
-  > .account-multiple
-    &:before
-      content: "\f10b"
-
-  > .account-network
-    &:before
-      content: "\f10c"
-
-  > .account-outline
-    &:before
-      content: "\f10d"
-
-  > .account-plus
-    &:before
-      content: "\f10e"
-
-  > .account-remove
-    &:before
-      content: "\f10f"
-
-  > .account-search
-    &:before
-      content: "\f110"
-
-  > .account-star-variant
-    &:before
-      content: "\f111"
-
-  > .account-star
-    &:before
-      content: "\f112"
-
-  > .account-switch
-    &:before
-      content: "\f113"
 
   > .account
-    &:before
-      content: "\f114"
+    &::before
+      content "\f101"
+
+  > .account-alert
+    &::before
+      content "\f102"
+
+  > .account-box
+    &::before
+      content "\f103"
+
+  > .account-box-outline
+    &::before
+      content "\f104"
+
+  > .account-check
+    &::before
+      content "\f105"
+
+  > .account-circle
+    &::before
+      content "\f106"
+
+  > .account-key
+    &::before
+      content "\f107"
+
+  > .account-location
+    &::before
+      content "\f108"
+
+  > .account-minus
+    &::before
+      content "\f109"
+
+  > .account-multiple
+    &::before
+      content "\f10a"
+
+  > .account-multiple-outline
+    &::before
+      content "\f10b"
+
+  > .account-multiple-plus
+    &::before
+      content "\f10c"
+
+  > .account-network
+    &::before
+      content "\f10d"
+
+  > .account-outline
+    &::before
+      content "\f10e"
+
+  > .account-plus
+    &::before
+      content "\f10f"
+
+  > .account-remove
+    &::before
+      content "\f110"
+
+  > .account-search
+    &::before
+      content "\f111"
+
+  > .account-star
+    &::before
+      content "\f112"
+
+  > .account-star-variant
+    &::before
+      content "\f113"
+
+  > .account-switch
+    &::before
+      content "\f114"
 
   > .airballoon
-    &:before
-      content: "\f115"
-
-  > .airplane-off
-    &:before
-      content: "\f116"
+    &::before
+      content "\f115"
 
   > .airplane
-    &:before
-      content: "\f117"
+    &::before
+      content "\f116"
 
-  > .alarm-check
-    &:before
-      content: "\f118"
-
-  > .alarm-multiple
-    &:before
-      content: "\f119"
-
-  > .alarm-off
-    &:before
-      content: "\f11a"
-
-  > .alarm-plus
-    &:before
-      content: "\f11b"
+  > .airplane-off
+    &::before
+      content "\f117"
 
   > .alarm
-    &:before
-      content: "\f11c"
+    &::before
+      content "\f118"
+
+  > .alarm-check
+    &::before
+      content "\f119"
+
+  > .alarm-multiple
+    &::before
+      content "\f11a"
+
+  > .alarm-off
+    &::before
+      content "\f11b"
+
+  > .alarm-plus
+    &::before
+      content "\f11c"
 
   > .album
-    &:before
-      content: "\f11d"
-
-  > .alert-box
-    &:before
-      content: "\f11e"
-
-  > .alert-circle
-    &:before
-      content: "\f11f"
-
-  > .alert-octagon
-    &:before
-      content: "\f120"
+    &::before
+      content "\f11d"
 
   > .alert
-    &:before
-      content: "\f121"
+    &::before
+      content "\f11e"
+
+  > .alert-box
+    &::before
+      content "\f11f"
+
+  > .alert-circle
+    &::before
+      content "\f120"
+
+  > .alert-octagon
+    &::before
+      content "\f121"
+
+  > .alpha
+    &::before
+      content "\f122"
 
   > .alphabetical
-    &:before
-      content: "\f122"
+    &::before
+      content "\f123"
 
   > .amazon
-    &:before
-      content: "\f123"
+    &::before
+      content "\f124"
+
+  > .amazon-clouddrive
+    &::before
+      content "\f125"
 
   > .ambulance
-    &:before
-      content: "\f124"
-
-  > .android-debug-bridge
-    &:before
-      content: "\f125"
+    &::before
+      content "\f126"
 
   > .android
-    &:before
-      content: "\f126"
+    &::before
+      content "\f127"
 
-  > .apple-mobileme
-    &:before
-      content: "\f127"
+  > .android-debug-bridge
+    &::before
+      content "\f128"
+
+  > .android-studio
+    &::before
+      content "\f129"
 
   > .apple
-    &:before
-      content: "\f128"
+    &::before
+      content "\f12a"
+
+  > .apple-finder
+    &::before
+      content "\f12b"
+
+  > .apple-mobileme
+    &::before
+      content "\f12c"
+
+  > .apple-safari
+    &::before
+      content "\f12d"
 
   > .appnet
-    &:before
-      content: "\f129"
+    &::before
+      content "\f12e"
 
   > .apps
-    &:before
-      content: "\f12a"
+    &::before
+      content "\f12f"
+
+  > .archive
+    &::before
+      content "\f130"
 
   > .arrange-bring-forward
-    &:before
-      content: "\f12b"
+    &::before
+      content "\f131"
 
   > .arrange-bring-to-front
-    &:before
-      content: "\f12c"
+    &::before
+      content "\f132"
 
   > .arrange-send-backward
-    &:before
-      content: "\f12d"
+    &::before
+      content "\f133"
 
   > .arrange-send-to-back
-    &:before
-      content: "\f12e"
+    &::before
+      content "\f134"
 
   > .arrow-collapse
-    &:before
-      content: "\f12f"
-
-  > .arrow-down-bold-circle-outline
-    &:before
-      content: "\f130"
-
-  > .arrow-down-bold-circle
-    &:before
-      content: "\f131"
-
-  > .arrow-down-bold-hexagon-outline
-    &:before
-      content: "\f132"
+    &::before
+      content "\f135"
 
   > .arrow-down
-    &:before
-      content: "\f133"
+    &::before
+      content "\f136"
+
+  > .arrow-down-bold
+    &::before
+      content "\f137"
+
+  > .arrow-down-bold-circle
+    &::before
+      content "\f138"
+
+  > .arrow-down-bold-circle-outline
+    &::before
+      content "\f139"
+
+  > .arrow-down-bold-hexagon-outline
+    &::before
+      content "\f13a"
 
   > .arrow-expand
-    &:before
-      content: "\f134"
-
-  > .arrow-left-bold-circle-outline
-    &:before
-      content: "\f135"
-
-  > .arrow-left-bold-circle
-    &:before
-      content: "\f136"
-
-  > .arrow-left-bold-hexagon-outline
-    &:before
-      content: "\f137"
+    &::before
+      content "\f13b"
 
   > .arrow-left
-    &:before
-      content: "\f138"
+    &::before
+      content "\f13c"
 
-  > .arrow-right-bold-circle-outline
-    &:before
-      content: "\f139"
+  > .arrow-left-bold
+    &::before
+      content "\f13d"
 
-  > .arrow-right-bold-circle
-    &:before
-      content: "\f13a"
+  > .arrow-left-bold-circle
+    &::before
+      content "\f13e"
 
-  > .arrow-right-bold-hexagon-outline
-    &:before
-      content: "\f13b"
+  > .arrow-left-bold-circle-outline
+    &::before
+      content "\f13f"
+
+  > .arrow-left-bold-hexagon-outline
+    &::before
+      content "\f140"
 
   > .arrow-right
-    &:before
-      content: "\f13c"
+    &::before
+      content "\f141"
 
-  > .arrow-up-bold-circle-outline
-    &:before
-      content: "\f13d"
+  > .arrow-right-bold
+    &::before
+      content "\f142"
 
-  > .arrow-up-bold-circle
-    &:before
-      content: "\f13e"
+  > .arrow-right-bold-circle
+    &::before
+      content "\f143"
 
-  > .arrow-up-bold-hexagon-outline
-    &:before
-      content: "\f13f"
+  > .arrow-right-bold-circle-outline
+    &::before
+      content "\f144"
+
+  > .arrow-right-bold-hexagon-outline
+    &::before
+      content "\f145"
 
   > .arrow-up
-    &:before
-      content: "\f140"
+    &::before
+      content "\f146"
+
+  > .arrow-up-bold
+    &::before
+      content "\f147"
+
+  > .arrow-up-bold-circle
+    &::before
+      content "\f148"
+
+  > .arrow-up-bold-circle-outline
+    &::before
+      content "\f149"
+
+  > .arrow-up-bold-hexagon-outline
+    &::before
+      content "\f14a"
 
   > .attachment
-    &:before
-      content: "\f141"
+    &::before
+      content "\f14b"
 
   > .auto-fix
-    &:before
-      content: "\f142"
+    &::before
+      content "\f14c"
 
   > .auto-upload
-    &:before
-      content: "\f143"
+    &::before
+      content "\f14d"
 
   > .backup-restore
-    &:before
-      content: "\f144"
+    &::before
+      content "\f14e"
 
   > .bank
-    &:before
-      content: "\f145"
+    &::before
+      content "\f14f"
 
   > .barcode
-    &:before
-      content: "\f146"
+    &::before
+      content "\f150"
+
+  > .barley
+    &::before
+      content "\f151"
+
+  > .barrel
+    &::before
+      content "\f152"
 
   > .basecamp
-    &:before
-      content: "\f147"
-
-  > .basket-fill
-    &:before
-      content: "\f148"
-
-  > .basket-unfill
-    &:before
-      content: "\f149"
+    &::before
+      content "\f153"
 
   > .basket
-    &:before
-      content: "\f14a"
+    &::before
+      content "\f154"
 
-  > .battery-20
-    &:before
-      content: "\f14b"
+  > .basket-fill
+    &::before
+      content "\f155"
 
-  > .battery-30
-    &:before
-      content: "\f14c"
-
-  > .battery-40
-    &:before
-      content: "\f14d"
-
-  > .battery-60
-    &:before
-      content: "\f14e"
-
-  > .battery-80
-    &:before
-      content: "\f14f"
-
-  > .battery-90
-    &:before
-      content: "\f150"
-
-  > .battery-alert
-    &:before
-      content: "\f151"
-
-  > .battery-charging-100
-    &:before
-      content: "\f152"
-
-  > .battery-charging-20
-    &:before
-      content: "\f153"
-
-  > .battery-charging-30
-    &:before
-      content: "\f154"
-
-  > .battery-charging-40
-    &:before
-      content: "\f155"
-
-  > .battery-charging-60
-    &:before
-      content: "\f156"
-
-  > .battery-charging-80
-    &:before
-      content: "\f157"
-
-  > .battery-charging-90
-    &:before
-      content: "\f158"
-
-  > .battery-minus
-    &:before
-      content: "\f159"
-
-  > .battery-negative
-    &:before
-      content: "\f15a"
-
-  > .battery-outline
-    &:before
-      content: "\f15b"
-
-  > .battery-plus
-    &:before
-      content: "\f15c"
-
-  > .battery-positive
-    &:before
-      content: "\f15d"
-
-  > .battery-unknown
-    &:before
-      content: "\f15e"
+  > .basket-unfill
+    &::before
+      content "\f156"
 
   > .battery
-    &:before
-      content: "\f15f"
+    &::before
+      content "\f157"
 
-  > .beaker-empty-outline
-    &:before
-      content: "\f160"
+  > .battery-20
+    &::before
+      content "\f158"
 
-  > .beaker-empty
-    &:before
-      content: "\f161"
+  > .battery-30
+    &::before
+      content "\f159"
 
-  > .beaker-outline
-    &:before
-      content: "\f162"
+  > .battery-40
+    &::before
+      content "\f15a"
+
+  > .battery-60
+    &::before
+      content "\f15b"
+
+  > .battery-80
+    &::before
+      content "\f15c"
+
+  > .battery-90
+    &::before
+      content "\f15d"
+
+  > .battery-alert
+    &::before
+      content "\f15e"
+
+  > .battery-charging-100
+    &::before
+      content "\f15f"
+
+  > .battery-charging-20
+    &::before
+      content "\f160"
+
+  > .battery-charging-30
+    &::before
+      content "\f161"
+
+  > .battery-charging-40
+    &::before
+      content "\f162"
+
+  > .battery-charging-60
+    &::before
+      content "\f163"
+
+  > .battery-charging-80
+    &::before
+      content "\f164"
+
+  > .battery-charging-90
+    &::before
+      content "\f165"
+
+  > .battery-minus
+    &::before
+      content "\f166"
+
+  > .battery-negative
+    &::before
+      content "\f167"
+
+  > .battery-outline
+    &::before
+      content "\f168"
+
+  > .battery-plus
+    &::before
+      content "\f169"
+
+  > .battery-positive
+    &::before
+      content "\f16a"
+
+  > .battery-unknown
+    &::before
+      content "\f16b"
 
   > .beaker
-    &:before
-      content: "\f163"
+    &::before
+      content "\f16c"
+
+  > .beaker-empty
+    &::before
+      content "\f16d"
+
+  > .beaker-empty-outline
+    &::before
+      content "\f16e"
+
+  > .beaker-outline
+    &::before
+      content "\f16f"
 
   > .beats
-    &:before
-      content: "\f164"
+    &::before
+      content "\f170"
+
+  > .beer
+    &::before
+      content "\f171"
 
   > .behance
-    &:before
-      content: "\f165"
-
-  > .bell-off
-    &:before
-      content: "\f166"
-
-  > .bell-outline
-    &:before
-      content: "\f167"
-
-  > .bell-ring-outline
-    &:before
-      content: "\f168"
-
-  > .bell-ring
-    &:before
-      content: "\f169"
-
-  > .bell-sleep
-    &:before
-      content: "\f16a"
+    &::before
+      content "\f172"
 
   > .bell
-    &:before
-      content: "\f16b"
+    &::before
+      content "\f173"
+
+  > .bell-off
+    &::before
+      content "\f174"
+
+  > .bell-outline
+    &::before
+      content "\f175"
+
+  > .bell-ring
+    &::before
+      content "\f176"
+
+  > .bell-ring-outline
+    &::before
+      content "\f177"
+
+  > .bell-sleep
+    &::before
+      content "\f178"
+
+  > .beta
+    &::before
+      content "\f179"
 
   > .bike
-    &:before
-      content: "\f16c"
+    &::before
+      content "\f17a"
 
   > .bing
-    &:before
-      content: "\f16d"
+    &::before
+      content "\f17b"
 
   > .bio
-    &:before
-      content: "\f16e"
+    &::before
+      content "\f17c"
+
+  > .biohazard
+    &::before
+      content "\f17d"
 
   > .blackberry
-    &:before
-      content: "\f16f"
+    &::before
+      content "\f17e"
 
   > .blinds
-    &:before
-      content: "\f170"
+    &::before
+      content "\f17f"
 
   > .block-helper
-    &:before
-      content: "\f171"
+    &::before
+      content "\f180"
 
   > .blogger
-    &:before
-      content: "\f172"
-
-  > .bluetooth-audio
-    &:before
-      content: "\f173"
-
-  > .bluetooth-connect
-    &:before
-      content: "\f174"
-
-  > .bluetooth-settings
-    &:before
-      content: "\f175"
+    &::before
+      content "\f181"
 
   > .bluetooth
-    &:before
-      content: "\f176"
+    &::before
+      content "\f182"
 
-  > .blur-linear
-    &:before
-      content: "\f177"
+  > .bluetooth-audio
+    &::before
+      content "\f183"
 
-  > .blur-off
-    &:before
-      content: "\f178"
+  > .bluetooth-connect
+    &::before
+      content "\f184"
 
-  > .blur-radial
-    &:before
-      content: "\f179"
+  > .bluetooth-settings
+    &::before
+      content "\f185"
 
   > .blur
-    &:before
-      content: "\f17a"
+    &::before
+      content "\f186"
 
-  > .book-multiple-variant
-    &:before
-      content: "\f17b"
+  > .blur-linear
+    &::before
+      content "\f187"
 
-  > .book-multiple
-    &:before
-      content: "\f17c"
+  > .blur-off
+    &::before
+      content "\f188"
 
-  > .book-variant
-    &:before
-      content: "\f17d"
+  > .blur-radial
+    &::before
+      content "\f189"
 
   > .book
-    &:before
-      content: "\f17e"
+    &::before
+      content "\f18a"
 
-  > .bookmark-outline
-    &:before
-      content: "\f17f"
+  > .book-multiple
+    &::before
+      content "\f18b"
+
+  > .book-multiple-variant
+    &::before
+      content "\f18c"
+
+  > .book-open
+    &::before
+      content "\f18d"
+
+  > .book-variant
+    &::before
+      content "\f18e"
 
   > .bookmark
-    &:before
-      content: "\f180"
+    &::before
+      content "\f18f"
+
+  > .bookmark-outline
+    &::before
+      content "\f190"
 
   > .border-all
-    &:before
-      content: "\f181"
+    &::before
+      content "\f191"
 
   > .border-bottom
-    &:before
-      content: "\f182"
+    &::before
+      content "\f192"
 
   > .border-color
-    &:before
-      content: "\f183"
+    &::before
+      content "\f193"
 
   > .border-horizontal
-    &:before
-      content: "\f184"
+    &::before
+      content "\f194"
 
   > .border-inside
-    &:before
-      content: "\f185"
+    &::before
+      content "\f195"
 
   > .border-left
-    &:before
-      content: "\f186"
+    &::before
+      content "\f196"
 
   > .border-none
-    &:before
-      content: "\f187"
+    &::before
+      content "\f197"
 
   > .border-outside
-    &:before
-      content: "\f188"
+    &::before
+      content "\f198"
 
   > .border-right
-    &:before
-      content: "\f189"
+    &::before
+      content "\f199"
 
   > .border-top
-    &:before
-      content: "\f18a"
+    &::before
+      content "\f19a"
 
   > .border-vertical
-    &:before
-      content: "\f18b"
+    &::before
+      content "\f19b"
 
   > .bowling
-    &:before
-      content: "\f18c"
+    &::before
+      content "\f19c"
 
-  > .briefcase-check
-    &:before
-      content: "\f18d"
-
-  > .briefcase-download
-    &:before
-      content: "\f18e"
-
-  > .briefcase-upload
-    &:before
-      content: "\f18f"
+  > .box
+    &::before
+      content "\f19d"
 
   > .briefcase
-    &:before
-      content: "\f190"
+    &::before
+      content "\f19e"
+
+  > .briefcase-check
+    &::before
+      content "\f19f"
+
+  > .briefcase-download
+    &::before
+      content "\f1a0"
+
+  > .briefcase-upload
+    &::before
+      content "\f1a1"
 
   > .brightness-1
-    &:before
-      content: "\f191"
+    &::before
+      content "\f1a2"
 
   > .brightness-2
-    &:before
-      content: "\f192"
+    &::before
+      content "\f1a3"
 
   > .brightness-3
-    &:before
-      content: "\f193"
+    &::before
+      content "\f1a4"
 
   > .brightness-4
-    &:before
-      content: "\f194"
+    &::before
+      content "\f1a5"
 
   > .brightness-5
-    &:before
-      content: "\f195"
+    &::before
+      content "\f1a6"
 
   > .brightness-6
-    &:before
-      content: "\f196"
+    &::before
+      content "\f1a7"
 
   > .brightness-7
-    &:before
-      content: "\f197"
+    &::before
+      content "\f1a8"
 
   > .brightness-auto
-    &:before
-      content: "\f198"
+    &::before
+      content "\f1a9"
 
   > .broom
-    &:before
-      content: "\f199"
+    &::before
+      content "\f1aa"
 
   > .brush
-    &:before
-      content: "\f19a"
+    &::before
+      content "\f1ab"
 
   > .bug
-    &:before
-      content: "\f19b"
+    &::before
+      content "\f1ac"
+
+  > .bullhorn
+    &::before
+      content "\f1ad"
 
   > .bus
-    &:before
-      content: "\f19c"
-
-  > .cake-variant
-    &:before
-      content: "\f19d"
+    &::before
+      content "\f1ae"
 
   > .cake
-    &:before
-      content: "\f19e"
+    &::before
+      content "\f1af"
+
+  > .cake-variant
+    &::before
+      content "\f1b0"
 
   > .calculator
-    &:before
-      content: "\f19f"
-
-  > .calendar-check
-    &:before
-      content: "\f1a0"
-
-  > .calendar-remove
-    &:before
-      content: "\f1a1"
-
-  > .calendar-text
-    &:before
-      content: "\f1a2"
-
-  > .calendar-today
-    &:before
-      content: "\f1a3"
+    &::before
+      content "\f1b1"
 
   > .calendar
-    &:before
-      content: "\f1a4"
+    &::before
+      content "\f1b2"
 
-  > .camcorder-box-off
-    &:before
-      content: "\f1a5"
+  > .calendar-blank
+    &::before
+      content "\f1b3"
 
-  > .camcorder-box
-    &:before
-      content: "\f1a6"
+  > .calendar-check
+    &::before
+      content "\f1b4"
 
-  > .camcorder-off
-    &:before
-      content: "\f1a7"
+  > .calendar-multiple
+    &::before
+      content "\f1b5"
+
+  > .calendar-multiple-check
+    &::before
+      content "\f1b6"
+
+  > .calendar-remove
+    &::before
+      content "\f1b7"
+
+  > .calendar-text
+    &::before
+      content "\f1b8"
+
+  > .calendar-today
+    &::before
+      content "\f1b9"
 
   > .camcorder
-    &:before
-      content: "\f1a8"
+    &::before
+      content "\f1ba"
 
-  > .camera-iris
-    &:before
-      content: "\f1a9"
+  > .camcorder-box
+    &::before
+      content "\f1bb"
 
-  > .camera-party-mode
-    &:before
-      content: "\f1aa"
+  > .camcorder-box-off
+    &::before
+      content "\f1bc"
 
-  > .camera-switch
-    &:before
-      content: "\f1ab"
-
-  > .camera-timer
-    &:before
-      content: "\f1ac"
+  > .camcorder-off
+    &::before
+      content "\f1bd"
 
   > .camera
-    &:before
-      content: "\f1ad"
+    &::before
+      content "\f1be"
+
+  > .camera-iris
+    &::before
+      content "\f1bf"
+
+  > .camera-party-mode
+    &::before
+      content "\f1c0"
+
+  > .camera-switch
+    &::before
+      content "\f1c1"
+
+  > .camera-timer
+    &::before
+      content "\f1c2"
 
   > .candycane
-    &:before
-      content: "\f1ae"
-
-  > .car-wash
-    &:before
-      content: "\f1af"
+    &::before
+      content "\f1c3"
 
   > .car
-    &:before
-      content: "\f1b0"
+    &::before
+      content "\f1c4"
+
+  > .car-wash
+    &::before
+      content "\f1c5"
 
   > .carrot
-    &:before
-      content: "\f1b1"
-
-  > .cart-outline
-    &:before
-      content: "\f1b2"
+    &::before
+      content "\f1c6"
 
   > .cart
-    &:before
-      content: "\f1b3"
+    &::before
+      content "\f1c7"
+
+  > .cart-outline
+    &::before
+      content "\f1c8"
 
   > .cash
-    &:before
-      content: "\f1b4"
-
-  > .cast-connected
-    &:before
-      content: "\f1b5"
+    &::before
+      content "\f1c9"
 
   > .cast
-    &:before
-      content: "\f1b6"
+    &::before
+      content "\f1ca"
 
-  > .cellphone-android
-    &:before
-      content: "\f1b7"
+  > .cast-connected
+    &::before
+      content "\f1cb"
 
-  > .cellphone-dock
-    &:before
-      content: "\f1b8"
-
-  > .cellphone-iphone
-    &:before
-      content: "\f1b9"
-
-  > .cellphone-link-off
-    &:before
-      content: "\f1ba"
-
-  > .cellphone-link
-    &:before
-      content: "\f1bb"
-
-  > .cellphone-settings
-    &:before
-      content: "\f1bc"
+  > .castle
+    &::before
+      content "\f1cc"
 
   > .cellphone
-    &:before
-      content: "\f1bd"
+    &::before
+      content "\f1cd"
+
+  > .cellphone-android
+    &::before
+      content "\f1ce"
+
+  > .cellphone-dock
+    &::before
+      content "\f1cf"
+
+  > .cellphone-iphone
+    &::before
+      content "\f1d0"
+
+  > .cellphone-link
+    &::before
+      content "\f1d1"
+
+  > .cellphone-link-off
+    &::before
+      content "\f1d2"
+
+  > .cellphone-settings
+    &::before
+      content "\f1d3"
+
+  > .chair-school
+    &::before
+      content "\f1d4"
+
+  > .chart-arc
+    &::before
+      content "\f1d5"
 
   > .chart-bar
-    &:before
-      content: "\f1be"
+    &::before
+      content "\f1d6"
 
   > .chart-histogram
-    &:before
-      content: "\f1bf"
+    &::before
+      content "\f1d7"
 
   > .chart-line
-    &:before
-      content: "\f1c0"
+    &::before
+      content "\f1d8"
 
-  > .check-all
-    &:before
-      content: "\f1c1"
+  > .chart-pie
+    &::before
+      content "\f1d9"
 
   > .check
-    &:before
-      content: "\f1c2"
+    &::before
+      content "\f1da"
 
-  > .checkbox-blank-circle-outline
-    &:before
-      content: "\f1c3"
-
-  > .checkbox-blank-circle
-    &:before
-      content: "\f1c4"
-
-  > .checkbox-blank-outline
-    &:before
-      content: "\f1c5"
+  > .check-all
+    &::before
+      content "\f1db"
 
   > .checkbox-blank
-    &:before
-      content: "\f1c6"
+    &::before
+      content "\f1dc"
 
-  > .checkbox-marked-circle-outline
-    &:before
-      content: "\f1c7"
+  > .checkbox-blank-circle
+    &::before
+      content "\f1dd"
 
-  > .checkbox-marked-circle
-    &:before
-      content: "\f1c8"
+  > .checkbox-blank-circle-outline
+    &::before
+      content "\f1de"
 
-  > .checkbox-marked-outline
-    &:before
-      content: "\f1c9"
+  > .checkbox-blank-outline
+    &::before
+      content "\f1df"
 
   > .checkbox-marked
-    &:before
-      content: "\f1ca"
+    &::before
+      content "\f1e0"
 
-  > .checkbox-multiple-blank-outline
-    &:before
-      content: "\f1cb"
+  > .checkbox-marked-circle
+    &::before
+      content "\f1e1"
+
+  > .checkbox-marked-circle-outline
+    &::before
+      content "\f1e2"
+
+  > .checkbox-marked-outline
+    &::before
+      content "\f1e3"
 
   > .checkbox-multiple-blank
-    &:before
-      content: "\f1cc"
+    &::before
+      content "\f1e4"
 
-  > .checkbox-multiple-marked-outline
-    &:before
-      content: "\f1cd"
+  > .checkbox-multiple-blank-outline
+    &::before
+      content "\f1e5"
 
   > .checkbox-multiple-marked
-    &:before
-      content: "\f1ce"
+    &::before
+      content "\f1e6"
+
+  > .checkbox-multiple-marked-outline
+    &::before
+      content "\f1e7"
+
+  > .checkerboard
+    &::before
+      content "\f1e8"
+
+  > .chevron-double-down
+    &::before
+      content "\f1e9"
+
+  > .chevron-double-left
+    &::before
+      content "\f1ea"
+
+  > .chevron-double-right
+    &::before
+      content "\f1eb"
+
+  > .chevron-double-up
+    &::before
+      content "\f1ec"
 
   > .chevron-down
-    &:before
-      content: "\f1cf"
+    &::before
+      content "\f1ed"
 
   > .chevron-left
-    &:before
-      content: "\f1d0"
+    &::before
+      content "\f1ee"
 
   > .chevron-right
-    &:before
-      content: "\f1d1"
+    &::before
+      content "\f1ef"
 
   > .chevron-up
-    &:before
-      content: "\f1d2"
+    &::before
+      content "\f1f0"
+
+  > .church
+    &::before
+      content "\f1f1"
 
   > .city
-    &:before
-      content: "\f1d3"
-
-  > .clipboard-account
-    &:before
-      content: "\f1d4"
-
-  > .clipboard-alert
-    &:before
-      content: "\f1d5"
-
-  > .clipboard-arrow-down
-    &:before
-      content: "\f1d6"
-
-  > .clipboard-arrow-left
-    &:before
-      content: "\f1d7"
-
-  > .clipboard-check
-    &:before
-      content: "\f1d8"
-
-  > .clipboard-outline
-    &:before
-      content: "\f1d9"
-
-  > .clipboard-text
-    &:before
-      content: "\f1da"
+    &::before
+      content "\f1f2"
 
   > .clipboard
-    &:before
-      content: "\f1db"
+    &::before
+      content "\f1f3"
+
+  > .clipboard-account
+    &::before
+      content "\f1f4"
+
+  > .clipboard-alert
+    &::before
+      content "\f1f5"
+
+  > .clipboard-arrow-down
+    &::before
+      content "\f1f6"
+
+  > .clipboard-arrow-left
+    &::before
+      content "\f1f7"
+
+  > .clipboard-check
+    &::before
+      content "\f1f8"
+
+  > .clipboard-outline
+    &::before
+      content "\f1f9"
+
+  > .clipboard-text
+    &::before
+      content "\f1fa"
+
+  > .clippy
+    &::before
+      content "\f1fb"
 
   > .clock
-    &:before
-      content: "\f1dc"
+    &::before
+      content "\f1fc"
 
-  > .close-box-outline
-    &:before
-      content: "\f1dd"
-
-  > .close-box
-    &:before
-      content: "\f1de"
-
-  > .close-circle-outline
-    &:before
-      content: "\f1df"
-
-  > .close-circle
-    &:before
-      content: "\f1e0"
-
-  > .close-network
-    &:before
-      content: "\f1e1"
+  > .clock-fast
+    &::before
+      content "\f1fd"
 
   > .close
-    &:before
-      content: "\f1e2"
+    &::before
+      content "\f1fe"
+
+  > .close-box
+    &::before
+      content "\f1ff"
+
+  > .close-box-outline
+    &::before
+      content "\f200"
+
+  > .close-circle
+    &::before
+      content "\f201"
+
+  > .close-circle-outline
+    &::before
+      content "\f202"
+
+  > .close-network
+    &::before
+      content "\f203"
 
   > .closed-caption
-    &:before
-      content: "\f1e3"
-
-  > .cloud-check
-    &:before
-      content: "\f1e4"
-
-  > .cloud-circle
-    &:before
-      content: "\f1e5"
-
-  > .cloud-download
-    &:before
-      content: "\f1e6"
-
-  > .cloud-outline-off
-    &:before
-      content: "\f1e7"
-
-  > .cloud-outline
-    &:before
-      content: "\f1e8"
-
-  > .cloud-upload
-    &:before
-      content: "\f1e9"
+    &::before
+      content "\f204"
 
   > .cloud
-    &:before
-      content: "\f1ea"
+    &::before
+      content "\f205"
 
-  > .coffee-to-go
-    &:before
-      content: "\f1eb"
+  > .cloud-check
+    &::before
+      content "\f206"
+
+  > .cloud-circle
+    &::before
+      content "\f207"
+
+  > .cloud-download
+    &::before
+      content "\f208"
+
+  > .cloud-outline
+    &::before
+      content "\f209"
+
+  > .cloud-outline-off
+    &::before
+      content "\f20a"
+
+  > .cloud-upload
+    &::before
+      content "\f20b"
+
+  > .code-array
+    &::before
+      content "\f20c"
+
+  > .code-string
+    &::before
+      content "\f20d"
 
   > .coffee
-    &:before
-      content: "\f1ec"
+    &::before
+      content "\f20e"
+
+  > .coffee-to-go
+    &::before
+      content "\f20f"
 
   > .coin
-    &:before
-      content: "\f1ed"
+    &::before
+      content "\f210"
 
   > .color-helper
-    &:before
-      content: "\f1ee"
-
-  > .comment-account-outline
-    &:before
-      content: "\f1ef"
-
-  > .comment-account
-    &:before
-      content: "\f1f0"
-
-  > .comment-alert-outline
-    &:before
-      content: "\f1f1"
-
-  > .comment-alert
-    &:before
-      content: "\f1f2"
-
-  > .comment-check-outline
-    &:before
-      content: "\f1f3"
-
-  > .comment-check
-    &:before
-      content: "\f1f4"
-
-  > .comment-multipe-outline
-    &:before
-      content: "\f1f5"
-
-  > .comment-outline
-    &:before
-      content: "\f1f6"
-
-  > .comment-plus-outline
-    &:before
-      content: "\f1f7"
-
-  > .comment-processing-outline
-    &:before
-      content: "\f1f8"
-
-  > .comment-processing
-    &:before
-      content: "\f1f9"
-
-  > .comment-remove-outline
-    &:before
-      content: "\f1fa"
-
-  > .comment-text-outline
-    &:before
-      content: "\f1fb"
-
-  > .comment-text
-    &:before
-      content: "\f1fc"
+    &::before
+      content "\f211"
 
   > .comment
-    &:before
-      content: "\f1fd"
+    &::before
+      content "\f212"
+
+  > .comment-account
+    &::before
+      content "\f213"
+
+  > .comment-account-outline
+    &::before
+      content "\f214"
+
+  > .comment-alert
+    &::before
+      content "\f215"
+
+  > .comment-alert-outline
+    &::before
+      content "\f216"
+
+  > .comment-check
+    &::before
+      content "\f217"
+
+  > .comment-check-outline
+    &::before
+      content "\f218"
+
+  > .comment-multiple-outline
+    &::before
+      content "\f219"
+
+  > .comment-outline
+    &::before
+      content "\f21a"
+
+  > .comment-plus-outline
+    &::before
+      content "\f21b"
+
+  > .comment-processing
+    &::before
+      content "\f21c"
+
+  > .comment-processing-outline
+    &::before
+      content "\f21d"
+
+  > .comment-remove-outline
+    &::before
+      content "\f21e"
+
+  > .comment-text
+    &::before
+      content "\f21f"
+
+  > .comment-text-outline
+    &::before
+      content "\f220"
 
   > .compare
-    &:before
-      content: "\f1fe"
-
-  > .compass-outline
-    &:before
-      content: "\f1ff"
+    &::before
+      content "\f221"
 
   > .compass
-    &:before
-      content: "\f200"
+    &::before
+      content "\f222"
+
+  > .compass-outline
+    &::before
+      content "\f223"
+
+  > .console
+    &::before
+      content "\f224"
 
   > .content-copy
-    &:before
-      content: "\f201"
+    &::before
+      content "\f225"
 
   > .content-cut
-    &:before
-      content: "\f202"
+    &::before
+      content "\f226"
 
   > .content-paste
-    &:before
-      content: "\f203"
+    &::before
+      content "\f227"
 
   > .content-save
-    &:before
-      content: "\f204"
+    &::before
+      content "\f228"
 
-  > .contrast-box
-    &:before
-      content: "\f205"
-
-  > .contrast-circle
-    &:before
-      content: "\f206"
+  > .content-save-all
+    &::before
+      content "\f229"
 
   > .contrast
-    &:before
-      content: "\f207"
+    &::before
+      content "\f22a"
+
+  > .contrast-box
+    &::before
+      content "\f22b"
+
+  > .contrast-circle
+    &::before
+      content "\f22c"
 
   > .cow
-    &:before
-      content: "\f208"
+    &::before
+      content "\f22d"
 
   > .credit-card
-    &:before
-      content: "\f209"
+    &::before
+      content "\f22e"
 
-  > .crop-free
-    &:before
-      content: "\f20a"
-
-  > .crop-landscape
-    &:before
-      content: "\f20b"
-
-  > .crop-portrait
-    &:before
-      content: "\f20c"
-
-  > .crop-square
-    &:before
-      content: "\f20d"
+  > .credit-card-multiple
+    &::before
+      content "\f22f"
 
   > .crop
-    &:before
-      content: "\f20e"
+    &::before
+      content "\f230"
 
-  > .crosshairs-gps
-    &:before
-      content: "\f20f"
+  > .crop-free
+    &::before
+      content "\f231"
+
+  > .crop-landscape
+    &::before
+      content "\f232"
+
+  > .crop-portrait
+    &::before
+      content "\f233"
+
+  > .crop-square
+    &::before
+      content "\f234"
 
   > .crosshairs
-    &:before
-      content: "\f210"
+    &::before
+      content "\f235"
 
-  > .cube-outline
-    &:before
-      content: "\f211"
+  > .crosshairs-gps
+    &::before
+      content "\f236"
 
   > .cube
-    &:before
-      content: "\f212"
+    &::before
+      content "\f237"
 
-  > .cup-water
-    &:before
-      content: "\f213"
+  > .cube-outline
+    &::before
+      content "\f238"
+
+  > .cube-unfolded
+    &::before
+      content "\f239"
 
   > .cup
-    &:before
-      content: "\f214"
+    &::before
+      content "\f23a"
+
+  > .cup-water
+    &::before
+      content "\f23b"
 
   > .currency-btc
-    &:before
-      content: "\f215"
+    &::before
+      content "\f23c"
+
+  > .currency-eur
+    &::before
+      content "\f23d"
+
+  > .currency-gbp
+    &::before
+      content "\f23e"
 
   > .currency-usd
-    &:before
-      content: "\f216"
-
-  > .cursor-default-outline
-    &:before
-      content: "\f217"
+    &::before
+      content "\f23f"
 
   > .cursor-default
-    &:before
-      content: "\f218"
+    &::before
+      content "\f240"
+
+  > .cursor-default-outline
+    &::before
+      content "\f241"
 
   > .cursor-pointer
-    &:before
-      content: "\f219"
-
-  > .database-minus
-    &:before
-      content: "\f21a"
-
-  > .database-outline
-    &:before
-      content: "\f21b"
-
-  > .database-plus
-    &:before
-      content: "\f21c"
+    &::before
+      content "\f242"
 
   > .database
-    &:before
-      content: "\f21d"
+    &::before
+      content "\f243"
+
+  > .database-minus
+    &::before
+      content "\f244"
+
+  > .database-outline
+    &::before
+      content "\f245"
+
+  > .database-plus
+    &::before
+      content "\f246"
 
   > .debug-step-into
-    &:before
-      content: "\f21e"
+    &::before
+      content "\f247"
 
   > .debug-step-out
-    &:before
-      content: "\f21f"
+    &::before
+      content "\f248"
 
   > .debug-step-over
-    &:before
-      content: "\f220"
+    &::before
+      content "\f249"
 
   > .delete
-    &:before
-      content: "\f221"
+    &::before
+      content "\f24a"
+
+  > .delete-variant
+    &::before
+      content "\f24b"
+
+  > .deskphone
+    &::before
+      content "\f24c"
 
   > .desktop-mac
-    &:before
-      content: "\f222"
+    &::before
+      content "\f24d"
+
+  > .desktop-tower
+    &::before
+      content "\f24e"
+
+  > .details
+    &::before
+      content "\f24f"
 
   > .deviantart
-    &:before
-      content: "\f223"
+    &::before
+      content "\f250"
 
   > .dice
-    &:before
-      content: "\f224"
+    &::before
+      content "\f251"
+
+  > .dice-1
+    &::before
+      content "\f252"
+
+  > .dice-2
+    &::before
+      content "\f253"
+
+  > .dice-3
+    &::before
+      content "\f254"
+
+  > .dice-4
+    &::before
+      content "\f255"
+
+  > .dice-5
+    &::before
+      content "\f256"
+
+  > .dice-6
+    &::before
+      content "\f257"
 
   > .directions
-    &:before
-      content: "\f225"
+    &::before
+      content "\f258"
 
   > .disk-alert
-    &:before
-      content: "\f226"
-
-  > .disqus-outline
-    &:before
-      content: "\f227"
+    &::before
+      content "\f259"
 
   > .disqus
-    &:before
-      content: "\f228"
+    &::before
+      content "\f25a"
+
+  > .disqus-outline
+    &::before
+      content "\f25b"
+
+  > .division
+    &::before
+      content "\f25c"
+
+  > .division-box
+    &::before
+      content "\f25d"
+
+  > .dns
+    &::before
+      content "\f25e"
+
+  > .domain
+    &::before
+      content "\f25f"
 
   > .dots-horizontal
-    &:before
-      content: "\f229"
+    &::before
+      content "\f260"
 
   > .dots-vertical
-    &:before
-      content: "\f22a"
+    &::before
+      content "\f261"
 
   > .download
-    &:before
-      content: "\f22b"
-
-  > .drawing-box
-    &:before
-      content: "\f22c"
+    &::before
+      content "\f262"
 
   > .drawing
-    &:before
-      content: "\f22d"
+    &::before
+      content "\f263"
 
-  > .dribbble-box
-    &:before
-      content: "\f22e"
+  > .drawing-box
+    &::before
+      content "\f264"
 
   > .dribbble
-    &:before
-      content: "\f22f"
+    &::before
+      content "\f265"
+
+  > .dribbble-box
+    &::before
+      content "\f266"
+
+  > .drone
+    &::before
+      content "\f267"
+
+  > .dropbox
+    &::before
+      content "\f268"
 
   > .duck
-    &:before
-      content: "\f230"
+    &::before
+      content "\f269"
 
-  > .earth-off
-    &:before
-      content: "\f231"
+  > .dumbbell
+    &::before
+      content "\f26a"
 
   > .earth
-    &:before
-      content: "\f232"
+    &::before
+      content "\f26b"
+
+  > .earth-off
+    &::before
+      content "\f26c"
 
   > .elevation-decline
-    &:before
-      content: "\f233"
+    &::before
+      content "\f26d"
 
   > .elevation-rise
-    &:before
-      content: "\f234"
-
-  > .email-outline
-    &:before
-      content: "\f235"
+    &::before
+      content "\f26e"
 
   > .email
-    &:before
-      content: "\f236"
+    &::before
+      content "\f26f"
 
-  > .emoticon-cool
-    &:before
-      content: "\f237"
+  > .email-open
+    &::before
+      content "\f270"
 
-  > .emoticon-happy
-    &:before
-      content: "\f238"
-
-  > .emoticon-neutral
-    &:before
-      content: "\f239"
-
-  > .emoticon-poop
-    &:before
-      content: "\f23a"
-
-  > .emoticon-sad
-    &:before
-      content: "\f23b"
-
-  > .emoticon-tongue
-    &:before
-      content: "\f23c"
+  > .email-outline
+    &::before
+      content "\f271"
 
   > .emoticon
-    &:before
-      content: "\f23d"
+    &::before
+      content "\f272"
+
+  > .emoticon-cool
+    &::before
+      content "\f273"
+
+  > .emoticon-devil
+    &::before
+      content "\f274"
+
+  > .emoticon-happy
+    &::before
+      content "\f275"
+
+  > .emoticon-neutral
+    &::before
+      content "\f276"
+
+  > .emoticon-poop
+    &::before
+      content "\f277"
+
+  > .emoticon-sad
+    &::before
+      content "\f278"
+
+  > .emoticon-tongue
+    &::before
+      content "\f279"
+
+  > .equal
+    &::before
+      content "\f27a"
+
+  > .equal-box
+    &::before
+      content "\f27b"
 
   > .eraser
-    &:before
-      content: "\f23e"
+    &::before
+      content "\f27c"
+
+  > .escalator
+    &::before
+      content "\f27d"
 
   > .etsy
-    &:before
-      content: "\f23f"
+    &::before
+      content "\f27e"
 
   > .evernote
-    &:before
-      content: "\f240"
+    &::before
+      content "\f27f"
 
   > .exit-to-app
-    &:before
-      content: "\f241"
-
-  > .eye-off
-    &:before
-      content: "\f242"
+    &::before
+      content "\f280"
 
   > .eye
-    &:before
-      content: "\f243"
+    &::before
+      content "\f281"
 
-  > .eyedropper-variant
-    &:before
-      content: "\f244"
+  > .eye-off
+    &::before
+      content "\f282"
 
   > .eyedropper
-    &:before
-      content: "\f245"
+    &::before
+      content "\f283"
 
-  > .facebook-box
-    &:before
-      content: "\f246"
+  > .eyedropper-variant
+    &::before
+      content "\f284"
 
   > .facebook
-    &:before
-      content: "\f247"
+    &::before
+      content "\f285"
+
+  > .facebook-box
+    &::before
+      content "\f286"
+
+  > .facebook-messenger
+    &::before
+      content "\f287"
 
   > .factory
-    &:before
-      content: "\f248"
+    &::before
+      content "\f288"
+
+  > .fan
+    &::before
+      content "\f289"
 
   > .fast-forward
-    &:before
-      content: "\f249"
+    &::before
+      content "\f28a"
 
   > .ferry
-    &:before
-      content: "\f24a"
-
-  > .file-cloud
-    &:before
-      content: "\f24b"
-
-  > .file-delimited
-    &:before
-      content: "\f24c"
-
-  > .file-document-box
-    &:before
-      content: "\f24d"
-
-  > .file-document
-    &:before
-      content: "\f24e"
-
-  > .file-excel-box
-    &:before
-      content: "\f24f"
-
-  > .file-excel
-    &:before
-      content: "\f250"
-
-  > .file-find
-    &:before
-      content: "\f251"
-
-  > .file-image-box
-    &:before
-      content: "\f252"
-
-  > .file-image
-    &:before
-      content: "\f253"
-
-  > .file-music
-    &:before
-      content: "\f254"
-
-  > .file-pdf-box
-    &:before
-      content: "\f255"
-
-  > .file-pdf
-    &:before
-      content: "\f256"
-
-  > .file-powerpoint-box
-    &:before
-      content: "\f257"
-
-  > .file-powerpoint
-    &:before
-      content: "\f258"
-
-  > .file-presentation-box
-    &:before
-      content: "\f259"
-
-  > .file-video
-    &:before
-      content: "\f25a"
-
-  > .file-word-box
-    &:before
-      content: "\f25b"
-
-  > .file-word
-    &:before
-      content: "\f25c"
+    &::before
+      content "\f28b"
 
   > .file
-    &:before
-      content: "\f25d"
+    &::before
+      content "\f28c"
+
+  > .file-cloud
+    &::before
+      content "\f28d"
+
+  > .file-delimited
+    &::before
+      content "\f28e"
+
+  > .file-document
+    &::before
+      content "\f28f"
+
+  > .file-document-box
+    &::before
+      content "\f290"
+
+  > .file-excel
+    &::before
+      content "\f291"
+
+  > .file-excel-box
+    &::before
+      content "\f292"
+
+  > .file-find
+    &::before
+      content "\f293"
+
+  > .file-image
+    &::before
+      content "\f294"
+
+  > .file-image-box
+    &::before
+      content "\f295"
+
+  > .file-music
+    &::before
+      content "\f296"
+
+  > .file-outline
+    &::before
+      content "\f297"
+
+  > .file-pdf
+    &::before
+      content "\f298"
+
+  > .file-pdf-box
+    &::before
+      content "\f299"
+
+  > .file-powerpoint
+    &::before
+      content "\f29a"
+
+  > .file-powerpoint-box
+    &::before
+      content "\f29b"
+
+  > .file-presentation-box
+    &::before
+      content "\f29c"
+
+  > .file-video
+    &::before
+      content "\f29d"
+
+  > .file-word
+    &::before
+      content "\f29e"
+
+  > .file-word-box
+    &::before
+      content "\f29f"
 
   > .film
-    &:before
-      content: "\f25e"
-
-  > .filmstrip-off
-    &:before
-      content: "\f25f"
+    &::before
+      content "\f2a0"
 
   > .filmstrip
-    &:before
-      content: "\f260"
+    &::before
+      content "\f2a1"
 
-  > .filter-outline
-    &:before
-      content: "\f261"
-
-  > .filter-remove-outline
-    &:before
-      content: "\f262"
-
-  > .filter-remove
-    &:before
-      content: "\f263"
-
-  > .filter-variant
-    &:before
-      content: "\f264"
+  > .filmstrip-off
+    &::before
+      content "\f2a2"
 
   > .filter
-    &:before
-      content: "\f265"
+    &::before
+      content "\f2a3"
+
+  > .filter-outline
+    &::before
+      content "\f2a4"
+
+  > .filter-remove
+    &::before
+      content "\f2a5"
+
+  > .filter-remove-outline
+    &::before
+      content "\f2a6"
+
+  > .filter-variant
+    &::before
+      content "\f2a7"
 
   > .fire
-    &:before
-      content: "\f266"
+    &::before
+      content "\f2a8"
+
+  > .firefox
+    &::before
+      content "\f2a9"
 
   > .fish
-    &:before
-      content: "\f267"
-
-  > .flag-checkered
-    &:before
-      content: "\f268"
-
-  > .flag-outline-variant
-    &:before
-      content: "\f269"
-
-  > .flag-outline
-    &:before
-      content: "\f26a"
-
-  > .flag-variant
-    &:before
-      content: "\f26b"
+    &::before
+      content "\f2aa"
 
   > .flag
-    &:before
-      content: "\f26c"
+    &::before
+      content "\f2ab"
 
-  > .flash-auto
-    &:before
-      content: "\f26d"
+  > .flag-checkered
+    &::before
+      content "\f2ac"
 
-  > .flash-off
-    &:before
-      content: "\f26e"
+  > .flag-outline
+    &::before
+      content "\f2ad"
+
+  > .flag-outline-variant
+    &::before
+      content "\f2ae"
+
+  > .flag-variant
+    &::before
+      content "\f2af"
 
   > .flash
-    &:before
-      content: "\f26f"
+    &::before
+      content "\f2b0"
+
+  > .flash-auto
+    &::before
+      content "\f2b1"
+
+  > .flash-off
+    &::before
+      content "\f2b2"
+
+  > .flashlight
+    &::before
+      content "\f2b3"
+
+  > .flashlight-off
+    &::before
+      content "\f2b4"
 
   > .flip-to-back
-    &:before
-      content: "\f270"
+    &::before
+      content "\f2b5"
 
   > .flip-to-front
-    &:before
-      content: "\f271"
+    &::before
+      content "\f2b6"
 
   > .floppy
-    &:before
-      content: "\f272"
+    &::before
+      content "\f2b7"
 
   > .flower
-    &:before
-      content: "\f273"
-
-  > .folder-account
-    &:before
-      content: "\f274"
-
-  > .folder-google-drive
-    &:before
-      content: "\f275"
-
-  > .folder-image
-    &:before
-      content: "\f276"
-
-  > .folder-move
-    &:before
-      content: "\f277"
-
-  > .folder-multiple-image
-    &:before
-      content: "\f278"
-
-  > .folder-multiple-outline
-    &:before
-      content: "\f279"
-
-  > .folder-multiple
-    &:before
-      content: "\f27a"
-
-  > .folder-outline
-    &:before
-      content: "\f27b"
-
-  > .folder-plus
-    &:before
-      content: "\f27c"
-
-  > .folder-remove
-    &:before
-      content: "\f27d"
+    &::before
+      content "\f2b8"
 
   > .folder
-    &:before
-      content: "\f27e"
+    &::before
+      content "\f2b9"
 
-  > .food-apple
-    &:before
-      content: "\f27f"
+  > .folder-account
+    &::before
+      content "\f2ba"
+
+  > .folder-google-drive
+    &::before
+      content "\f2bb"
+
+  > .folder-image
+    &::before
+      content "\f2bc"
+
+  > .folder-move
+    &::before
+      content "\f2bd"
+
+  > .folder-multiple
+    &::before
+      content "\f2be"
+
+  > .folder-multiple-image
+    &::before
+      content "\f2bf"
+
+  > .folder-multiple-outline
+    &::before
+      content "\f2c0"
+
+  > .folder-outline
+    &::before
+      content "\f2c1"
+
+  > .folder-plus
+    &::before
+      content "\f2c2"
+
+  > .folder-remove
+    &::before
+      content "\f2c3"
 
   > .food
-    &:before
-      content: "\f280"
+    &::before
+      content "\f2c4"
+
+  > .food-apple
+    &::before
+      content "\f2c5"
+
+  > .food-variant
+    &::before
+      content "\f2c6"
 
   > .format-align-center
-    &:before
-      content: "\f281"
+    &::before
+      content "\f2c7"
 
   > .format-align-justify
-    &:before
-      content: "\f282"
+    &::before
+      content "\f2c8"
 
   > .format-align-left
-    &:before
-      content: "\f283"
+    &::before
+      content "\f2c9"
 
   > .format-align-right
-    &:before
-      content: "\f284"
+    &::before
+      content "\f2ca"
 
   > .format-bold
-    &:before
-      content: "\f285"
+    &::before
+      content "\f2cb"
 
   > .format-clear
-    &:before
-      content: "\f286"
+    &::before
+      content "\f2cc"
 
   > .format-color-fill
-    &:before
-      content: "\f287"
+    &::before
+      content "\f2cd"
+
+  > .format-header-1
+    &::before
+      content "\f2ce"
+
+  > .format-header-2
+    &::before
+      content "\f2cf"
+
+  > .format-header-3
+    &::before
+      content "\f2d0"
+
+  > .format-header-4
+    &::before
+      content "\f2d1"
+
+  > .format-header-5
+    &::before
+      content "\f2d2"
+
+  > .format-header-6
+    &::before
+      content "\f2d3"
+
+  > .format-header-pound
+    &::before
+      content "\f2d4"
+
+  > .format-indent-decrease
+    &::before
+      content "\f2d5"
+
+  > .format-indent-increase
+    &::before
+      content "\f2d6"
+
+  > .format-italic
+    &::before
+      content "\f2d7"
 
   > .format-line-spacing
-    &:before
-      content: "\f288"
+    &::before
+      content "\f2d8"
+
+  > .format-list-bulleted
+    &::before
+      content "\f2d9"
 
   > .format-list-numbers
-    &:before
-      content: "\f289"
+    &::before
+      content "\f2da"
 
   > .format-paint
-    &:before
-      content: "\f28a"
+    &::before
+      content "\f2db"
+
+  > .format-paragraph
+    &::before
+      content "\f2dc"
+
+  > .format-quote
+    &::before
+      content "\f2dd"
+
+  > .format-size
+    &::before
+      content "\f2de"
 
   > .format-strikethrough
-    &:before
-      content: "\f28b"
+    &::before
+      content "\f2df"
 
   > .format-subscript
-    &:before
-      content: "\f28c"
+    &::before
+      content "\f2e0"
 
   > .format-superscript
-    &:before
-      content: "\f28d"
+    &::before
+      content "\f2e1"
+
+  > .format-textdirection-l-to-r
+    &::before
+      content "\f2e2"
+
+  > .format-textdirection-r-to-l
+    &::before
+      content "\f2e3"
 
   > .format-underline
-    &:before
-      content: "\f28e"
+    &::before
+      content "\f2e4"
+
+  > .forum
+    &::before
+      content "\f2e5"
+
+  > .forward
+    &::before
+      content "\f2e6"
 
   > .foursquare
-    &:before
-      content: "\f28f"
+    &::before
+      content "\f2e7"
 
-  > .fullscreen-exit
-    &:before
-      content: "\f290"
+  > .fridge
+    &::before
+      content "\f2e8"
 
   > .fullscreen
-    &:before
-      content: "\f291"
+    &::before
+      content "\f2e9"
 
-  > .gamepad-variant
-    &:before
-      content: "\f292"
+  > .fullscreen-exit
+    &::before
+      content "\f2ea"
+
+  > .function
+    &::before
+      content "\f2eb"
 
   > .gamepad
-    &:before
-      content: "\f293"
+    &::before
+      content "\f2ec"
+
+  > .gamepad-variant
+    &::before
+      content "\f2ed"
 
   > .gas-station
-    &:before
-      content: "\f294"
+    &::before
+      content "\f2ee"
 
   > .gavel
-    &:before
-      content: "\f295"
+    &::before
+      content "\f2ef"
 
   > .gender-female
-    &:before
-      content: "\f296"
+    &::before
+      content "\f2f0"
 
   > .gender-male
-    &:before
-      content: "\f297"
+    &::before
+      content "\f2f1"
 
   > .gender-transgender
-    &:before
-      content: "\f298"
+    &::before
+      content "\f2f2"
 
   > .gift
-    &:before
-      content: "\f299"
+    &::before
+      content "\f2f3"
 
   > .github-box
-    &:before
-      content: "\f29a"
+    &::before
+      content "\f2f4"
 
   > .github-circle
-    &:before
-      content: "\f29b"
+    &::before
+      content "\f2f5"
+
+  > .glass-flute
+    &::before
+      content "\f2f6"
+
+  > .glass-mug
+    &::before
+      content "\f2f7"
+
+  > .glass-stange
+    &::before
+      content "\f2f8"
+
+  > .glass-tulip
+    &::before
+      content "\f2f9"
 
   > .gmail
-    &:before
-      content: "\f29c"
-
-  > .google-chrome
-    &:before
-      content: "\f29d"
-
-  > .google-circles-communities
-    &:before
-      content: "\f29e"
-
-  > .google-circles-extended
-    &:before
-      content: "\f29f"
-
-  > .google-circles
-    &:before
-      content: "\f2a0"
-
-  > .google-drive
-    &:before
-      content: "\f2a1"
-
-  > .google-earth
-    &:before
-      content: "\f2a2"
-
-  > .google-glass
-    &:before
-      content: "\f2a3"
-
-  > .google-maps
-    &:before
-      content: "\f2a4"
-
-  > .google-pages
-    &:before
-      content: "\f2a5"
-
-  > .google-play
-    &:before
-      content: "\f2a6"
-
-  > .google-plus-box
-    &:before
-      content: "\f2a7"
-
-  > .google-plus
-    &:before
-      content: "\f2a8"
+    &::before
+      content "\f2fa"
 
   > .google
-    &:before
-      content: "\f2a9"
+    &::before
+      content "\f2fb"
 
-  > .guitar-pick-outline
-    &:before
-      content: "\f2aa"
+  > .google-chrome
+    &::before
+      content "\f2fc"
+
+  > .google-circles
+    &::before
+      content "\f2fd"
+
+  > .google-circles-communities
+    &::before
+      content "\f2fe"
+
+  > .google-circles-extended
+    &::before
+      content "\f2ff"
+
+  > .google-circles-group
+    &::before
+      content "\f300"
+
+  > .google-controller
+    &::before
+      content "\f301"
+
+  > .google-controller-off
+    &::before
+      content "\f302"
+
+  > .google-drive
+    &::before
+      content "\f303"
+
+  > .google-earth
+    &::before
+      content "\f304"
+
+  > .google-glass
+    &::before
+      content "\f305"
+
+  > .google-maps
+    &::before
+      content "\f306"
+
+  > .google-pages
+    &::before
+      content "\f307"
+
+  > .google-play
+    &::before
+      content "\f308"
+
+  > .google-plus
+    &::before
+      content "\f309"
+
+  > .google-plus-box
+    &::before
+      content "\f30a"
 
   > .guitar-pick
-    &:before
-      content: "\f2ab"
+    &::before
+      content "\f30b"
+
+  > .guitar-pick-outline
+    &::before
+      content "\f30c"
 
   > .hand-pointing-right
-    &:before
-      content: "\f2ac"
+    &::before
+      content "\f30d"
 
   > .hanger
-    &:before
-      content: "\f2ad"
+    &::before
+      content "\f30e"
 
   > .hangouts
-    &:before
-      content: "\f2ae"
+    &::before
+      content "\f30f"
 
   > .harddisk
-    &:before
-      content: "\f2af"
-
-  > .headphones-box
-    &:before
-      content: "\f2b0"
+    &::before
+      content "\f310"
 
   > .headphones
-    &:before
-      content: "\f2b1"
+    &::before
+      content "\f311"
+
+  > .headphones-box
+    &::before
+      content "\f312"
+
+  > .headphones-settings
+    &::before
+      content "\f313"
 
   > .headset
-    &:before
-      content: "\f2b2"
+    &::before
+      content "\f314"
 
-  > .heart-box-outline
-    &:before
-      content: "\f2b3"
-
-  > .heart-box
-    &:before
-      content: "\f2b4"
-
-  > .heart-outline
-    &:before
-      content: "\f2b5"
+  > .headset-dock
+    &::before
+      content "\f315"
 
   > .heart
-    &:before
-      content: "\f2b6"
+    &::before
+      content "\f316"
 
-  > .help-circle
-    &:before
-      content: "\f2b7"
+  > .heart-box
+    &::before
+      content "\f317"
+
+  > .heart-box-outline
+    &::before
+      content "\f318"
+
+  > .heart-broken
+    &::before
+      content "\f319"
+
+  > .heart-outline
+    &::before
+      content "\f31a"
 
   > .help
-    &:before
-      content: "\f2b8"
+    &::before
+      content "\f31b"
 
-  > .hexagon-outline
-    &:before
-      content: "\f2b9"
+  > .help-circle
+    &::before
+      content "\f31c"
 
   > .hexagon
-    &:before
-      content: "\f2ba"
+    &::before
+      content "\f31d"
+
+  > .hexagon-outline
+    &::before
+      content "\f31e"
 
   > .history
-    &:before
-      content: "\f2bb"
-
-  > .home-modern
-    &:before
-      content: "\f2bc"
-
-  > .home-variant
-    &:before
-      content: "\f2bd"
+    &::before
+      content "\f31f"
 
   > .home
-    &:before
-      content: "\f2be"
+    &::before
+      content "\f320"
 
-  > .hospital-building
-    &:before
-      content: "\f2bf"
+  > .home-modern
+    &::before
+      content "\f321"
 
-  > .hospital-marker
-    &:before
-      content: "\f2c0"
+  > .home-variant
+    &::before
+      content "\f322"
+
+  > .hops
+    &::before
+      content "\f323"
 
   > .hospital
-    &:before
-      content: "\f2c1"
+    &::before
+      content "\f324"
+
+  > .hospital-building
+    &::before
+      content "\f325"
+
+  > .hospital-marker
+    &::before
+      content "\f326"
 
   > .hotel
-    &:before
-      content: "\f2c2"
-
-  > .houzz-box
-    &:before
-      content: "\f2c3"
+    &::before
+      content "\f327"
 
   > .houzz
-    &:before
-      content: "\f2c4"
+    &::before
+      content "\f328"
 
-  > .human-child
-    &:before
-      content: "\f2c5"
-
-  > .human-male-female
-    &:before
-      content: "\f2c6"
+  > .houzz-box
+    &::before
+      content "\f329"
 
   > .human
-    &:before
-      content: "\f2c7"
+    &::before
+      content "\f32a"
+
+  > .human-child
+    &::before
+      content "\f32b"
+
+  > .human-male-female
+    &::before
+      content "\f32c"
 
   > .image-album
-    &:before
-      content: "\f2c8"
-
-  > .image-area-close
-    &:before
-      content: "\f2c9"
+    &::before
+      content "\f32d"
 
   > .image-area
-    &:before
-      content: "\f2ca"
+    &::before
+      content "\f32e"
 
-  > .image-filter-black-white
-    &:before
-      content: "\f2cb"
-
-  > .image-filter-center-focus
-    &:before
-      content: "\f2cc"
-
-  > .image-filter-drama
-    &:before
-      content: "\f2cd"
-
-  > .image-filter-frames
-    &:before
-      content: "\f2ce"
-
-  > .image-filter-hdr
-    &:before
-      content: "\f2cf"
-
-  > .image-filter-none
-    &:before
-      content: "\f2d0"
-
-  > .image-filter-tilt-shift
-    &:before
-      content: "\f2d1"
-
-  > .image-filter-vintage
-    &:before
-      content: "\f2d2"
+  > .image-area-close
+    &::before
+      content "\f32f"
 
   > .image-filter
-    &:before
-      content: "\f2d3"
+    &::before
+      content "\f330"
 
-  > .information-outline
-    &:before
-      content: "\f2d4"
+  > .image-filter-black-white
+    &::before
+      content "\f331"
+
+  > .image-filter-center-focus
+    &::before
+      content "\f332"
+
+  > .image-filter-drama
+    &::before
+      content "\f333"
+
+  > .image-filter-frames
+    &::before
+      content "\f334"
+
+  > .image-filter-hdr
+    &::before
+      content "\f335"
+
+  > .image-filter-none
+    &::before
+      content "\f336"
+
+  > .image-filter-tilt-shift
+    &::before
+      content "\f337"
+
+  > .image-filter-vintage
+    &::before
+      content "\f338"
 
   > .information
-    &:before
-      content: "\f2d5"
+    &::before
+      content "\f339"
+
+  > .information-outline
+    &::before
+      content "\f33a"
 
   > .instagram
-    &:before
-      content: "\f2d6"
+    &::before
+      content "\f33b"
 
   > .instapaper
-    &:before
-      content: "\f2d7"
+    &::before
+      content "\f33c"
 
   > .internet-explorer
-    &:before
-      content: "\f2d8"
+    &::before
+      content "\f33d"
 
   > .invert-colors
-    &:before
-      content: "\f2d9"
+    &::before
+      content "\f33e"
 
-  > .key-change
-    &:before
-      content: "\f2da"
+  > .jira
+    &::before
+      content "\f33f"
 
-  > .key-minus
-    &:before
-      content: "\f2db"
-
-  > .key-plus
-    &:before
-      content: "\f2dc"
-
-  > .key-remove
-    &:before
-      content: "\f2dd"
-
-  > .key-variant
-    &:before
-      content: "\f2de"
+  > .keg
+    &::before
+      content "\f340"
 
   > .key
-    &:before
-      content: "\f2df"
+    &::before
+      content "\f341"
 
-  > .keyboard-backspace
-    &:before
-      content: "\f2e0"
+  > .key-change
+    &::before
+      content "\f342"
 
-  > .keyboard-caps
-    &:before
-      content: "\f2e1"
+  > .key-minus
+    &::before
+      content "\f343"
 
-  > .keyboard-close
-    &:before
-      content: "\f2e2"
+  > .key-plus
+    &::before
+      content "\f344"
 
-  > .keyboard-return
-    &:before
-      content: "\f2e3"
+  > .key-remove
+    &::before
+      content "\f345"
 
-  > .keyboard-tab
-    &:before
-      content: "\f2e4"
+  > .key-variant
+    &::before
+      content "\f346"
 
   > .keyboard
-    &:before
-      content: "\f2e5"
+    &::before
+      content "\f347"
 
-  > .label-outline
-    &:before
-      content: "\f2e6"
+  > .keyboard-backspace
+    &::before
+      content "\f348"
+
+  > .keyboard-caps
+    &::before
+      content "\f349"
+
+  > .keyboard-close
+    &::before
+      content "\f34a"
+
+  > .keyboard-off
+    &::before
+      content "\f34b"
+
+  > .keyboard-return
+    &::before
+      content "\f34c"
+
+  > .keyboard-tab
+    &::before
+      content "\f34d"
 
   > .label
-    &:before
-      content: "\f2e7"
+    &::before
+      content "\f34e"
 
-  > .laptop-chromebook
-    &:before
-      content: "\f2e8"
+  > .label-outline
+    &::before
+      content "\f34f"
 
-  > .laptop-mac
-    &:before
-      content: "\f2e9"
+  > .language-csharp
+    &::before
+      content "\f350"
 
-  > .laptop-windows
-    &:before
-      content: "\f2ea"
+  > .language-css3
+    &::before
+      content "\f351"
+
+  > .language-html5
+    &::before
+      content "\f352"
+
+  > .language-javascript
+    &::before
+      content "\f353"
+
+  > .language-python
+    &::before
+      content "\f354"
+
+  > .language-python-text
+    &::before
+      content "\f355"
 
   > .laptop
-    &:before
-      content: "\f2eb"
+    &::before
+      content "\f356"
+
+  > .laptop-chromebook
+    &::before
+      content "\f357"
+
+  > .laptop-mac
+    &::before
+      content "\f358"
+
+  > .laptop-windows
+    &::before
+      content "\f359"
 
   > .lastfm
-    &:before
-      content: "\f2ec"
+    &::before
+      content "\f35a"
 
   > .launch
-    &:before
-      content: "\f2ed"
+    &::before
+      content "\f35b"
+
+  > .layers
+    &::before
+      content "\f35c"
+
+  > .layers-off
+    &::before
+      content "\f35d"
 
   > .leaf
-    &:before
-      content: "\f2ee"
-
-  > .library-books
-    &:before
-      content: "\f2ef"
-
-  > .library-music
-    &:before
-      content: "\f2f0"
-
-  > .library-plus
-    &:before
-      content: "\f2f1"
+    &::before
+      content "\f35e"
 
   > .library
-    &:before
-      content: "\f2f2"
+    &::before
+      content "\f35f"
+
+  > .library-books
+    &::before
+      content "\f360"
+
+  > .library-music
+    &::before
+      content "\f361"
+
+  > .library-plus
+    &::before
+      content "\f362"
 
   > .lightbulb
-    &:before
-      content: "\f2f3"
+    &::before
+      content "\f363"
 
   > .link
-    &:before
-      content: "\f2f4"
+    &::before
+      content "\f364"
+
+  > .link-variant
+    &::before
+      content "\f365"
 
   > .linkedin
-    &:before
-      content: "\f2f5"
+    &::before
+      content "\f366"
 
   > .linux
-    &:before
-      content: "\f2f6"
-
-  > .lock-open-outline
-    &:before
-      content: "\f2f7"
-
-  > .lock-open
-    &:before
-      content: "\f2f8"
-
-  > .lock-outline
-    &:before
-      content: "\f2f9"
+    &::before
+      content "\f367"
 
   > .lock
-    &:before
-      content: "\f2fa"
+    &::before
+      content "\f368"
+
+  > .lock-open
+    &::before
+      content "\f369"
+
+  > .lock-open-outline
+    &::before
+      content "\f36a"
+
+  > .lock-outline
+    &::before
+      content "\f36b"
 
   > .login
-    &:before
-      content: "\f2fb"
+    &::before
+      content "\f36c"
 
   > .logout
-    &:before
-      content: "\f2fc"
+    &::before
+      content "\f36d"
 
   > .looks
-    &:before
-      content: "\f2fd"
+    &::before
+      content "\f36e"
 
   > .loupe
-    &:before
-      content: "\f2fe"
+    &::before
+      content "\f36f"
 
-  > .magnify-minus
-    &:before
-      content: "\f2ff"
-
-  > .magnify-plus
-    &:before
-      content: "\f300"
+  > .lumx
+    &::before
+      content "\f370"
 
   > .magnify
-    &:before
-      content: "\f301"
+    &::before
+      content "\f371"
 
-  > .map-marker-circle
-    &:before
-      content: "\f302"
+  > .magnify-minus
+    &::before
+      content "\f372"
 
-  > .map-marker-off
-    &:before
-      content: "\f303"
-
-  > .map-marker-radius
-    &:before
-      content: "\f304"
-
-  > .map-marker
-    &:before
-      content: "\f305"
+  > .magnify-plus
+    &::before
+      content "\f373"
 
   > .map
-    &:before
-      content: "\f306"
+    &::before
+      content "\f374"
+
+  > .map-marker
+    &::before
+      content "\f375"
+
+  > .map-marker-circle
+    &::before
+      content "\f376"
+
+  > .map-marker-multiple
+    &::before
+      content "\f377"
+
+  > .map-marker-off
+    &::before
+      content "\f378"
+
+  > .map-marker-radius
+    &::before
+      content "\f379"
+
+  > .markdown
+    &::before
+      content "\f37a"
 
   > .marker-check
-    &:before
-      content: "\f307"
+    &::before
+      content "\f37b"
 
   > .martini
-    &:before
-      content: "\f308"
+    &::before
+      content "\f37c"
+
+  > .material-ui
+    &::before
+      content "\f37d"
 
   > .math-compass
-    &:before
-      content: "\f309"
+    &::before
+      content "\f37e"
 
   > .memory
-    &:before
-      content: "\f30a"
-
-  > .menu-down
-    &:before
-      content: "\f30b"
-
-  > .menu-up
-    &:before
-      content: "\f30c"
+    &::before
+      content "\f37f"
 
   > .menu
-    &:before
-      content: "\f30d"
+    &::before
+      content "\f380"
+
+  > .menu-down
+    &::before
+      content "\f381"
+
+  > .menu-left
+    &::before
+      content "\f382"
+
+  > .menu-right
+    &::before
+      content "\f383"
+
+  > .menu-up
+    &::before
+      content "\f384"
+
+  > .message
+    &::before
+      content "\f385"
 
   > .message-alert
-    &:before
-      content: "\f30e"
+    &::before
+      content "\f386"
 
   > .message-draw
-    &:before
-      content: "\f30f"
+    &::before
+      content "\f387"
 
   > .message-image
-    &:before
-      content: "\f310"
+    &::before
+      content "\f388"
 
   > .message-processing
-    &:before
-      content: "\f311"
+    &::before
+      content "\f389"
 
   > .message-reply
-    &:before
-      content: "\f312"
+    &::before
+      content "\f38a"
 
   > .message-video
-    &:before
-      content: "\f313"
-
-  > .microphone-dots
-    &:before
-      content: "\f314"
-
-  > .microphone-off
-    &:before
-      content: "\f315"
-
-  > .microphone-outline
-    &:before
-      content: "\f316"
-
-  > .microphone-settings
-    &:before
-      content: "\f317"
+    &::before
+      content "\f38b"
 
   > .microphone
-    &:before
-      content: "\f318"
+    &::before
+      content "\f38c"
 
-  > .minus-box
-    &:before
-      content: "\f319"
+  > .microphone-off
+    &::before
+      content "\f38d"
 
-  > .minus-circle-outline
-    &:before
-      content: "\f31a"
+  > .microphone-outline
+    &::before
+      content "\f38e"
 
-  > .minus-circle
-    &:before
-      content: "\f31b"
+  > .microphone-settings
+    &::before
+      content "\f38f"
 
-  > .minus-network
-    &:before
-      content: "\f31c"
+  > .microphone-variant
+    &::before
+      content "\f390"
+
+  > .microphone-variant-off
+    &::before
+      content "\f391"
 
   > .minus
-    &:before
-      content: "\f31d"
+    &::before
+      content "\f392"
+
+  > .minus-box
+    &::before
+      content "\f393"
+
+  > .minus-circle
+    &::before
+      content "\f394"
+
+  > .minus-circle-outline
+    &::before
+      content "\f395"
+
+  > .minus-network
+    &::before
+      content "\f396"
 
   > .monitor
-    &:before
-      content: "\f31e"
+    &::before
+      content "\f397"
+
+  > .monitor-multiple
+    &::before
+      content "\f398"
 
   > .more
-    &:before
-      content: "\f31f"
+    &::before
+      content "\f399"
+
+  > .motorbike
+    &::before
+      content "\f39a"
 
   > .mouse
-    &:before
-      content: "\f320"
+    &::before
+      content "\f39b"
+
+  > .mouse-off
+    &::before
+      content "\f39c"
+
+  > .mouse-variant
+    &::before
+      content "\f39d"
+
+  > .mouse-variant-off
+    &::before
+      content "\f39e"
 
   > .movie
-    &:before
-      content: "\f321"
+    &::before
+      content "\f39f"
 
-  > .music-box-outline
-    &:before
-      content: "\f322"
+  > .multiplication
+    &::before
+      content "\f3a0"
+
+  > .multiplication-box
+    &::before
+      content "\f3a1"
 
   > .music-box
-    &:before
-      content: "\f323"
+    &::before
+      content "\f3a2"
 
-  > .nature-people
-    &:before
-      content: "\f324"
+  > .music-box-outline
+    &::before
+      content "\f3a3"
+
+  > .music-circle
+    &::before
+      content "\f3a4"
+
+  > .music-note
+    &::before
+      content "\f3a5"
+
+  > .music-note-eighth
+    &::before
+      content "\f3a6"
+
+  > .music-note-half
+    &::before
+      content "\f3a7"
+
+  > .music-note-off
+    &::before
+      content "\f3a8"
+
+  > .music-note-quarter
+    &::before
+      content "\f3a9"
+
+  > .music-note-sixteenth
+    &::before
+      content "\f3aa"
+
+  > .music-note-whole
+    &::before
+      content "\f3ab"
 
   > .nature
-    &:before
-      content: "\f325"
+    &::before
+      content "\f3ac"
+
+  > .nature-people
+    &::before
+      content "\f3ad"
 
   > .navigation
-    &:before
-      content: "\f326"
+    &::before
+      content "\f3ae"
 
   > .needle
-    &:before
-      content: "\f327"
+    &::before
+      content "\f3af"
 
   > .nest-protect
-    &:before
-      content: "\f328"
+    &::before
+      content "\f3b0"
 
   > .nest-thermostat
-    &:before
-      content: "\f329"
+    &::before
+      content "\f3b1"
 
   > .newspaper
-    &:before
-      content: "\f32a"
-
-  > .nfc-variant
-    &:before
-      content: "\f32b"
+    &::before
+      content "\f3b2"
 
   > .nfc
-    &:before
-      content: "\f32c"
+    &::before
+      content "\f3b3"
 
-  > .numeric-0-box-multiple-outline
-    &:before
-      content: "\f32d"
+  > .nfc-tap
+    &::before
+      content "\f3b4"
 
-  > .numeric-0-box-outline
-    &:before
-      content: "\f32e"
-
-  > .numeric-0-box
-    &:before
-      content: "\f32f"
-
-  > .numeric-1-box-multiple-outline
-    &:before
-      content: "\f330"
-
-  > .numeric-1-box-outline
-    &:before
-      content: "\f331"
-
-  > .numeric-1-box
-    &:before
-      content: "\f332"
-
-  > .numeric-2-box-multiple-outline
-    &:before
-      content: "\f333"
-
-  > .numeric-2-box-outline
-    &:before
-      content: "\f334"
-
-  > .numeric-2-box
-    &:before
-      content: "\f335"
-
-  > .numeric-3-box-multiple-outline
-    &:before
-      content: "\f336"
-
-  > .numeric-3-box-outline
-    &:before
-      content: "\f337"
-
-  > .numeric-3-box
-    &:before
-      content: "\f338"
-
-  > .numeric-4-box-multiple-outline
-    &:before
-      content: "\f339"
-
-  > .numeric-4-box-outline
-    &:before
-      content: "\f33a"
-
-  > .numeric-4-box
-    &:before
-      content: "\f33b"
-
-  > .numeric-5-box-multiple-outline
-    &:before
-      content: "\f33c"
-
-  > .numeric-5-box-outline
-    &:before
-      content: "\f33d"
-
-  > .numeric-5-box
-    &:before
-      content: "\f33e"
-
-  > .numeric-6-box-multiple-outline
-    &:before
-      content: "\f33f"
-
-  > .numeric-6-box-outline
-    &:before
-      content: "\f340"
-
-  > .numeric-6-box
-    &:before
-      content: "\f341"
-
-  > .numeric-7-box-multiple-outline
-    &:before
-      content: "\f342"
-
-  > .numeric-7-box-outline
-    &:before
-      content: "\f343"
-
-  > .numeric-7-box
-    &:before
-      content: "\f344"
-
-  > .numeric-8-box-multiple-outline
-    &:before
-      content: "\f345"
-
-  > .numeric-8-box-outline
-    &:before
-      content: "\f346"
-
-  > .numeric-8-box
-    &:before
-      content: "\f347"
-
-  > .numeric-9-box-multiple-outline
-    &:before
-      content: "\f348"
-
-  > .numeric-9-box-outline
-    &:before
-      content: "\f349"
-
-  > .numeric-9-box
-    &:before
-      content: "\f34a"
-
-  > .numeric-9-plus-box-multiple-outline
-    &:before
-      content: "\f34b"
-
-  > .numeric-9-plus-box-outline
-    &:before
-      content: "\f34c"
-
-  > .numeric-9-plus-box
-    &:before
-      content: "\f34d"
+  > .nfc-variant
+    &::before
+      content "\f3b5"
 
   > .numeric
-    &:before
-      content: "\f34e"
+    &::before
+      content "\f3b6"
+
+  > .numeric-0-box
+    &::before
+      content "\f3b7"
+
+  > .numeric-0-box-multiple-outline
+    &::before
+      content "\f3b8"
+
+  > .numeric-0-box-outline
+    &::before
+      content "\f3b9"
+
+  > .numeric-1-box
+    &::before
+      content "\f3ba"
+
+  > .numeric-1-box-multiple-outline
+    &::before
+      content "\f3bb"
+
+  > .numeric-1-box-outline
+    &::before
+      content "\f3bc"
+
+  > .numeric-2-box
+    &::before
+      content "\f3bd"
+
+  > .numeric-2-box-multiple-outline
+    &::before
+      content "\f3be"
+
+  > .numeric-2-box-outline
+    &::before
+      content "\f3bf"
+
+  > .numeric-3-box
+    &::before
+      content "\f3c0"
+
+  > .numeric-3-box-multiple-outline
+    &::before
+      content "\f3c1"
+
+  > .numeric-3-box-outline
+    &::before
+      content "\f3c2"
+
+  > .numeric-4-box
+    &::before
+      content "\f3c3"
+
+  > .numeric-4-box-multiple-outline
+    &::before
+      content "\f3c4"
+
+  > .numeric-4-box-outline
+    &::before
+      content "\f3c5"
+
+  > .numeric-5-box
+    &::before
+      content "\f3c6"
+
+  > .numeric-5-box-multiple-outline
+    &::before
+      content "\f3c7"
+
+  > .numeric-5-box-outline
+    &::before
+      content "\f3c8"
+
+  > .numeric-6-box
+    &::before
+      content "\f3c9"
+
+  > .numeric-6-box-multiple-outline
+    &::before
+      content "\f3ca"
+
+  > .numeric-6-box-outline
+    &::before
+      content "\f3cb"
+
+  > .numeric-7-box
+    &::before
+      content "\f3cc"
+
+  > .numeric-7-box-multiple-outline
+    &::before
+      content "\f3cd"
+
+  > .numeric-7-box-outline
+    &::before
+      content "\f3ce"
+
+  > .numeric-8-box
+    &::before
+      content "\f3cf"
+
+  > .numeric-8-box-multiple-outline
+    &::before
+      content "\f3d0"
+
+  > .numeric-8-box-outline
+    &::before
+      content "\f3d1"
+
+  > .numeric-9-box
+    &::before
+      content "\f3d2"
+
+  > .numeric-9-box-multiple-outline
+    &::before
+      content "\f3d3"
+
+  > .numeric-9-box-outline
+    &::before
+      content "\f3d4"
+
+  > .numeric-9-plus-box
+    &::before
+      content "\f3d5"
+
+  > .numeric-9-plus-box-multiple-outline
+    &::before
+      content "\f3d6"
+
+  > .numeric-9-plus-box-outline
+    &::before
+      content "\f3d7"
+
+  > .nutriton
+    &::before
+      content "\f3d8"
+
+  > .office
+    &::before
+      content "\f3d9"
 
   > .oil
-    &:before
-      content: "\f34f"
+    &::before
+      content "\f3da"
+
+  > .omega
+    &::before
+      content "\f3db"
+
+  > .onedrive
+    &::before
+      content "\f3dc"
 
   > .open-in-app
-    &:before
-      content: "\f350"
-
-  > .ornament-variant
-    &:before
-      content: "\f351"
+    &::before
+      content "\f3dd"
 
   > .ornament
-    &:before
-      content: "\f352"
+    &::before
+      content "\f3de"
 
-  > .package-down
-    &:before
-      content: "\f353"
-
-  > .package-up
-    &:before
-      content: "\f354"
+  > .ornament-variant
+    &::before
+      content "\f3df"
 
   > .package
-    &:before
-      content: "\f355"
+    &::before
+      content "\f3e0"
+
+  > .package-down
+    &::before
+      content "\f3e1"
+
+  > .package-up
+    &::before
+      content "\f3e2"
+
+  > .package-variant
+    &::before
+      content "\f3e3"
 
   > .palette
-    &:before
-      content: "\f356"
+    &::before
+      content "\f3e4"
+
+  > .palette-advanced
+    &::before
+      content "\f3e5"
+
+  > .panda
+    &::before
+      content "\f3e6"
 
   > .pandora
-    &:before
-      content: "\f357"
-
-  > .panorama-fisheye
-    &:before
-      content: "\f358"
-
-  > .panorama-horizontal
-    &:before
-      content: "\f359"
-
-  > .panorama-vertical
-    &:before
-      content: "\f35a"
-
-  > .panorama-wide-angle
-    &:before
-      content: "\f35b"
+    &::before
+      content "\f3e7"
 
   > .panorama
-    &:before
-      content: "\f35c"
+    &::before
+      content "\f3e8"
+
+  > .panorama-fisheye
+    &::before
+      content "\f3e9"
+
+  > .panorama-horizontal
+    &::before
+      content "\f3ea"
+
+  > .panorama-vertical
+    &::before
+      content "\f3eb"
+
+  > .panorama-wide-angle
+    &::before
+      content "\f3ec"
 
   > .paper-cut-vertical
-    &:before
-      content: "\f35d"
+    &::before
+      content "\f3ed"
 
   > .paperclip
-    &:before
-      content: "\f35e"
+    &::before
+      content "\f3ee"
 
   > .parking
-    &:before
-      content: "\f35f"
-
-  > .pause-circle-outline
-    &:before
-      content: "\f360"
-
-  > .pause-circle
-    &:before
-      content: "\f361"
-
-  > .pause-octagon-outline
-    &:before
-      content: "\f362"
-
-  > .pause-octagon
-    &:before
-      content: "\f363"
+    &::before
+      content "\f3ef"
 
   > .pause
-    &:before
-      content: "\f364"
+    &::before
+      content "\f3f0"
 
-  > .pencil-box-outline
-    &:before
-      content: "\f365"
+  > .pause-circle
+    &::before
+      content "\f3f1"
 
-  > .pencil-box
-    &:before
-      content: "\f366"
+  > .pause-circle-outline
+    &::before
+      content "\f3f2"
+
+  > .pause-octagon
+    &::before
+      content "\f3f3"
+
+  > .pause-octagon-outline
+    &::before
+      content "\f3f4"
 
   > .pencil
-    &:before
-      content: "\f367"
+    &::before
+      content "\f3f5"
+
+  > .pencil-box
+    &::before
+      content "\f3f6"
+
+  > .pencil-box-outline
+    &::before
+      content "\f3f7"
 
   > .pharmacy
-    &:before
-      content: "\f368"
-
-  > .phone-bluetooth
-    &:before
-      content: "\f369"
-
-  > .phone-forward
-    &:before
-      content: "\f36a"
-
-  > .phone-hangup
-    &:before
-      content: "\f36b"
-
-  > .phone-in-talk
-    &:before
-      content: "\f36c"
-
-  > .phone-locked
-    &:before
-      content: "\f36d"
-
-  > .phone-missed
-    &:before
-      content: "\f36e"
-
-  > .phone-paused
-    &:before
-      content: "\f36f"
-
-  > .phone-settings
-    &:before
-      content: "\f370"
+    &::before
+      content "\f3f8"
 
   > .phone
-    &:before
-      content: "\f371"
+    &::before
+      content "\f3f9"
+
+  > .phone-bluetooth
+    &::before
+      content "\f3fa"
+
+  > .phone-forward
+    &::before
+      content "\f3fb"
+
+  > .phone-hangup
+    &::before
+      content "\f3fc"
+
+  > .phone-in-talk
+    &::before
+      content "\f3fd"
+
+  > .phone-locked
+    &::before
+      content "\f3fe"
+
+  > .phone-missed
+    &::before
+      content "\f3ff"
+
+  > .phone-paused
+    &::before
+      content "\f400"
+
+  > .phone-settings
+    &::before
+      content "\f401"
 
   > .pig
-    &:before
-      content: "\f372"
+    &::before
+      content "\f402"
 
   > .pill
-    &:before
-      content: "\f373"
-
-  > .pin-off
-    &:before
-      content: "\f374"
+    &::before
+      content "\f403"
 
   > .pin
-    &:before
-      content: "\f375"
+    &::before
+      content "\f404"
 
-  > .pine-tree-box
-    &:before
-      content: "\f376"
+  > .pin-off
+    &::before
+      content "\f405"
 
   > .pine-tree
-    &:before
-      content: "\f377"
+    &::before
+      content "\f406"
+
+  > .pine-tree-box
+    &::before
+      content "\f407"
 
   > .pinterest
-    &:before
-      content: "\f378"
+    &::before
+      content "\f408"
 
   > .pizza
-    &:before
-      content: "\f379"
-
-  > .play-box-outline
-    &:before
-      content: "\f37a"
-
-  > .play-circle-outline
-    &:before
-      content: "\f37b"
-
-  > .play-circle
-    &:before
-      content: "\f37c"
+    &::before
+      content "\f409"
 
   > .play
-    &:before
-      content: "\f37d"
+    &::before
+      content "\f40a"
+
+  > .play-box-outline
+    &::before
+      content "\f40b"
+
+  > .play-circle
+    &::before
+      content "\f40c"
+
+  > .play-circle-outline
+    &::before
+      content "\f40d"
 
   > .playlist-plus
-    &:before
-      content: "\f37e"
-
-  > .plus-box
-    &:before
-      content: "\f37f"
-
-  > .plus-circle-outline
-    &:before
-      content: "\f380"
-
-  > .plus-circle
-    &:before
-      content: "\f381"
-
-  > .plus-network
-    &:before
-      content: "\f382"
-
-  > .plus-one
-    &:before
-      content: "\f383"
+    &::before
+      content "\f40e"
 
   > .plus
-    &:before
-      content: "\f384"
+    &::before
+      content "\f40f"
+
+  > .plus-box
+    &::before
+      content "\f410"
+
+  > .plus-circle
+    &::before
+      content "\f411"
+
+  > .plus-circle-outline
+    &::before
+      content "\f412"
+
+  > .plus-network
+    &::before
+      content "\f413"
+
+  > .plus-one
+    &::before
+      content "\f414"
 
   > .pocket
-    &:before
-      content: "\f385"
-
-  > .poll-box
-    &:before
-      content: "\f386"
+    &::before
+      content "\f415"
 
   > .poll
-    &:before
-      content: "\f387"
+    &::before
+      content "\f416"
+
+  > .poll-box
+    &::before
+      content "\f417"
 
   > .polymer
-    &:before
-      content: "\f388"
+    &::before
+      content "\f418"
 
   > .popcorn
-    &:before
-      content: "\f389"
+    &::before
+      content "\f419"
 
-  > .power-settings
-    &:before
-      content: "\f38a"
+  > .pound
+    &::before
+      content "\f41a"
+
+  > .pound-box
+    &::before
+      content "\f41b"
 
   > .power
-    &:before
-      content: "\f38b"
+    &::before
+      content "\f41c"
+
+  > .power-settings
+    &::before
+      content "\f41d"
 
   > .presentation
-    &:before
-      content: "\f38c"
+    &::before
+      content "\f41e"
+
+  > .presentation-play
+    &::before
+      content "\f41f"
 
   > .printer
-    &:before
-      content: "\f38d"
+    &::before
+      content "\f420"
 
   > .puzzle
-    &:before
-      content: "\f38e"
+    &::before
+      content "\f421"
 
   > .qrcode
-    &:before
-      content: "\f38f"
+    &::before
+      content "\f422"
+
+  > .quadcopter
+    &::before
+      content "\f423"
 
   > .quality-high
-    &:before
-      content: "\f390"
+    &::before
+      content "\f424"
+
+  > .quicktime
+    &::before
+      content "\f425"
 
   > .radiator
-    &:before
-      content: "\f391"
+    &::before
+      content "\f426"
+
+  > .radioactive
+    &::before
+      content "\f427"
 
   > .radiobox-blank
-    &:before
-      content: "\f392"
+    &::before
+      content "\f428"
 
   > .radiobox-marked
-    &:before
-      content: "\f393"
+    &::before
+      content "\f429"
 
   > .rdio
-    &:before
-      content: "\f394"
+    &::before
+      content "\f42a"
+
+  > .read
+    &::before
+      content "\f42b"
 
   > .readability
-    &:before
-      content: "\f395"
+    &::before
+      content "\f42c"
 
   > .receipt
-    &:before
-      content: "\f396"
+    &::before
+      content "\f42d"
 
   > .recycle
-    &:before
-      content: "\f397"
-
-  > .redo-variant
-    &:before
-      content: "\f398"
+    &::before
+      content "\f42e"
 
   > .redo
-    &:before
-      content: "\f399"
+    &::before
+      content "\f42f"
+
+  > .redo-variant
+    &::before
+      content "\f430"
 
   > .refresh
-    &:before
-      content: "\f39a"
+    &::before
+      content "\f431"
 
   > .relative-scale
-    &:before
-      content: "\f39b"
+    &::before
+      content "\f432"
 
   > .reload
-    &:before
-      content: "\f39c"
+    &::before
+      content "\f433"
 
   > .remote
-    &:before
-      content: "\f39d"
+    &::before
+      content "\f434"
 
   > .rename-box
-    &:before
-      content: "\f39e"
-
-  > .repeat-once
-    &:before
-      content: "\f39f"
+    &::before
+      content "\f435"
 
   > .repeat
-    &:before
-      content: "\f3a0"
+    &::before
+      content "\f436"
+
+  > .repeat-off
+    &::before
+      content "\f437"
+
+  > .repeat-once
+    &::before
+      content "\f438"
 
   > .replay
-    &:before
-      content: "\f3a1"
-
-  > .reply-all
-    &:before
-      content: "\f3a2"
+    &::before
+      content "\f439"
 
   > .reply
-    &:before
-      content: "\f3a3"
+    &::before
+      content "\f43a"
+
+  > .reply-all
+    &::before
+      content "\f43b"
 
   > .responsive
-    &:before
-      content: "\f3a4"
+    &::before
+      content "\f43c"
 
   > .rewind
-    &:before
-      content: "\f3a5"
+    &::before
+      content "\f43d"
 
   > .ribbon
-    &:before
-      content: "\f3a6"
+    &::before
+      content "\f43e"
+
+  > .rocket
+    &::before
+      content "\f43f"
 
   > .rotate-3d
-    &:before
-      content: "\f3a7"
-
-  > .rotate-left-variant
-    &:before
-      content: "\f3a8"
+    &::before
+      content "\f440"
 
   > .rotate-left
-    &:before
-      content: "\f3a9"
+    &::before
+      content "\f441"
 
-  > .rotate-right-variant
-    &:before
-      content: "\f3aa"
+  > .rotate-left-variant
+    &::before
+      content "\f442"
 
   > .rotate-right
-    &:before
-      content: "\f3ab"
+    &::before
+      content "\f443"
+
+  > .rotate-right-variant
+    &::before
+      content "\f444"
 
   > .routes
-    &:before
-      content: "\f3ac"
-
-  > .rss-box
-    &:before
-      content: "\f3ad"
+    &::before
+      content "\f445"
 
   > .rss
-    &:before
-      content: "\f3ae"
+    &::before
+      content "\f446"
+
+  > .rss-box
+    &::before
+      content "\f447"
+
+  > .ruler
+    &::before
+      content "\f448"
+
+  > .run
+    &::before
+      content "\f449"
 
   > .satellite
-    &:before
-      content: "\f3af"
+    &::before
+      content "\f44a"
+
+  > .satellite-variant
+    &::before
+      content "\f44b"
+
+  > .scale
+    &::before
+      content "\f44c"
+
+  > .scale-bathroom
+    &::before
+      content "\f44d"
 
   > .school
-    &:before
-      content: "\f3b0"
+    &::before
+      content "\f44e"
+
+  > .screen-rotation
+    &::before
+      content "\f44f"
+
+  > .screen-rotation-lock
+    &::before
+      content "\f450"
 
   > .script
-    &:before
-      content: "\f3b1"
+    &::before
+      content "\f451"
 
-  > .security-network
-    &:before
-      content: "\f3b2"
+  > .sd
+    &::before
+      content "\f452"
 
   > .security
-    &:before
-      content: "\f3b3"
+    &::before
+      content "\f453"
+
+  > .security-network
+    &::before
+      content "\f454"
+
+  > .select
+    &::before
+      content "\f455"
+
+  > .select-inverse
+    &::before
+      content "\f456"
+
+  > .select-off
+    &::before
+      content "\f457"
 
   > .send
-    &:before
-      content: "\f3b4"
-
-  > .server-minus
-    &:before
-      content: "\f3b5"
-
-  > .server-network-off
-    &:before
-      content: "\f3b6"
-
-  > .server-network
-    &:before
-      content: "\f3b7"
-
-  > .server-off
-    &:before
-      content: "\f3b8"
-
-  > .server-plus
-    &:before
-      content: "\f3b9"
-
-  > .server-remove
-    &:before
-      content: "\f3ba"
-
-  > .server-security
-    &:before
-      content: "\f3bb"
+    &::before
+      content "\f458"
 
   > .server
-    &:before
-      content: "\f3bc"
+    &::before
+      content "\f459"
 
-  > .settings-box
-    &:before
-      content: "\f3bd"
+  > .server-minus
+    &::before
+      content "\f45a"
+
+  > .server-network
+    &::before
+      content "\f45b"
+
+  > .server-network-off
+    &::before
+      content "\f45c"
+
+  > .server-off
+    &::before
+      content "\f45d"
+
+  > .server-plus
+    &::before
+      content "\f45e"
+
+  > .server-remove
+    &::before
+      content "\f45f"
+
+  > .server-security
+    &::before
+      content "\f460"
 
   > .settings
-    &:before
-      content: "\f3be"
+    &::before
+      content "\f461"
+
+  > .settings-box
+    &::before
+      content "\f462"
 
   > .shape-plus
-    &:before
-      content: "\f3bf"
-
-  > .share-variant
-    &:before
-      content: "\f3c0"
+    &::before
+      content "\f463"
 
   > .share
-    &:before
-      content: "\f3c1"
+    &::before
+      content "\f464"
 
-  > .shopping-music
-    &:before
-      content: "\f3c2"
+  > .share-variant
+    &::before
+      content "\f465"
 
   > .shopping
-    &:before
-      content: "\f3c3"
+    &::before
+      content "\f466"
+
+  > .shopping-music
+    &::before
+      content "\f467"
 
   > .shuffle
-    &:before
-      content: "\f3c4"
+    &::before
+      content "\f468"
+
+  > .sigma
+    &::before
+      content "\f469"
 
   > .sign-caution
-    &:before
-      content: "\f3c5"
-
-  > .silverware-variant
-    &:before
-      content: "\f3c6"
+    &::before
+      content "\f46a"
 
   > .silverware
-    &:before
-      content: "\f3c7"
+    &::before
+      content "\f46b"
+
+  > .silverware-fork
+    &::before
+      content "\f46c"
+
+  > .silverware-spoon
+    &::before
+      content "\f46d"
+
+  > .silverware-variant
+    &::before
+      content "\f46e"
 
   > .sim-alert
-    &:before
-      content: "\f3c8"
-
-  > .sim
-    &:before
-      content: "\f3c9"
+    &::before
+      content "\f46f"
 
   > .skip-next
-    &:before
-      content: "\f3ca"
+    &::before
+      content "\f470"
 
   > .skip-previous
-    &:before
-      content: "\f3cb"
+    &::before
+      content "\f471"
 
   > .snowman
-    &:before
-      content: "\f3cc"
-
-  > .sort-alphabetical
-    &:before
-      content: "\f3cd"
-
-  > .sort-ascending
-    &:before
-      content: "\f3ce"
-
-  > .sort-descending
-    &:before
-      content: "\f3cf"
-
-  > .sort-numeric
-    &:before
-      content: "\f3d0"
-
-  > .sort-variant
-    &:before
-      content: "\f3d1"
+    &::before
+      content "\f472"
 
   > .sort
-    &:before
-      content: "\f3d2"
+    &::before
+      content "\f473"
+
+  > .sort-alphabetical
+    &::before
+      content "\f474"
+
+  > .sort-ascending
+    &::before
+      content "\f475"
+
+  > .sort-descending
+    &::before
+      content "\f476"
+
+  > .sort-numeric
+    &::before
+      content "\f477"
+
+  > .sort-variant
+    &::before
+      content "\f478"
 
   > .soundcloud
-    &:before
-      content: "\f3d3"
+    &::before
+      content "\f479"
 
   > .source-fork
-    &:before
-      content: "\f3d4"
+    &::before
+      content "\f47a"
 
   > .source-pull
-    &:before
-      content: "\f3d5"
-
-  > .speaker-off
-    &:before
-      content: "\f3d6"
+    &::before
+      content "\f47b"
 
   > .speaker
-    &:before
-      content: "\f3d7"
+    &::before
+      content "\f47c"
+
+  > .speaker-off
+    &::before
+      content "\f47d"
+
+  > .speedometer
+    &::before
+      content "\f47e"
 
   > .spellcheck
-    &:before
-      content: "\f3d8"
+    &::before
+      content "\f47f"
 
   > .spotify
-    &:before
-      content: "\f3d9"
-
-  > .spotlight-beam
-    &:before
-      content: "\f3da"
+    &::before
+      content "\f480"
 
   > .spotlight
-    &:before
-      content: "\f3db"
+    &::before
+      content "\f481"
 
-  > .star-circle
-    &:before
-      content: "\f3dc"
+  > .spotlight-beam
+    &::before
+      content "\f482"
 
-  > .star-half
-    &:before
-      content: "\f3dd"
-
-  > .star-outline
-    &:before
-      content: "\f3de"
+  > .stackoverflow
+    &::before
+      content "\f483"
 
   > .star
-    &:before
-      content: "\f3df"
+    &::before
+      content "\f484"
+
+  > .star-circle
+    &::before
+      content "\f485"
+
+  > .star-half
+    &::before
+      content "\f486"
+
+  > .star-outline
+    &::before
+      content "\f487"
 
   > .stocking
-    &:before
-      content: "\f3e0"
+    &::before
+      content "\f488"
 
   > .stop
-    &:before
-      content: "\f3e1"
-
-  > .store-24-hour
-    &:before
-      content: "\f3e2"
+    &::before
+      content "\f489"
 
   > .store
-    &:before
-      content: "\f3e3"
+    &::before
+      content "\f48a"
+
+  > .store-24-hour
+    &::before
+      content "\f48b"
 
   > .stove
-    &:before
-      content: "\f3e4"
+    &::before
+      content "\f48c"
 
   > .subway
-    &:before
-      content: "\f3e5"
+    &::before
+      content "\f48d"
 
   > .swap-horizontal
-    &:before
-      content: "\f3e6"
+    &::before
+      content "\f48e"
 
   > .swap-vertical
-    &:before
-      content: "\f3e7"
+    &::before
+      content "\f48f"
+
+  > .swim
+    &::before
+      content "\f490"
 
   > .sword
-    &:before
-      content: "\f3e8"
-
-  > .sync-alert
-    &:before
-      content: "\f3e9"
-
-  > .sync-off
-    &:before
-      content: "\f3ea"
+    &::before
+      content "\f491"
 
   > .sync
-    &:before
-      content: "\f3eb"
+    &::before
+      content "\f492"
 
-  > .tab-unselected
-    &:before
-      content: "\f3ec"
+  > .sync-alert
+    &::before
+      content "\f493"
+
+  > .sync-off
+    &::before
+      content "\f494"
 
   > .tab
-    &:before
-      content: "\f3ed"
+    &::before
+      content "\f495"
+
+  > .tab-unselected
+    &::before
+      content "\f496"
 
   > .table
-    &:before
-      content: "\f3ee"
+    &::before
+      content "\f497"
 
-  > .tablet-android
-    &:before
-      content: "\f3ef"
-
-  > .tablet-ipad
-    &:before
-      content: "\f3f0"
+  > .table-large
+    &::before
+      content "\f498"
 
   > .tablet
-    &:before
-      content: "\f3f1"
+    &::before
+      content "\f499"
 
-  > .tag-faces
-    &:before
-      content: "\f3f2"
+  > .tablet-android
+    &::before
+      content "\f49a"
 
-  > .tag-outline
-    &:before
-      content: "\f3f3"
-
-  > .tag-text-outline
-    &:before
-      content: "\f3f4"
+  > .tablet-ipad
+    &::before
+      content "\f49b"
 
   > .tag
-    &:before
-      content: "\f3f5"
+    &::before
+      content "\f49c"
+
+  > .tag-faces
+    &::before
+      content "\f49d"
+
+  > .tag-outline
+    &::before
+      content "\f49e"
+
+  > .tag-text-outline
+    &::before
+      content "\f49f"
 
   > .taxi
-    &:before
-      content: "\f3f6"
-
-  > .television-guide
-    &:before
-      content: "\f3f7"
+    &::before
+      content "\f4a0"
 
   > .television
-    &:before
-      content: "\f3f8"
+    &::before
+      content "\f4a1"
+
+  > .television-guide
+    &::before
+      content "\f4a2"
 
   > .temperature-celsius
-    &:before
-      content: "\f3f9"
+    &::before
+      content "\f4a3"
 
   > .temperature-fahrenheit
-    &:before
-      content: "\f3fa"
+    &::before
+      content "\f4a4"
 
   > .temperature-kelvin
-    &:before
-      content: "\f3fb"
+    &::before
+      content "\f4a5"
 
   > .tent
-    &:before
-      content: "\f3fc"
+    &::before
+      content "\f4a6"
 
   > .terrain
-    &:before
-      content: "\f3fd"
+    &::before
+      content "\f4a7"
+
+  > .text-to-speech
+    &::before
+      content "\f4a8"
+
+  > .text-to-speech-off
+    &::before
+      content "\f4a9"
 
   > .texture
-    &:before
-      content: "\f3fe"
+    &::before
+      content "\f4aa"
 
   > .theater
-    &:before
-      content: "\f3ff"
+    &::before
+      content "\f4ab"
 
-  > .thermometer-lines
-    &:before
-      content: "\f400"
+  > .theme-light-dark
+    &::before
+      content "\f4ac"
 
   > .thermometer
-    &:before
-      content: "\f401"
+    &::before
+      content "\f4ad"
+
+  > .thermometer-lines
+    &::before
+      content "\f4ae"
 
   > .thumb-down
-    &:before
-      content: "\f402"
+    &::before
+      content "\f4af"
 
   > .thumb-up
-    &:before
-      content: "\f403"
+    &::before
+      content "\f4b0"
 
   > .thumbs-up-down
-    &:before
-      content: "\f404"
-
-  > .ticket-account
-    &:before
-      content: "\f405"
+    &::before
+      content "\f4b1"
 
   > .ticket
-    &:before
-      content: "\f406"
+    &::before
+      content "\f4b2"
+
+  > .ticket-account
+    &::before
+      content "\f4b3"
 
   > .tie
-    &:before
-      content: "\f407"
+    &::before
+      content "\f4b4"
 
   > .timelapse
-    &:before
-      content: "\f408"
-
-  > .timer-10
-    &:before
-      content: "\f409"
-
-  > .timer-3
-    &:before
-      content: "\f40a"
-
-  > .timer-off
-    &:before
-      content: "\f40b"
-
-  > .timer-sand
-    &:before
-      content: "\f40c"
+    &::before
+      content "\f4b5"
 
   > .timer
-    &:before
-      content: "\f40d"
+    &::before
+      content "\f4b6"
+
+  > .timer-10
+    &::before
+      content "\f4b7"
+
+  > .timer-3
+    &::before
+      content "\f4b8"
+
+  > .timer-off
+    &::before
+      content "\f4b9"
+
+  > .timer-sand
+    &::before
+      content "\f4ba"
 
   > .timetable
-    &:before
-      content: "\f40e"
-
-  > .toggle-switch-off
-    &:before
-      content: "\f40f"
+    &::before
+      content "\f4bb"
 
   > .toggle-switch
-    &:before
-      content: "\f410"
+    &::before
+      content "\f4bc"
 
-  > .tooltip-edit
-    &:before
-      content: "\f411"
-
-  > .tooltip-image
-    &:before
-      content: "\f412"
-
-  > .tooltip-outline
-    &:before
-      content: "\f413"
-
-  > .tooltip-text
-    &:before
-      content: "\f414"
+  > .toggle-switch-off
+    &::before
+      content "\f4bd"
 
   > .tooltip
-    &:before
-      content: "\f415"
+    &::before
+      content "\f4be"
+
+  > .tooltip-edit
+    &::before
+      content "\f4bf"
+
+  > .tooltip-image
+    &::before
+      content "\f4c0"
+
+  > .tooltip-outline
+    &::before
+      content "\f4c1"
+
+  > .tooltip-text
+    &::before
+      content "\f4c2"
 
   > .tor
-    &:before
-      content: "\f416"
+    &::before
+      content "\f4c3"
 
   > .traffic-light
-    &:before
-      content: "\f417"
+    &::before
+      content "\f4c4"
 
   > .train
-    &:before
-      content: "\f418"
+    &::before
+      content "\f4c5"
 
   > .tram
-    &:before
-      content: "\f419"
-
-  > .transcribe-close
-    &:before
-      content: "\f41a"
+    &::before
+      content "\f4c6"
 
   > .transcribe
-    &:before
-      content: "\f41b"
+    &::before
+      content "\f4c7"
+
+  > .transcribe-close
+    &::before
+      content "\f4c8"
+
+  > .trello
+    &::before
+      content "\f4c9"
 
   > .trending-down
-    &:before
-      content: "\f41c"
+    &::before
+      content "\f4ca"
 
   > .trending-neutral
-    &:before
-      content: "\f41d"
+    &::before
+      content "\f4cb"
 
   > .trending-up
-    &:before
-      content: "\f41e"
-
-  > .trophy-award
-    &:before
-      content: "\f41f"
-
-  > .trophy-variant
-    &:before
-      content: "\f420"
+    &::before
+      content "\f4cc"
 
   > .trophy
-    &:before
-      content: "\f421"
+    &::before
+      content "\f4cd"
+
+  > .trophy-award
+    &::before
+      content "\f4ce"
+
+  > .trophy-variant
+    &::before
+      content "\f4cf"
 
   > .truck
-    &:before
-      content: "\f422"
+    &::before
+      content "\f4d0"
 
   > .tshirt-crew
-    &:before
-      content: "\f423"
+    &::before
+      content "\f4d1"
 
   > .tshirt-v
-    &:before
-      content: "\f424"
-
-  > .tumblr-reblog
-    &:before
-      content: "\f425"
+    &::before
+      content "\f4d2"
 
   > .tumblr
-    &:before
-      content: "\f426"
+    &::before
+      content "\f4d3"
+
+  > .tumblr-reblog
+    &::before
+      content "\f4d4"
 
   > .twitch
-    &:before
-      content: "\f427"
-
-  > .twitter-box
-    &:before
-      content: "\f428"
-
-  > .twitter-retweet
-    &:before
-      content: "\f429"
+    &::before
+      content "\f4d5"
 
   > .twitter
-    &:before
-      content: "\f42a"
+    &::before
+      content "\f4d6"
+
+  > .twitter-box
+    &::before
+      content "\f4d7"
+
+  > .twitter-retweet
+    &::before
+      content "\f4d8"
 
   > .ubuntu
-    &:before
-      content: "\f42b"
-
-  > .undo-variant
-    &:before
-      content: "\f42c"
+    &::before
+      content "\f4d9"
 
   > .undo
-    &:before
-      content: "\f42d"
+    &::before
+      content "\f4da"
+
+  > .undo-variant
+    &::before
+      content "\f4db"
 
   > .unfold-less
-    &:before
-      content: "\f42e"
+    &::before
+      content "\f4dc"
 
   > .unfold-more
-    &:before
-      content: "\f42f"
+    &::before
+      content "\f4dd"
 
   > .upload
-    &:before
-      content: "\f430"
+    &::before
+      content "\f4de"
 
   > .usb
-    &:before
-      content: "\f431"
+    &::before
+      content "\f4df"
 
   > .vector-curve
-    &:before
-      content: "\f432"
+    &::before
+      content "\f4e0"
 
   > .vector-point
-    &:before
-      content: "\f433"
+    &::before
+      content "\f4e1"
 
   > .vector-square
-    &:before
-      content: "\f434"
+    &::before
+      content "\f4e2"
 
   > .verified
-    &:before
-      content: "\f435"
+    &::before
+      content "\f4e3"
 
   > .vibrate
-    &:before
-      content: "\f436"
-
-  > .video-off
-    &:before
-      content: "\f437"
-
-  > .video-switch
-    &:before
-      content: "\f438"
+    &::before
+      content "\f4e4"
 
   > .video
-    &:before
-      content: "\f439"
+    &::before
+      content "\f4e5"
+
+  > .video-off
+    &::before
+      content "\f4e6"
+
+  > .video-switch
+    &::before
+      content "\f4e7"
 
   > .view-agenda
-    &:before
-      content: "\f43a"
+    &::before
+      content "\f4e8"
 
   > .view-array
-    &:before
-      content: "\f43b"
+    &::before
+      content "\f4e9"
 
   > .view-carousel
-    &:before
-      content: "\f43c"
+    &::before
+      content "\f4ea"
 
   > .view-column
-    &:before
-      content: "\f43d"
+    &::before
+      content "\f4eb"
 
   > .view-dashboard
-    &:before
-      content: "\f43e"
+    &::before
+      content "\f4ec"
 
   > .view-day
-    &:before
-      content: "\f43f"
+    &::before
+      content "\f4ed"
 
   > .view-headline
-    &:before
-      content: "\f440"
+    &::before
+      content "\f4ee"
 
   > .view-list
-    &:before
-      content: "\f441"
+    &::before
+      content "\f4ef"
 
   > .view-module
-    &:before
-      content: "\f442"
+    &::before
+      content "\f4f0"
 
   > .view-quilt
-    &:before
-      content: "\f443"
+    &::before
+      content "\f4f1"
 
   > .view-stream
-    &:before
-      content: "\f444"
+    &::before
+      content "\f4f2"
 
   > .view-week
-    &:before
-      content: "\f445"
+    &::before
+      content "\f4f3"
+
+  > .vimeo
+    &::before
+      content "\f4f4"
 
   > .voicemail
-    &:before
-      content: "\f446"
+    &::before
+      content "\f4f5"
 
   > .volume-high
-    &:before
-      content: "\f447"
+    &::before
+      content "\f4f6"
 
   > .volume-low
-    &:before
-      content: "\f448"
+    &::before
+      content "\f4f7"
 
   > .volume-medium
-    &:before
-      content: "\f449"
+    &::before
+      content "\f4f8"
 
   > .volume-off
-    &:before
-      content: "\f44a"
+    &::before
+      content "\f4f9"
 
   > .walk
-    &:before
-      content: "\f44b"
-
-  > .wallet-giftcard
-    &:before
-      content: "\f44c"
-
-  > .wallet-membership
-    &:before
-      content: "\f44d"
-
-  > .wallet-travel
-    &:before
-      content: "\f44e"
+    &::before
+      content "\f4fa"
 
   > .wallet
-    &:before
-      content: "\f44f"
+    &::before
+      content "\f4fb"
+
+  > .wallet-giftcard
+    &::before
+      content "\f4fc"
+
+  > .wallet-membership
+    &::before
+      content "\f4fd"
+
+  > .wallet-travel
+    &::before
+      content "\f4fe"
 
   > .watch
-    &:before
-      content: "\f450"
-
-  > .water-off
-    &:before
-      content: "\f451"
-
-  > .water-pump
-    &:before
-      content: "\f452"
+    &::before
+      content "\f4ff"
 
   > .water
-    &:before
-      content: "\f453"
+    &::before
+      content "\f500"
+
+  > .water-off
+    &::before
+      content "\f501"
+
+  > .water-pump
+    &::before
+      content "\f502"
 
   > .weather-cloudy
-    &:before
-      content: "\f454"
+    &::before
+      content "\f503"
 
   > .weather-hail
-    &:before
-      content: "\f455"
+    &::before
+      content "\f504"
 
   > .weather-lightning
-    &:before
-      content: "\f456"
+    &::before
+      content "\f505"
 
   > .weather-night
-    &:before
-      content: "\f457"
+    &::before
+      content "\f506"
 
   > .weather-partlycloudy
-    &:before
-      content: "\f458"
+    &::before
+      content "\f507"
 
   > .weather-pouring
-    &:before
-      content: "\f459"
+    &::before
+      content "\f508"
 
   > .weather-rainy
-    &:before
-      content: "\f45a"
+    &::before
+      content "\f509"
 
   > .weather-snowy
-    &:before
-      content: "\f45b"
+    &::before
+      content "\f50a"
 
   > .weather-sunny
-    &:before
-      content: "\f45c"
-
-  > .weather-sunset-down
-    &:before
-      content: "\f45d"
-
-  > .weather-sunset-up
-    &:before
-      content: "\f45e"
+    &::before
+      content "\f50b"
 
   > .weather-sunset
-    &:before
-      content: "\f45f"
+    &::before
+      content "\f50c"
 
-  > .weather-windy-variant
-    &:before
-      content: "\f460"
+  > .weather-sunset-down
+    &::before
+      content "\f50d"
+
+  > .weather-sunset-up
+    &::before
+      content "\f50e"
 
   > .weather-windy
-    &:before
-      content: "\f461"
+    &::before
+      content "\f50f"
+
+  > .weather-windy-variant
+    &::before
+      content "\f510"
 
   > .web
-    &:before
-      content: "\f462"
+    &::before
+      content "\f511"
+
+  > .webcam
+    &::before
+      content "\f512"
 
   > .whatsapp
-    &:before
-      content: "\f463"
+    &::before
+      content "\f513"
 
   > .wheelchair-accessibility
-    &:before
-      content: "\f464"
+    &::before
+      content "\f514"
 
   > .white-balance-auto
-    &:before
-      content: "\f465"
+    &::before
+      content "\f515"
 
   > .white-balance-incandescent
-    &:before
-      content: "\f466"
+    &::before
+      content "\f516"
 
   > .white-balance-irradescent
-    &:before
-      content: "\f467"
+    &::before
+      content "\f517"
 
   > .white-balance-sunny
-    &:before
-      content: "\f468"
+    &::before
+      content "\f518"
 
   > .wifi
-    &:before
-      content: "\f469"
+    &::before
+      content "\f519"
 
   > .wikipedia
-    &:before
-      content: "\f46a"
+    &::before
+      content "\f51a"
 
   > .window-closed
-    &:before
-      content: "\f46b"
+    &::before
+      content "\f51b"
 
   > .window-open
-    &:before
-      content: "\f46c"
+    &::before
+      content "\f51c"
 
   > .windows
-    &:before
-      content: "\f46d"
+    &::before
+      content "\f51d"
+
+  > .wordpress
+    &::before
+      content "\f51e"
 
   > .xbox
-    &:before
-      content: "\f46e"
+    &::before
+      content "\f51f"
+
+  > .xbox-controller
+    &::before
+      content "\f520"
+
+  > .xbox-controller-off
+    &::before
+      content "\f521"
 
   > .xda
-    &:before
-      content: "\f46f"
+    &::before
+      content "\f522"
 
   > .xml
-    &:before
-      content: "\f470"
+    &::before
+      content "\f523"
+
+  > .yeast
+    &::before
+      content "\f524"
 
   > .youtube-play
-    &:before
-      content: "\f471"
+    &::before
+      content "\f525"
 
   > .zip-box
-    &:before
-      content: "\f472"
+    &::before
+      content "\f526"

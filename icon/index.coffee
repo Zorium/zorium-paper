@@ -7,10 +7,9 @@ if window?
   require './index.styl'
 
 module.exports = class Icon
-  render: ({icon, isDark, isInactive, shouldRipple}) ->
+  render: ({icon, isDark, isInactive, isTouchTarget, padding}) ->
     icon ?= 'cake-variant'
     isDark ?= false
-    shouldRipple ?= true
 
     rippleColor = switch
       when isDark
@@ -23,9 +22,12 @@ module.exports = class Icon
         className: z.classKebab {
           isDark
           isInactive
+          isTouchTarget
         }
+        style:
+          padding: padding
         onmousedown: z.ev (e, $$el) ->
-          if shouldRipple
+          if isTouchTarget
             RipplerService.ripple {
               $$el
               color: rippleColor
