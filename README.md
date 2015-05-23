@@ -2,7 +2,7 @@
 
 #### Material design components for the [Zorium](https://zorium.org) framework
 
-![material design components](./images/example.png)
+[![material design components](./images/example.png)](https://zorium.org/paper)
 
 ### Documentation
 
