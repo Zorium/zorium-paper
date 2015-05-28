@@ -7,7 +7,7 @@ if window?
   require './index.styl'
 
 module.exports = class Icon
-  render: ({icon, isDark, isInactive, isTouchTarget, padding}) ->
+  render: ({icon, isDark, isInactive, isTouchTarget, padding, onclick}) ->
     icon ?= 'cake-variant'
     isDark ?= false
 
@@ -26,6 +26,7 @@ module.exports = class Icon
         }
         style:
           padding: padding
+        onclick: onclick
         onmousedown: z.ev (e, $$el) ->
           if isTouchTarget
             RipplerService.ripple {
