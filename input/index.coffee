@@ -19,7 +19,8 @@ module.exports = class Input
       error: @error
     }
 
-  render: ({colors, hintText, type, isFloating, isDisabled, isDark}) =>
+  render: ({colors, hintText, type, isFloating,
+    isDisabled, isDark, autocapitalize}) =>
     {value, error, isFocused} = @state.getValue()
 
     colors ?= {
@@ -29,6 +30,7 @@ module.exports = class Input
     type ?= 'text'
     isFloating ?= false
     isDisabled ?= false
+    autocapitalize ?= 'none'
 
     z '.zp-input',
       className: z.classKebab {
@@ -49,6 +51,7 @@ module.exports = class Input
         attributes:
           disabled: if isDisabled then true else undefined
           type: type
+          autocapitalize: autocapitalize
         value: value
         oninput: z.ev (e, $$el) =>
           @value.onNext $$el.value
