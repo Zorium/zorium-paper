@@ -15,7 +15,7 @@ module.exports = class Checkbox
     }
 
   render: ({colors, isDisabled, isDark}) =>
-    {isChecked} = @state()
+    {isChecked} = @state.getValue()
 
     colors ?= {
       c500: paperColors.$black

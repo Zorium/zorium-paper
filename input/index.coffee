@@ -1,25 +1,26 @@
 z = require 'zorium'
+Rx = require 'rx-lite'
 
 paperColors = require '../colors.json'
 styles = require './index.styl'
 
 module.exports = class Input
-  constructor: ({@o_value, @o_error} = {}) ->
+  constructor: ({@value, @error} = {}) ->
     styles.use()
 
-    @o_value ?= z.observe ''
-    @o_error ?= z.observe null
+    @value ?= new Rx.BehaviorSubject ''
+    @error ?= new Rx.BehaviorSubject null
 
-    @o_isFocused = z.observe false
+    @isFocused = new Rx.BehaviorSubject false
 
     @state = z.state {
-      isFocused: @o_isFocused
-      value: @o_value
-      error: @o_error
+      isFocused: @isFocused
+      value: @value
+      error: @error
     }
 
   render: ({colors, hintText, type, isFloating, isDisabled, isDark}) =>
-    {value, error, isFocused} = @state()
+    {value, error, isFocused} = @state.getValue()
 
     colors ?= {
       c500: paperColors.$black
@@ -50,11 +51,11 @@ module.exports = class Input
           type: type
         value: value
         oninput: z.ev (e, $$el) =>
-          @o_value.set $$el.value
+          @value.onNext $$el.value
         onfocus: z.ev (e, $$el) =>
-          @o_isFocused.set true
+          @isFocused.onNext true
         onblur: z.ev (e, $$el) =>
-          @o_isFocused.set false
+          @isFocused.onNext false
       z '.underline',
         style:
           backgroundColor: if isFocused and not error? \

@@ -38,7 +38,7 @@ module.exports = class Button
   # TODO: deprecate text infavor of $content
   render: ({text, isDisabled, listeners, isRaised, isFullWidth,
             isShort, isDark, isFlat, colors, onclick, type, $content}) =>
-    {backgroundColor, isHovered, isActive} = @state()
+    {backgroundColor, isHovered, isActive} = @state.getValue()
 
     $content ?= text
     type ?= 'button'
