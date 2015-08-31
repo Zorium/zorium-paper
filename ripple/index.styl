@@ -1,0 +1,30 @@
+@require '../base'
+json('../colors.json')
+
+@keyframes zp-ripple-animation
+  from
+    width: 0px
+    height: 0px
+    opacity: 0.25
+  to
+    width: 1000px
+    height: 1000px
+    margin-top: -500px
+    margin-left: -500px
+    opacity: 0
+
+.zp-ripple
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: red
+  overflow: hidden
+
+  > .wave
+    position: absolute
+    border-radius: 50%
+    background: $white
+    animation: zp-ripple-animation 1.5s
+    pointer-events: none
