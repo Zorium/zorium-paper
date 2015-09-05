@@ -20,6 +20,7 @@ json('../colors.json')
   right: 0
   bottom: 0
   overflow: hidden
+  opacity: 0.5
 
   > .wave
     position: absolute
@@ -27,3 +28,8 @@ json('../colors.json')
     background: $white
     animation: zp-ripple-animation 1.5s
     pointer-events: none
+
+  &.is-circle
+    // fix chrome border-radius clipping
+    transform: translate3d(0, 0, 0)
+    border-radius: 50%

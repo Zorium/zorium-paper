@@ -30,7 +30,7 @@ getRippleColor = ({color, isRaised}) ->
   if color and isRaised
     colors["$#{color}500Text"]
   else if color
-    colors["$#{color}200"]
+    colors["$#{color}500"]
   else
     undefined
 

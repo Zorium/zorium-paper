@@ -12,13 +12,17 @@ module.exports = class Ripple
       $waves: []
       waveKeyCounter: 0
 
-  ripple: ({$$el, color, mouseX, mouseY}) =>
+  ripple: ({$$el, color, mouseX, mouseY, isCenter}) =>
     {$waves, waveKeyCounter} = @state.getValue()
 
     {width, height, top, left} = $$el.getBoundingClientRect()
 
-    x = mouseX - left
-    y = mouseY - top
+    if isCenter
+      x = width / 2
+      y = height / 2
+    else
+      x = mouseX - left
+      y = mouseY - top
 
     $wave =  z '.wave',
       key: waveKeyCounter
@@ -37,16 +41,19 @@ module.exports = class Ripple
         $waves: _.without $waves, $wave
     , 1400
 
-  render: ({color}) =>
+  render: ({color, isCircle, isCenter}) =>
     {$waves} = @state.getValue()
 
     color ?= colors.$grey800
 
     z '.zp-ripple',
+      className: z.classKebab {isCircle}
       onmousedown: z.ev (e, $$el) =>
         @ripple {
           $$el
-          color: color
+          color
+          isCenter
+          isCircle
           mouseX: e.clientX
           mouseY: e.clientY
         }
