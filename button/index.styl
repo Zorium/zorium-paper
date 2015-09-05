@@ -2,28 +2,24 @@
 json('../colors.json')
 
 .zp-button
-  min-height: 48px
-  min-width: 48px
-  max-width: 100%
-  box-sizing: border-box
+  height: 48px
   display: inline-block
   position: relative
   background: transparent
-  text-align: center
   outline: none
   user-select: none
   cursor: pointer
-  padding: 4px
+  box-sizing: border-box
+  padding: 6px 0
   -webkit-tap-highlight-color: transparent
 
   > .button
     zp-font-button()
-    display: inline-block
     position: relative
     box-sizing: border-box
+    padding: 0 16px
     vertical-align: middle
-    padding: 0 8px
-    min-height: 36px
+    height: 36px
     min-width: 88px
     max-width: 100%
     line-height: 36px
@@ -38,55 +34,27 @@ json('../colors.json')
     white-space: nowrap
     border: none
     -webkit-tap-highlight-color: transparent
+    transition: background 0.25s, box-shadow 0.25s
 
   &.is-disabled
     cursor: default
     pointer-events: none
 
     > .button
-      cursor: default
-      pointer-events: none
+      color: $black26
+
+  &.is-hovered
+    > .button
+      background: rgba(153, 153, 153, 0.20)
+
+  &.is-active
+    > .button
+      background: rgba(153, 153, 153, 0.40)
 
   &.is-raised
     > .button
       zp-shadow-1()
 
-      &:active
-        zp-shadow-2()
-
-  &.is-raised&.is-dark
+  &.is-raised&.is-active
     > .button
-      color: $white
-
-  &.is-raised&.is-disabled
-    > .button
-      box-shadow: none
-      background: $black12
-      color: $black26
-
-  &.is-raised&.is-dark&.is-disabled
-    > .button
-        background: $white12
-        color: $white30
-
-  &.is-full-width
-    width: 100%
-
-    > .button
-      width: 100%
-
-  &.is-short
-    > .button
-      min-width: 48px
-
-  &.is-flat&.is-dark
-    > .button
-      color: $white
-
-  &.is-flat&.is-disabled
-    > .button
-      color: $black26
-
-  &.is-flat&.is-dark&.is-disabled
-    > .button
-      color: $white30
+      zp-shadow-2()

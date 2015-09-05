@@ -37,14 +37,16 @@ module.exports = class Ripple
         $waves: _.without $waves, $wave
     , 1400
 
-  render: =>
+  render: ({color}) =>
     {$waves} = @state.getValue()
+
+    color ?= colors.$grey800
 
     z '.zp-ripple',
       onmousedown: z.ev (e, $$el) =>
         @ripple {
           $$el
-          color: colors.$grey800
+          color: color
           mouseX: e.clientX
           mouseY: e.clientY
         }

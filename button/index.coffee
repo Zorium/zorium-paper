@@ -1,76 +1,66 @@
 z = require 'zorium'
 _ = require 'lodash'
 
-paperColors = require '../colors.json'
-RipplerService = require '../services/rippler'
+colors = require '../colors.json'
+Ripple = require '../ripple'
 
 if window?
   require './index.styl'
 
+getBackgroundColor = ({color, isRaised, isActive, isHovered}) ->
+  if color and isRaised
+    if isActive
+      colors["$#{color}700"]
+    else if isHovered
+      colors["$#{color}600"]
+    else
+      colors["$#{color}500"]
+  else
+    undefined
+
+getTextColor = ({color, isRaised}) ->
+  if color and isRaised
+    colors["$#{color}500Text"]
+  else if color
+    colors["$#{color}500"]
+  else
+    undefined
+
+getRippleColor = ({color, isRaised}) ->
+  if color and isRaised
+    colors["$#{color}500Text"]
+  else if color
+    colors["$#{color}200"]
+  else
+    undefined
+
 module.exports = class Button
   constructor: ->
+    @$ripple = new Ripple()
+
     @state = z.state
       backgroundColor: null
       isHovered: false
       isActive: false
 
-  getBackgroundColor: (colors, isRaised, isHovered, isActive, isDark) ->
-    if isRaised
-      if isActive
-        colors.c700
-      else if isHovered
-        colors.c600
-      else
-        colors.c500
-    else
-      if isActive
-        if isDark
-          'rgba(204, 204, 204, 0.25)'
-        else
-          'rgba(153, 153, 153, 0.40)'
-      else if isHovered
-        if isDark
-          'rgba(204, 204, 204, 0.15)'
-        else
-          'rgba(153, 153, 153, 0.20)'
-      else
-        null
-
-  # TODO: deprecate text infavor of $content
-  render: ({text, isDisabled, listeners, isRaised, isFullWidth,
-            isShort, isDark, isFlat, colors, onclick, type, $content}) =>
-    {backgroundColor, isHovered, isActive} = @state.getValue()
-
-    $content ?= text
+  render: ({$children, onclick, type, isDisabled, isRaised, color}) =>
+    {isHovered, isActive} = @state.getValue()
+    onclick ?= -> null
     type ?= 'button'
-    isRaised ?= false
-    isFlat = not isRaised
-    isDisabled ?= false
-    isDark ?= false
-    onclick ?= (-> null)
-    colors ?= {}
-    colors = _.defaults colors, {
-      cText: if colors.ink and not isDisabled \
-                   then colors.ink
-                   else null
-      c200: if isDark and isFlat then paperColors.$grey500 \
-            else paperColors.$grey800
-      c500: null
-      c600: null
-      c700: null
-      ink: null
-    }
-    backgroundColor ?= @getBackgroundColor colors, isRaised, isHovered,
-                                           isActive, isDark
+
+    unless _.isArray $children
+      $children = [$children]
+
+    backgroundColor = getBackgroundColor {color, isRaised, isActive, isHovered}
+    textColor = getTextColor {color, isRaised}
+    rippleColor = getRippleColor {color, isRaised}
 
     z '.zp-button',
       className: z.classKebab {
-        isRaised
-        isFlat
-        isShort
-        isFullWidth
-        isDark
         isDisabled
+        isHovered
+        isActive
+        isRaised
       }
       ontouchstart: =>
         @state.set isActive: true
@@ -85,23 +75,13 @@ module.exports = class Button
       onclick: (e) =>
         @state.set isHovered: false
         onclick(e)
-
+      onmousedown: =>
+        @state.set isActive: true, isHovered: false
       z 'button.button',
-        {
-          attributes:
-            disabled: if isDisabled then true else undefined
-            type: type
-          onmousedown: z.ev (e, $$el) =>
-            @state.set isActive: true
-            unless isDisabled
-              RipplerService.ripple {
-                $$el
-                color: colors.ink or colors.c200
-                mouseX: e.clientX
-                mouseY: e.clientY
-              }
-          style:
-            backgroundColor: if isDisabled then null else backgroundColor
-            color: if isDisabled then null else colors.cText
-        },
-        $content
+        attributes:
+          disabled: if isDisabled then true else undefined
+          type: type
+        style:
+          background: backgroundColor
+          color: textColor
+        [z @$ripple, {color: rippleColor}].concat $children
