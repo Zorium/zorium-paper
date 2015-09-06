@@ -7,12 +7,19 @@ if window?
   require './index.styl'
 
 module.exports = class Ripple
-  constructor: ->
-    @state = z.state
+  constructor: ({@color, isCircle, isCenter} = {}) ->
+    unless @color?.subscribe?
+      @color = Rx.Observable.just @color or colors.$grey800
+
+    @state = z.state {
+      @color
+      isCircle
+      isCenter
       $waves: []
       waveKeyCounter: 0
+    }
 
-  ripple: ({$$el, color, mouseX, mouseY, isCenter}) =>
+  ripple: ({$$el, color, isCenter, mouseX, mouseY}) =>
     {$waves, waveKeyCounter} = @state.getValue()
 
     {width, height, top, left} = $$el.getBoundingClientRect()
@@ -41,10 +48,8 @@ module.exports = class Ripple
         $waves: _.without $waves, $wave
     , 1400
 
-  render: ({color, isCircle, isCenter}) =>
-    {$waves} = @state.getValue()
-
-    color ?= colors.$grey800
+  render: =>
+    {color, isCircle, isCenter, $waves} = @state.getValue()
 
     z '.zp-ripple',
       className: z.classKebab {isCircle}
@@ -53,7 +58,6 @@ module.exports = class Ripple
           $$el
           color
           isCenter
-          isCircle
           mouseX: e.clientX
           mouseY: e.clientY
         }
