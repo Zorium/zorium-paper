@@ -1,59 +1,58 @@
 z = require 'zorium'
 Rx = require 'rx-lite'
 
-paperColors = require '../colors.json'
-RipplerService = require '../services/rippler'
+colors = require '../colors.json'
+Ripple = require '../ripple'
 
 if window?
   require './index.styl'
 
 module.exports = class RadioButton
-  constructor: ({@isChecked} = {}) ->
-    @isChecked ?= new Rx.BehaviorSubject(false)
+  constructor: ({@isChecked, color, isDisabled, onToggle} = {}) ->
+    if not @isChecked?.subscribe?
+      @isChecked = new Rx.BehaviorSubject(@isChecked or false)
+
+    if not @isChecked?.onNext? and not onToggle?
+      throw new Error 'Must use onToggle if isChecked not writeable'
+    else if not onToggle?
+      onToggle = (isChecked) => @isChecked.onNext isChecked
+
+    color ?= 'blue'
+    isDisabled ?= false
+
+    @$ripple = new Ripple {
+      color: @isChecked.map (isChecked) ->
+        if isChecked
+          colors.$grey800
+        else
+          colors["$#{color}500"]
+      isCenter: true
+      isCircle: true
+    }
 
     @state = z.state {
-      isChecked: @isChecked
+      @isChecked
+      color
+      isDisabled
+      onToggle
     }
 
-  render: ({colors, isDisabled, isDark}) =>
-    {isChecked} = @state.getValue()
-
-    colors ?= {
-      c500: paperColors.$black
-    }
-    isDisabled ?= false
-    isDark ?= false
-
-    rippleColor = switch
-      when isChecked and isDark
-        paperColors.$grey200
-      when isChecked
-        paperColors.$grey800
-      else colors.c500
+  render: =>
+    {isChecked, color, isDisabled, onToggle} = @state.getValue()
 
     z '.zp-radio-button',
-      {
-        className: z.classKebab {
-          isDark
-        }
-        attributes:
-          checked: if isChecked then true else undefined
-          disabled: if isDisabled then true else undefined
-        onmousedown: z.ev (e, $$el) =>
-          unless isDisabled
-            RipplerService.ripple {
-              $$el
-              color: rippleColor
-              isSmall: true
-            }
-            @isChecked.onNext not isChecked
-      },
-      z '.ring', {
+      attributes:
+        checked: if isChecked then true
+        disabled: if isDisabled then true
+      onmousedown: z.ev (e, $$el) ->
+        unless isDisabled
+          onToggle(not isChecked)
+      z '.ring',
         style:
           borderColor: if isChecked and not isDisabled \
-                       then colors.c500 else null
-      }
-      z '.fill', {
+                       then colors["$#{color}500"]
+      z '.fill',
         style:
-          backgroundColor: if not isDisabled then colors.c500 else null
-      }
+          backgroundColor: if not isDisabled
+            colors["$#{color}500"]
+      @$ripple

@@ -46,19 +46,10 @@ json('../colors.json')
       transform: scale(1)
 
   &[disabled]
+    pointer-events: none
+
     > .ring
       border-color: $black26
 
     > .fill
       background: $black26
-
-  &.is-dark
-    > .ring
-      border-color: $white70
-
-    &[disabled]
-      > .ring
-        border-color: $white30
-
-      > .fill
-        background: $white30

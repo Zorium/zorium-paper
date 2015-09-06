@@ -45,23 +45,16 @@ module.exports = class Checkbox
     else
       undefined
 
-    rippleColor = if isChecked
-      colors.$grey800
-    else
-      colors["$#{color}500"]
-
     z '.zp-checkbox',
-      {
-        attributes:
-          disabled: if isDisabled then true else undefined
-          checked: if isChecked then true else undefined
-        onmousedown: z.ev (e, $$el) ->
-          unless isDisabled
-            onToggle(not isChecked)
-      },
-      @$ripple
+      attributes:
+        disabled: if isDisabled then true
+        checked: if isChecked then true
+      onmousedown: z.ev (e, $$el) ->
+        unless isDisabled
+          onToggle(not isChecked)
       z '.checkbox',
         style:
           backgroundColor: checkboxColor
           borderColor: checkboxColor
       z '.checkmark'
+      @$ripple
