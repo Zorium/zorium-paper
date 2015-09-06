@@ -1,40 +1,76 @@
 z = require 'zorium'
 Rx = require 'rx-lite'
 
-paperColors = require '../colors.json'
+colors = require '../colors.json'
 
 if window?
   require './index.styl'
 
+readWriteStreams = (stream, onChange, defaultValue) ->
+  if not stream?.subscribe?
+    stream = new Rx.BehaviorSubject stream or defaultValue
+
+  if not stream?.onNext? and not onChange?
+    throw new Error 'Must use change handler if stream not writeable'
+  else if not onChange?
+    onChange = (value) -> stream.onNext value
+
+  [stream, onChange]
+
 module.exports = class Input
-  constructor: ({@value, @error} = {}) ->
-    @value ?= new Rx.BehaviorSubject ''
-    @error ?= new Rx.BehaviorSubject null
+  constructor: ({
+    @value
+    @error
+    onValue
+    onError
+    color
+    label
+    type
+    isFloating
+    isDisabled
+    autocapitalize
+  } = {}) ->
+    [@value, onValue] = readWriteStreams @value, onValue, ''
+    [@error, onError] = readWriteStreams @error, onError, null
 
-    @isFocused = new Rx.BehaviorSubject false
-
-    @state = z.state {
-      isFocused: @isFocused
-      value: @value
-      error: @error
-    }
-
-  render: ({colors, hintText, type, isFloating,
-    isDisabled, isDark, autocapitalize}) =>
-    {value, error, isFocused} = @state.getValue()
-
-    colors ?= {
-      c500: paperColors.$black
-    }
-    hintText ?= ''
+    color ?= 'blue'
+    label ?= ''
     type ?= 'text'
     isFloating ?= false
     isDisabled ?= false
     autocapitalize ?= 'none'
 
+    @state = z.state {
+      @value
+      @error
+      onValue
+      onError
+      color
+      label
+      type
+      isFloating
+      isDisabled
+      autocapitalize
+      isFocused: false
+    }
+
+  render: =>
+    {
+      value
+      error
+      onValue
+      onError
+      color
+      label
+      type
+      isFloating
+      isDisabled
+      autocapitalize
+      isFocused
+    } = @state.getValue()
+
     z '.zp-input',
       className: z.classKebab {
-        isDark
         isFloating
         hasValue: value isnt ''
         isFocused
@@ -44,24 +80,26 @@ module.exports = class Input
       z '.hint', {
         style:
           color: if isFocused and not error? \
-                 then colors.c500 else null
+                 then colors["$#{color}500"]
       },
-        hintText
+        label
       z 'input.input',
         attributes:
-          disabled: if isDisabled then true else undefined
+          disabled: if isDisabled then true
           type: type
           autocapitalize: autocapitalize
         value: value
-        oninput: z.ev (e, $$el) =>
-          @value.onNext $$el.value
+        oninput: z.ev (e, $$el) ->
+          onValue $$el.value
         onfocus: z.ev (e, $$el) =>
-          @isFocused.onNext true
+          @state.set
+            isFocused: true
         onblur: z.ev (e, $$el) =>
-          @isFocused.onNext false
+          @state.set
+            isFocused: false
       z '.underline',
         style:
           backgroundColor: if isFocused and not error? \
-                           then colors.c500 else null
+                           then colors["$#{color}500"]
       if error?
         z '.error', error
