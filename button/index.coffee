@@ -7,53 +7,62 @@ Ripple = require '../ripple'
 if window?
   require './index.styl'
 
-getBackgroundColor = ({color, isRaised, isActive, isHovered}) ->
-  if color and isRaised
+getBackgroundColor = ({color, isRaised, isActive, isHovered, isDisabled}) ->
+  if color and isRaised and not isDisabled
     if isActive
       colors["$#{color}700"]
     else if isHovered
       colors["$#{color}600"]
     else
       colors["$#{color}500"]
-  else
-    undefined
 
-getTextColor = ({color, isRaised}) ->
-  if color and isRaised
-    colors["$#{color}500Text"]
-  else if color
-    colors["$#{color}500"]
-  else
-    undefined
+getTextColor = ({color, isRaised, isDisabled}) ->
+  if not isDisabled
+    if color and isRaised
+      colors["$#{color}500Text"]
+    else if color
+      colors["$#{color}500"]
 
 getRippleColor = ({color, isRaised}) ->
   if color and isRaised
     colors["$#{color}500Text"]
   else if color
     colors["$#{color}500"]
-  else
-    undefined
 
 module.exports = class Button
-  constructor: ->
-    @$ripple = new Ripple()
-
-    @state = z.state
-      backgroundColor: null
-      isHovered: false
-      isActive: false
-
-  render: ({$children, onclick, type, isDisabled, isRaised, color}) =>
-    {isHovered, isActive} = @state.getValue()
+  constructor: ({onclick, type, isDisabled, isRaised, color, $children} = {}) ->
+    unless _.isArray $children
+      $children = [$children]
     onclick ?= -> null
     type ?= 'button'
 
-    unless _.isArray $children
-      $children = [$children]
+    @$ripple = new Ripple({
+      color: getRippleColor {color, isRaised}
+    })
 
-    backgroundColor = getBackgroundColor {color, isRaised, isActive, isHovered}
-    textColor = getTextColor {color, isRaised}
-    rippleColor = getRippleColor {color, isRaised}
+    @state = z.state {
+      onclick
+      type
+      isDisabled
+      isRaised
+      color
+      $children
+      isHovered: false
+      isActive: false
+    }
+
+  render: =>
+    {onclick, type, isDisabled, isRaised, color,
+      $children, isHovered, isActive} = @state.getValue()
+
+    backgroundColor = getBackgroundColor {
+      color
+      isRaised
+      isActive
+      isHovered
+      isDisabled
+    }
+    textColor = getTextColor {color, isRaised, isDisabled}
 
     z '.zp-button',
       className: z.classKebab {
@@ -84,4 +93,4 @@ module.exports = class Button
         style:
           background: backgroundColor
           color: textColor
-        [z @$ripple, {color: rippleColor}].concat $children
+        [@$ripple].concat $children

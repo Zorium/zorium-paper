@@ -1,5 +1,6 @@
 z = require 'zorium'
 _ = require 'lodash'
+Rx = require 'rx-lite'
 
 colors = require '../colors.json'
 

@@ -55,6 +55,11 @@ json('../colors.json')
     > .button
       zp-shadow-1()
 
+  &.is-raised.is-disabled
+    > .button
+      box-shadow: none
+      background: rgba(0, 0, 0, 0.12)
+
   &.is-raised&.is-active
     > .button
       zp-shadow-2()
