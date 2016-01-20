@@ -31,8 +31,9 @@ getRippleColor = ({color, isRaised}) ->
 
 module.exports = class Button
   constructor: ({onclick, type, isDisabled, isRaised, color, $children} = {}) ->
-    unless _.isArray $children
-      $children = [$children]
+    # TODO: remove $children constructor support
+    if $children?
+      console.log '"$children" in zorium-paper/button constructor is deprecated'
     onclick ?= -> null
     type ?= 'button'
 
@@ -51,9 +52,13 @@ module.exports = class Button
       isActive: false
     }
 
-  render: =>
+  render: ({$children}) =>
+    # TODO: remove $children constructor support
+    $children ?= @state.getValue().$children
     {onclick, type, isDisabled, isRaised, color,
-      $children, isHovered, isActive} = @state.getValue()
+      isHovered, isActive} = @state.getValue()
+    unless _.isArray $children
+      $children = [$children]
 
     backgroundColor = getBackgroundColor {
       color
