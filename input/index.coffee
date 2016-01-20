@@ -52,7 +52,22 @@ module.exports = class Input
       isDisabled
       autocapitalize
       isFocused: false
+      wasFocused: false
     }
+
+  afterMount: (@$$el) => null
+  beforeUnmount: =>
+    @$$el = null
+    @state.set
+      isFocused: false
+      wasFocused: false
+
+  focus: =>
+    if @$$el?
+      $$input = @$$el.querySelector '.zp-input > .input'
+      $$input.focus()
+
+  wasFocused: => @state.getValue().wasFocused
 
   render: =>
     {
@@ -94,6 +109,7 @@ module.exports = class Input
         onfocus: z.ev (e, $$el) =>
           @state.set
             isFocused: true
+            wasFocused: true
         onblur: z.ev (e, $$el) =>
           @state.set
             isFocused: false
