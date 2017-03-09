@@ -29,6 +29,7 @@ module.exports = class Input
     isFloating
     isDisabled
     autocapitalize
+    name
   } = {}) ->
     [@value, onValue] = readWriteStreams @value, onValue, ''
     [@error, onError] = readWriteStreams @error, onError, null
@@ -53,6 +54,7 @@ module.exports = class Input
       autocapitalize
       isFocused: false
       wasFocused: false
+      name
     }
 
   afterMount: (@$$el) => null
@@ -82,6 +84,7 @@ module.exports = class Input
       isDisabled
       autocapitalize
       isFocused
+      name
     } = @state.getValue()
 
     z '.zp-input',
@@ -103,6 +106,7 @@ module.exports = class Input
           disabled: if isDisabled then true
           type: type
           autocapitalize: autocapitalize
+          name: name
         value: value
         oninput: z.ev (e, $$el) ->
           onValue $$el.value
