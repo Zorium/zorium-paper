@@ -30,6 +30,7 @@ module.exports = class Input
     isDisabled
     autocapitalize
     name
+    autocomplete
   } = {}) ->
     [@value, onValue] = readWriteStreams @value, onValue, ''
     [@error, onError] = readWriteStreams @error, onError, null
@@ -40,6 +41,8 @@ module.exports = class Input
     isFloating ?= false
     isDisabled ?= false
     autocapitalize ?= 'none'
+
+    label = if label.subscribe? then label else Rx.Observable.from label
 
     @state = z.state {
       @value
@@ -55,6 +58,7 @@ module.exports = class Input
       isFocused: false
       wasFocused: false
       name
+      autocomplete
     }
 
   afterMount: (@$$el) => null
@@ -85,6 +89,7 @@ module.exports = class Input
       autocapitalize
       isFocused
       name
+      autocomplete
     } = @state.getValue()
 
     z '.zp-input',
@@ -107,6 +112,7 @@ module.exports = class Input
           type: type
           autocapitalize: autocapitalize
           name: name
+          autocomplete: autocomplete
         value: value
         oninput: z.ev (e, $$el) ->
           onValue $$el.value
