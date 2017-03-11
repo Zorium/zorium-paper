@@ -42,8 +42,6 @@ module.exports = class Input
     isDisabled ?= false
     autocapitalize ?= 'none'
 
-    label = if label.subscribe? then label else Rx.Observable.from label
-
     @state = z.state {
       @value
       @error
