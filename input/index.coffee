@@ -1,5 +1,5 @@
 z = require 'zorium'
-Rx = require 'rx-lite'
+Rx = require 'rxjs/Rx'
 
 colors = require '../colors.json'
 
@@ -10,10 +10,10 @@ readWriteStreams = (stream, onChange, defaultValue) ->
   if not stream?.subscribe?
     stream = new Rx.BehaviorSubject stream or defaultValue
 
-  if not stream?.onNext? and not onChange?
+  if not stream?.next? and not onChange?
     throw new Error 'Must use change handler if stream not writeable'
   else if not onChange?
-    onChange = (value) -> stream.onNext value
+    onChange = (value) -> stream.next value
 
   [stream, onChange]
 

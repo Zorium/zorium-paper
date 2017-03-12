@@ -1,5 +1,5 @@
 z = require 'zorium'
-Rx = require 'rx-lite'
+Rx = require 'rxjs/Rx'
 
 colors = require '../colors.json'
 Ripple = require '../ripple'
@@ -12,10 +12,10 @@ module.exports = class RadioButton
     if not @isChecked?.subscribe?
       @isChecked = new Rx.BehaviorSubject(@isChecked or false)
 
-    if not @isChecked?.onNext? and not onToggle?
+    if not @isChecked?.next? and not onToggle?
       throw new Error 'Must use onToggle if isChecked not writeable'
     else if not onToggle?
-      onToggle = (isChecked) => @isChecked.onNext isChecked
+      onToggle = (isChecked) => @isChecked.next isChecked
 
     color ?= 'blue'
     isDisabled ?= false

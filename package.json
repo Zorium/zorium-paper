@@ -19,7 +19,7 @@
   "dependencies": {
     "coffee-script": "^1.9.2",
     "lodash": "^4.17.4",
-    "rx-lite": "^2.5.2",
+    "rxjs": "^5.2.0",
     "zorium": "^1.0.0"
   }
 }

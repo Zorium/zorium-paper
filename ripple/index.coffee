@@ -1,6 +1,6 @@
 z = require 'zorium'
 _ = require 'lodash'
-Rx = require 'rx-lite'
+Rx = require 'rxjs/Rx'
 
 colors = require '../colors.json'
 
@@ -10,7 +10,7 @@ if window?
 module.exports = class Ripple
   constructor: ({@color, isCircle, isCenter} = {}) ->
     unless @color?.subscribe?
-      @color = Rx.Observable.just @color or colors.$grey800
+      @color = Rx.Observable.of @color or colors.$grey800
 
     @state = z.state {
       @color
