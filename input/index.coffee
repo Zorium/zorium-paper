@@ -93,7 +93,7 @@ module.exports = class Input
     z '.zp-input',
       className: z.classKebab {
         isFloating
-        hasValue: value isnt ''
+        hasValue: value? and value isnt ''
         isFocused
         isDisabled
         isError: error?
