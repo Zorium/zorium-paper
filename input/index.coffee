@@ -31,6 +31,10 @@ module.exports = class Input
     autocapitalize
     name
     autocomplete
+    onblur
+    onkeydown
+    oninput
+    tabindex
   } = {}) ->
     [@value, onValue] = readWriteStreams @value, onValue, ''
     [@error, onError] = readWriteStreams @error, onError, null
@@ -57,6 +61,10 @@ module.exports = class Input
       wasFocused: false
       name
       autocomplete
+      onblur
+      onkeydown
+      oninput
+      tabindex
     }
 
   afterMount: (@$$el) => null
@@ -88,6 +96,10 @@ module.exports = class Input
       isFocused
       name
       autocomplete
+      onblur
+      onkeydown
+      oninput
+      tabindex
     } = @state.getValue()
 
     z '.zp-input',
@@ -111,9 +123,11 @@ module.exports = class Input
           autocapitalize: autocapitalize
           name: name
           autocomplete: autocomplete
+          tabindex: tabindex
         value: value
         oninput: z.ev (e, $$el) ->
           onValue $$el.value
+          oninput?.call $$el, e
         onfocus: z.ev (e, $$el) =>
           @state.set
             isFocused: true
@@ -121,6 +135,8 @@ module.exports = class Input
         onblur: z.ev (e, $$el) =>
           @state.set
             isFocused: false
+          onblur?.call $$el, e
+        onkeydown: onkeydown
       z '.underline',
         style:
           backgroundColor: if isFocused and not error? \
