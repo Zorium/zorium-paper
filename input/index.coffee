@@ -35,6 +35,7 @@ module.exports = class Input
     onkeydown
     oninput
     tabindex
+    isDark
   } = {}) ->
     [@value, onValue] = readWriteStreams @value, onValue, ''
     [@error, onError] = readWriteStreams @error, onError, null
@@ -65,6 +66,7 @@ module.exports = class Input
       onkeydown
       oninput
       tabindex
+      isDark
     }
 
   afterMount: (@$$el) => null
@@ -100,6 +102,7 @@ module.exports = class Input
       onkeydown
       oninput
       tabindex
+      isDark
     } = @state.getValue()
 
     z '.zp-input',
@@ -109,6 +112,7 @@ module.exports = class Input
         isFocused
         isDisabled
         isError: error?
+        isDark
       }
       z '.hint', {
         style:

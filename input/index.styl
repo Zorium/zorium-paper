@@ -46,6 +46,15 @@ json('../colors.json')
     pointer-events: none
     background: transparent
 
+  &.is-dark
+    color: $white
+
+    > .hint
+      color: $white70
+
+    > .underline
+      background: $white70
+
   &.is-floating
     min-height: 72px
 
