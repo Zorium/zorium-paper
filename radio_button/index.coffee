@@ -41,9 +41,8 @@ module.exports = class RadioButton
     {isChecked, color, isDisabled, onToggle} = @state.getValue()
 
     z '.zp-radio-button',
-      attributes:
-        checked: if isChecked then true
-        disabled: if isDisabled then true
+      checked: if isChecked then true
+      disabled: if isDisabled then true
       onmousedown: z.ev (e, $$el) ->
         unless isDisabled
           onToggle(not isChecked)

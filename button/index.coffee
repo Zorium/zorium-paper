@@ -92,9 +92,8 @@ module.exports = class Button
       onmousedown: =>
         @state.set isActive: true, isHovered: false
       z 'button.button',
-        attributes:
-          disabled: if isDisabled then true else undefined
-          type: type
+        disabled: if isDisabled then true else undefined
+        type: type
         style:
           background: backgroundColor
           color: textColor

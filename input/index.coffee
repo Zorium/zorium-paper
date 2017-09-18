@@ -121,13 +121,12 @@ module.exports = class Input
       },
         label
       z 'input.input',
-        attributes:
-          disabled: if isDisabled then true
-          type: type
-          autocapitalize: autocapitalize
-          name: name
-          autocomplete: autocomplete
-          tabindex: tabindex
+        disabled: if isDisabled then true
+        type: type
+        autocapitalize: autocapitalize
+        name: name
+        autocomplete: autocomplete
+        tabindex: tabindex
         value: value
         oninput: z.ev (e, $$el) ->
           onValue $$el.value
