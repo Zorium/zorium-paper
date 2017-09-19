@@ -54,9 +54,9 @@ module.exports = class Ripple
 
     z '.zp-ripple',
       className: z.classKebab {isCircle}
-      onmousedown: z.ev (e, $$el) =>
+      onmousedown: (e) =>
         @ripple {
-          $$el
+          $$el: e.currentTarget
           color
           isCenter
           mouseX: e.clientX

@@ -43,7 +43,7 @@ module.exports = class RadioButton
     z '.zp-radio-button',
       checked: if isChecked then true
       disabled: if isDisabled then true
-      onmousedown: z.ev (e, $$el) ->
+      onmousedown: ->
         unless isDisabled
           onToggle(not isChecked)
       z '.ring',

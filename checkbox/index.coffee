@@ -48,7 +48,7 @@ module.exports = class Checkbox
     z '.zp-checkbox',
       disabled: if isDisabled then true
       checked: if isChecked then true
-      onmousedown: z.ev (e, $$el) ->
+      onmousedown: ->
         unless isDisabled
           onToggle(not isChecked)
       z '.checkbox',

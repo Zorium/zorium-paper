@@ -128,17 +128,17 @@ module.exports = class Input
         autocomplete: autocomplete
         tabindex: tabindex
         value: value
-        oninput: z.ev (e, $$el) ->
-          onValue $$el.value
-          oninput?.call $$el, e
-        onfocus: z.ev (e, $$el) =>
+        oninput: (e) ->
+          onValue e.currentTarget.value
+          oninput? e
+        onfocus: =>
           @state.set
             isFocused: true
             wasFocused: true
-        onblur: z.ev (e, $$el) =>
+        onblur: (e) =>
           @state.set
             isFocused: false
-          onblur?.call $$el, e
+          onblur? e
         onkeydown: onkeydown
       z '.underline',
         style:
