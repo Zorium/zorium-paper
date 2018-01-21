@@ -52,11 +52,12 @@ module.exports = class Button
       isActive: false
     }
 
-  render: ({$children}) =>
+  render: ({$children, onclick}) =>
     # TODO: remove $children constructor support
     $children ?= @state.getValue().$children
-    {onclick, type, isDisabled, isRaised, color,
+    {type, isDisabled, isRaised, color,
       isHovered, isActive} = @state.getValue()
+    onclick ?= @state.getValue().onclick
     unless _.isArray $children
       $children = [$children]
 
