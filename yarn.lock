@@ -7,8 +7,8 @@ coffee-script@^1.9.2:
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.12.7.tgz#c05dae0cb79591d05b3070a8433a98c9a89ccc53"
 
 dio.js@^8.0.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/dio.js/-/dio.js-8.1.1.tgz#5907eb3a7ff336e0f85f26172d113f3ae450fe2b"
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/dio.js/-/dio.js-8.2.3.tgz#6bc71137398abe2fdd33d34bd55b8c6d5d22ef00"
 
 lodash@^4.17.4:
   version "4.17.4"
@@ -24,9 +24,9 @@ symbol-observable@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
-"zorium@https://github.com/Zorium/zorium.git#3729abae5844b87497c18dca30d494e3c1771d33":
+"zorium@https://github.com/Zorium/zorium.git#26bcb6ce0eeb47f671f8014a4220d413fbd764c0":
   version "1.0.13"
-  resolved "https://github.com/Zorium/zorium.git#3729abae5844b87497c18dca30d494e3c1771d33"
+  resolved "https://github.com/Zorium/zorium.git#26bcb6ce0eeb47f671f8014a4220d413fbd764c0"
   dependencies:
     coffee-script "^1.9.2"
     dio.js "^8.0.1"

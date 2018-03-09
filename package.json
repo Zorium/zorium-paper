@@ -20,6 +20,6 @@
     "coffee-script": "^1.9.2",
     "lodash": "^4.17.4",
     "rxjs": "^5.2.0",
-    "zorium": "https://github.com/Zorium/zorium.git#3729abae5844b87497c18dca30d494e3c1771d33"
+    "zorium": "https://github.com/Zorium/zorium.git#26bcb6ce0eeb47f671f8014a4220d413fbd764c0"
   }
 }
