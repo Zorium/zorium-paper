@@ -30,36 +30,15 @@ getRippleColor = ({color, isRaised}) ->
     colors["$#{color}500"]
 
 module.exports = class Button
-  constructor: ({onclick, type, isDisabled, isRaised, color, $children} = {}) ->
-    # TODO: remove $children constructor support
-    if $children?
-      console.log '"$children" in zorium-paper/button constructor is deprecated'
-    onclick ?= -> null
-    type ?= 'button'
-
-    @$ripple = new Ripple({
-      color: getRippleColor {color, isRaised}
-    })
-
-    @state = z.state {
-      onclick
-      type
-      isDisabled
-      isRaised
-      color
-      $children
+  constructor: ->
+    @state = z.state
       isHovered: false
       isActive: false
-    }
 
-  render: ({$children, onclick}) =>
-    # TODO: remove $children constructor support
-    $children ?= @state.getValue().$children
-    {type, isDisabled, isRaised, color,
-      isHovered, isActive} = @state.getValue()
-    onclick ?= @state.getValue().onclick
-    unless _.isArray $children
-      $children = [$children]
+  render: ({children, onclick, type, isDisabled, isRaised, color}) =>
+    {isHovered, isActive} = @state.getValue()
+    type ?= 'button'
+    color ?= 'blue'
 
     backgroundColor = getBackgroundColor {
       color
@@ -89,7 +68,7 @@ module.exports = class Button
         @state.set isActive: false
       onclick: (e) =>
         @state.set isHovered: false
-        onclick(e)
+        onclick?(e)
       onmousedown: =>
         @state.set isActive: true, isHovered: false
       z 'button.button',
@@ -98,4 +77,6 @@ module.exports = class Button
         style:
           background: backgroundColor
           color: textColor
-        [@$ripple].concat $children
+        [
+          z Ripple, {color: getRippleColor {color, isRaised}}
+        ].concat children

@@ -8,17 +8,10 @@ if window?
   require './index.styl'
 
 module.exports = class Ripple
-  constructor: ({@color, isCircle, isCenter} = {}) ->
-    unless @color?.subscribe?
-      @color = Rx.Observable.of @color or colors.$grey800
-
-    @state = z.state {
-      @color
-      isCircle
-      isCenter
+  constructor: ->
+    @state = z.state
       $waves: []
       waveKeyCounter: 0
-    }
 
   ripple: ({$$el, color, isCenter, mouseX, mouseY}) =>
     {$waves, waveKeyCounter} = @state.getValue()
@@ -49,7 +42,7 @@ module.exports = class Ripple
         $waves: _.without $waves, $wave
     , 1400
 
-  render: =>
+  render: ({color, isCircle, isCenter}) =>
     {color, isCircle, isCenter, $waves} = @state.getValue()
 
     z '.zp-ripple',
