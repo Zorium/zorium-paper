@@ -1,0 +1,88 @@
+@require '../base'
+json('../colors.json')
+
+
+.zp-textarea
+  zp-font-subhead()
+  margin-bottom: 20px // under-line 8px, error-text 12px
+  display: block
+  position: relative
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+
+  > .hint
+    z-index: 2
+    pointer-events: none
+    position: absolute
+    background: transparent
+    top: 16px
+    left: 16px
+    color: $grey600
+
+    transform-origin: 0% 0%
+    transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+  > .border
+    z-index: 1
+    border: 1px solid $grey600
+    border-radius: 4px
+    position: absolute
+    pointer-events: none
+    top: -1px
+    left: -1px
+    width: 100%
+    height: 100%
+
+  > .textarea
+    resize: none
+    padding: 0 16px 16px 16px
+    margin-top: 24px
+    width: 100%
+    height: 100%
+    font: inherit
+    color: inherit
+    background-color: transparent
+    outline: none
+    border: none
+    -webkit-tap-highlight-color: transparent
+
+  > .error
+    zp-font-caption()
+    color: $red500
+    bottom: -20px
+    position: absolute
+    pointer-events: none
+    background: transparent
+
+  &.is-focused, &.has-value
+    > .hint
+      font-size: 12px
+      top: 8px
+      display: block
+
+  &.is-error
+    > .hint
+      color: $red500
+
+    > .border
+      border-color: $red500
+
+    > .textarea
+      caret-color: $red500
+
+  &.is-disabled
+    > .hint
+      color: $grey500
+
+    > .border
+      border-color: $grey300
+      background: $grey100
+
+  &.is-focused, &:hover:not(.is-disabled)
+    > .border
+      border-width: 2px
+      top: -2px
+      left: -2px

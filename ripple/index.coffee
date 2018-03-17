@@ -8,14 +8,7 @@ if window?
   require './index.styl'
 
 module.exports = class Ripple
-  constructor: ->
-    @state = z.state
-      $waves: []
-      waveKeyCounter: 0
-
-  ripple: ({$$el, color, isCenter, mouseX, mouseY}) =>
-    {$waves, waveKeyCounter} = @state.getValue()
-
+  ripple: ({$$el, color, isCenter, mouseX, mouseY}) ->
     {width, height, top, left} = $$el.getBoundingClientRect()
 
     if isCenter
@@ -25,26 +18,19 @@ module.exports = class Ripple
       x = mouseX - left
       y = mouseY - top
 
-    $wave =  z '.wave',
-      key: waveKeyCounter
-      style:
-        top: y + 'px'
-        left: x + 'px'
-        backgroundColor: color
+    $$wave = document.createElement 'div'
+    $$wave.className = 'wave'
+    $$wave.style.top = "#{y}px"
+    $$wave.style.left = "#{x}px"
+    $$wave.style.background = "#{color}"
 
-    @state.set
-      $waves: $waves.concat $wave
-      waveKeyCounter: waveKeyCounter + 1
+    $$el.appendChild $$wave
 
-    window.setTimeout =>
-      {$waves} = @state.getValue()
-      @state.set
-        $waves: _.without $waves, $wave
+    setTimeout ->
+      $$el.removeChild $$wave
     , 1400
 
   render: ({color, isCircle, isCenter}) =>
-    {color, isCircle, isCenter, $waves} = @state.getValue()
-
     z '.zp-ripple',
       className: z.classKebab {isCircle}
       onmousedown: (e) =>
@@ -55,4 +41,3 @@ module.exports = class Ripple
           mouseX: e.clientX
           mouseY: e.clientY
         }
-      $waves

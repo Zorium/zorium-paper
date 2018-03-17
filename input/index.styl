@@ -4,7 +4,8 @@ json('../colors.json')
 
 .zp-input
   zp-font-subhead()
-  min-height: 48px
+  min-height: 40px // top 16px, text 16px, bottom 8px, under-line 8px
+  margin-bottom: 20px // under-line 8px, error-text 12px
   display: block
   outline: none
   text-align: inherit
@@ -24,19 +25,34 @@ json('../colors.json')
   > .input
     padding: 16px 0 8px 0
     width: 100%
-
     font: inherit
     color: inherit
     background-color: transparent
     border: none
     outline: none
     -webkit-tap-highlight-color: transparent
+    appearance: textfield
 
-  > .underline
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+
+  > .underline-wrapper
     position: absolute
-    height: 1px
+    top: 0
+    left: 0
     width: 100%
-    background: $grey600
+    height: 100%
+    overflow: hidden
+    pointer-events: none
+
+    > .underline
+      position: absolute
+      bottom: 0
+      left: 0
+      height: 1px
+      width: 100%
+      background: $grey600
 
   > .error
     zp-font-caption()
@@ -52,11 +68,12 @@ json('../colors.json')
     > .hint
       color: $white70
 
-    > .underline
-      background: $white70
+    > .underline-wrapper
+      > .underline
+        background: $white70
 
   &.is-floating
-    min-height: 72px
+    min-height: 60px // top 16px, label 12px, pre-text 8px, text 16px, post-text 8px
 
     > .hint
       top: 32px
@@ -74,15 +91,40 @@ json('../colors.json')
     > .hint
       display: none
 
-  &.is-focused
-    > .underline
-      height: 2px
+  &.is-focused, &:hover:not(.is-disabled)
+    > .underline-wrapper
+      > .underline
+        height: 2px
 
   &.is-error
-    > .underline
-      background: $red500
+    > .hint
+      color: $red500
+
+    > .input
+      caret-color: $red500
+
+    > .underline-wrapper
+      > .underline
+        background: $red500
 
   &.is-disabled
-    > .underline
-      background: none
-      border-bottom: 1px dashed $grey600
+    > .underline-wrapper
+      > .underline
+        background: none
+        border-bottom: 1px dashed $grey600
+
+  &.is-boxed
+    background: $black6
+    border-radius: 4px
+    padding: 0 16px
+    box-sizing: border-box
+
+    > .underline-wrapper
+      border-radius: 4px
+
+  &.is-boxed&.is-floating
+    min-height: 52px // top 8px, label 12px, pre-text 8px, text 16px, post-text 8px
+
+    &.is-focused, &.has-value
+      > .hint
+        top: 8px

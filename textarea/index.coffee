@@ -6,7 +6,7 @@ colors = require '../colors.json'
 if window?
   require './index.styl'
 
-module.exports = class Input
+module.exports = class Textarea
   constructor: ({value} = {}) ->
     value ?= new Rx.BehaviorSubject null
     @valueWrite = new Rx.ReplaySubject 1
@@ -41,38 +41,24 @@ module.exports = class Input
   render: ({
     color
     label
-    type
-    isFloating
     isDisabled
-    autocapitalize
     name
-    autocomplete
     onblur
     onkeydown
     oninput
     tabindex
-    isDark
-    min
-    dir
-    isBoxed
   }) =>
     {value, error, isFocused}  = @state.getValue()
     color ?= 'blue'
     label ?= ''
-    type ?= 'text'
-    isFloating ?= false
     isDisabled ?= false
-    autocapitalize ?= 'none'
 
-    z '.zp-input',
+    z '.zp-textarea',
       className: z.classKebab {
-        isFloating
         hasValue: value? and value isnt ''
         isFocused
         isDisabled
         isError: error?
-        isDark
-        isBoxed
       }
       z '.hint', {
         style:
@@ -80,16 +66,15 @@ module.exports = class Input
                  then colors["$#{color}500"]
       },
         label
-      z 'input.input',
+      z '.border',
+        style:
+          borderColor: if isFocused and not error? \
+                       then colors["$#{color}500"]
+      z 'textarea.textarea',
         disabled: if isDisabled then true
-        type: type
-        autocapitalize: autocapitalize
         name: name
-        autocomplete: autocomplete
         tabindex: tabindex
         value: value
-        min: min
-        dir: dir
         style:
           caretColor: unless error? then colors["$#{color}500"]
         oninput: (e) =>
@@ -104,10 +89,5 @@ module.exports = class Input
             isFocused: false
           onblur? e
         onkeydown: onkeydown
-      z '.underline-wrapper',
-        z '.underline',
-          style:
-            backgroundColor: if isFocused and not error? \
-                             then colors["$#{color}500"]
       if error?
         z '.error', error
