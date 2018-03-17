@@ -85,6 +85,17 @@ module.exports = class App
               isDisabled: true
           z '.item',
             z Input,
+              color: 'lightBlue'
+              label: 'floating prefixed'
+              isFloating: true
+              $prefix:
+                z 'div',
+                  style:
+                    width: '1em'
+                    height: '1em'
+                    background: 'red'
+          z '.item',
+            z Input,
               color: 'blue'
               label: 'boxed'
               isBoxed: true
@@ -118,6 +129,18 @@ module.exports = class App
               isFloating: true
               isBoxed: true
               isDisabled: true
+          z '.item',
+            z Input,
+              color: 'blue'
+              label: 'floating boxed prefixed'
+              isFloating: true
+              isBoxed: true
+              $prefix:
+                z 'div',
+                  style:
+                    width: '1em'
+                    height: '1em'
+                    background: 'red'
         z 'h2',
           'Textarea'
         z '.set',

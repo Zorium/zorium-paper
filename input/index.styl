@@ -4,7 +4,7 @@ json('../colors.json')
 
 .zp-input
   zp-font-subhead()
-  min-height: 40px // top 16px, text 16px, bottom 8px, under-line 8px
+  height: 40px // top 16px, text 16px, bottom 8px, under-line 8px
   margin-bottom: 20px // under-line 8px, error-text 12px
   display: block
   outline: none
@@ -23,19 +23,26 @@ json('../colors.json')
                 font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1)
 
   > .input
+    display: flex
     padding: 16px 0 8px 0
-    width: 100%
-    font: inherit
-    color: inherit
-    background-color: transparent
-    border: none
-    outline: none
-    -webkit-tap-highlight-color: transparent
-    appearance: textfield
 
-    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
-      -webkit-appearance: none
-      margin: 0
+    > .prefix
+      margin-right: 0.5em
+
+    > input
+      flex: 1
+      width: 100%
+      font: inherit
+      color: inherit
+      background-color: transparent
+      border: none
+      outline: none
+      -webkit-tap-highlight-color: transparent
+      appearance: textfield
+
+      &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+        -webkit-appearance: none
+        margin: 0
 
   > .underline-wrapper
     position: absolute
@@ -73,13 +80,13 @@ json('../colors.json')
         background: $white70
 
   &.is-floating
-    min-height: 60px // top 16px, label 12px, pre-text 8px, text 16px, post-text 8px
+    height: 60px // top 16px, label 12px, pre-text 8px, text 16px, post-text 8px
 
     > .hint
       top: 32px
 
     > .input
-      padding: 32px 0 8px 0
+      padding: 32px 0 8px 0 // top 8px, label 12px, pre-text 8px
 
   &.is-floating&.is-focused, &.is-floating&.has-value
     > .hint
@@ -101,7 +108,8 @@ json('../colors.json')
       color: $red500
 
     > .input
-      caret-color: $red500
+      > input
+        caret-color: $red500
 
     > .underline-wrapper
       > .underline
@@ -116,14 +124,26 @@ json('../colors.json')
   &.is-boxed
     background: $black6
     border-radius: 4px
-    padding: 0 16px
+    padding: 0 12px
     box-sizing: border-box
+
+    > .input
+      padding: 12px 0 8px 0
+
+    > .hint
+      top: 12px
 
     > .underline-wrapper
       border-radius: 4px
 
   &.is-boxed&.is-floating
-    min-height: 52px // top 8px, label 12px, pre-text 8px, text 16px, post-text 8px
+    height: 54px // top 8px, label 12px, pre-text 8px, text 16px, post-text 8px, underline 2px
+
+    > .input
+      padding: 26px 0 8px 0
+
+    > .hint
+      top: 20px
 
     &.is-focused, &.has-value
       > .hint

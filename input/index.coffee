@@ -52,9 +52,8 @@ module.exports = class Input
     oninput
     tabindex
     isDark
-    min
-    dir
     isBoxed
+    $prefix
   }) =>
     {value, error, isFocused}  = @state.getValue()
     color ?= 'blue'
@@ -63,11 +62,15 @@ module.exports = class Input
     isFloating ?= false
     isDisabled ?= false
     autocapitalize ?= 'none'
+    hasValue = value? and value isnt ''
+
+    if $prefix? and not isFloating
+      throw new Error '$prefix not supported for non-floating inputs'
 
     z '.zp-input',
       className: z.classKebab {
         isFloating
-        hasValue: value? and value isnt ''
+        hasValue
         isFocused
         isDisabled
         isError: error?
@@ -80,30 +83,32 @@ module.exports = class Input
                  then colors["$#{color}500"]
       },
         label
-      z 'input.input',
-        disabled: if isDisabled then true
-        type: type
-        autocapitalize: autocapitalize
-        name: name
-        autocomplete: autocomplete
-        tabindex: tabindex
-        value: value
-        min: min
-        dir: dir
-        style:
-          caretColor: unless error? then colors["$#{color}500"]
-        oninput: (e) =>
-          @valueWrite.next e.currentTarget.value
-          oninput? e
-        onfocus: =>
-          @state.set
-            isFocused: true
-            wasFocused: true
-        onblur: (e) =>
-          @state.set
-            isFocused: false
-          onblur? e
-        onkeydown: onkeydown
+      z '.input',
+        z '.prefix',
+          if isFocused or hasValue
+            $prefix
+        z 'input.input',
+          disabled: if isDisabled then true
+          type: type
+          autocapitalize: autocapitalize
+          name: name
+          autocomplete: autocomplete
+          tabindex: tabindex
+          value: value
+          style:
+            caretColor: unless error? then colors["$#{color}500"]
+          oninput: (e) =>
+            @valueWrite.next e.currentTarget.value
+            oninput? e
+          onfocus: =>
+            @state.set
+              isFocused: true
+              wasFocused: true
+          onblur: (e) =>
+            @state.set
+              isFocused: false
+            onblur? e
+          onkeydown: onkeydown
       z '.underline-wrapper',
         z '.underline',
           style:
