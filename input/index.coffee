@@ -28,7 +28,7 @@ module.exports = class Input
 
   focus: =>
     if @$$el?
-      $$input = @$$el.querySelector '.zp-input > .input'
+      $$input = @$$el.querySelector '.zp-input > .input > input'
       $$input.focus()
 
   wasFocused: => @state.getValue().wasFocused
@@ -87,7 +87,7 @@ module.exports = class Input
         z '.prefix',
           if isFocused or hasValue
             $prefix
-        z 'input.input',
+        z 'input',
           disabled: if isDisabled then true
           type: type
           autocapitalize: autocapitalize

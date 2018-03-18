@@ -28,7 +28,7 @@ module.exports = class Textarea
 
   focus: =>
     if @$$el?
-      $$input = @$$el.querySelector '.zp-input > .input'
+      $$input = @$$el.querySelector '.zp-textarea > .textarea'
       $$input.focus()
 
   wasFocused: => @state.getValue().wasFocused
