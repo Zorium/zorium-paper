@@ -27,7 +27,12 @@ json('../colors.json')
     padding: 16px 0 8px 0
 
     > .prefix
+      display: none
+      pointer-events: none
       margin-right: 0.5em
+
+      &.is-visible
+        display: block
 
     > input
       flex: 1

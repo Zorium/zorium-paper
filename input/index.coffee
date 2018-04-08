@@ -85,8 +85,10 @@ module.exports = class Input
         label
       z '.input',
         z '.prefix',
-          if isFocused or hasValue
-            $prefix
+          className: z.classKebab {
+            isVisible: (isFocused or hasValue) and $prefix?
+          }
+          $prefix
         z 'input',
           disabled: if isDisabled then true
           type: type

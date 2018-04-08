@@ -35,7 +35,7 @@ module.exports = class Button
       isHovered: false
       isActive: false
 
-  render: ({children, onclick, type, isDisabled, isRaised, color}) =>
+  render: ({children, onclick, type, isDisabled, isRaised, color, isFlex}) =>
     {isHovered, isActive} = @state.getValue()
     type ?= 'button'
     color ?= 'blue'
@@ -55,6 +55,7 @@ module.exports = class Button
         isHovered
         isActive
         isRaised
+        isFlex
       }
       ontouchstart: =>
         @state.set isActive: true

@@ -2,8 +2,8 @@
 json('../colors.json')
 
 .zp-button
-  height: 48px
-  display: inline-block
+  min-height: 48px
+  display: inline-flex
   position: relative
   background: transparent
   outline: none
@@ -15,11 +15,15 @@ json('../colors.json')
 
   > .button
     zp-font-button()
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
     position: relative
     box-sizing: border-box
     padding: 0 16px
     vertical-align: middle
-    height: 36px
+    min-height: 36px
     min-width: 88px
     max-width: 100%
     line-height: 36px
@@ -63,3 +67,7 @@ json('../colors.json')
   &.is-raised&.is-active
     > .button
       zp-shadow-2()
+
+  &.is-flex
+    flex: 1
+    padding: 0
