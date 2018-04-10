@@ -20,7 +20,7 @@
     "coffee-script": "^1.9.2",
     "lodash": "^4.17.4",
     "rxjs": "^5.2.0",
-    "zorium": "https://github.com/Zorium/zorium.git#e37c8d9d213a5ba2d40c5eb6602786dedbcf4bcc"
+    "zorium": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",

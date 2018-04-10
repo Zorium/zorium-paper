@@ -4055,9 +4055,9 @@ yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
-"zorium@https://github.com/Zorium/zorium.git#e37c8d9d213a5ba2d40c5eb6602786dedbcf4bcc":
-  version "1.0.13"
-  resolved "https://github.com/Zorium/zorium.git#e37c8d9d213a5ba2d40c5eb6602786dedbcf4bcc"
+zorium@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/zorium/-/zorium-2.0.0.tgz#11651eb428bb979e31518ed6d46bfb4f731eb1eb"
   dependencies:
     coffee-script "^1.9.2"
     dio.js "^8.2.4"
