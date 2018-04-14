@@ -57,6 +57,15 @@ module.exports = class App
               isFlex: true
               color: 'teal'
               'raised flex'
+          z '.item',
+            z Button,
+              isRaised: true
+              isFlex: true
+              color:
+                base: 'greenA200'
+                active: 'greenA400'
+                hovered: 'greenA700'
+              'custom color'
         z 'h2',
           'Input'
         z '.set',

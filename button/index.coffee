@@ -8,26 +8,26 @@ if window?
   require './index.styl'
 
 getBackgroundColor = ({color, isRaised, isActive, isHovered, isDisabled}) ->
-  if color and isRaised and not isDisabled
+  if isRaised and not isDisabled
     if isActive
-      colors["$#{color}700"]
+      colors["$#{color.active}"]
     else if isHovered
-      colors["$#{color}600"]
+      colors["$#{color.hovered}"]
     else
-      colors["$#{color}500"]
+      colors["$#{color.base}"]
 
 getTextColor = ({color, isRaised, isDisabled}) ->
   if not isDisabled
-    if color and isRaised
-      colors["$#{color}500Text"]
-    else if color
-      colors["$#{color}500"]
+    if isRaised
+      colors["$#{color.base}Text"]
+    else
+      colors["$#{color.base}"]
 
 getRippleColor = ({color, isRaised}) ->
-  if color and isRaised
-    colors["$#{color}500Text"]
-  else if color
-    colors["$#{color}500"]
+  if isRaised
+    colors["$#{color.base}Text"]
+  else
+    colors["$#{color.base}"]
 
 module.exports = class Button
   constructor: ->
@@ -38,16 +38,16 @@ module.exports = class Button
   render: ({children, onclick, type, isDisabled, isRaised, color, isFlex}) =>
     {isHovered, isActive} = @state.getValue()
     type ?= 'button'
-    color ?= 'blue'
+    color ?=
+      base: 'blue500'
+      active: 'blue700'
+      hovered: 'blue600'
 
-    backgroundColor = getBackgroundColor {
-      color
-      isRaised
-      isActive
-      isHovered
-      isDisabled
-    }
-    textColor = getTextColor {color, isRaised, isDisabled}
+    if _.isString color
+      color =
+        base: "#{color}500"
+        active: "#{color}700"
+        hovered: "#{color}600"
 
     z '.zp-button',
       className: z.classKebab {
@@ -76,8 +76,14 @@ module.exports = class Button
         disabled: if isDisabled then true else undefined
         type: type
         style:
-          background: backgroundColor
-          color: textColor
+          background: getBackgroundColor {
+            color
+            isRaised
+            isActive
+            isHovered
+            isDisabled
+          }
+          color: getTextColor {color, isRaised, isDisabled}
         [
           z Ripple, {color: getRippleColor {color, isRaised}}
         ].concat children
