@@ -10,24 +10,24 @@ if window?
 getBackgroundColor = ({color, isRaised, isActive, isHovered, isDisabled}) ->
   if isRaised and not isDisabled
     if isActive
-      colors["$#{color.active}"]
+      color.active
     else if isHovered
-      colors["$#{color.hovered}"]
+      color.hovered
     else
-      colors["$#{color.base}"]
+      color.base
 
 getTextColor = ({color, isRaised, isDisabled}) ->
   if not isDisabled
     if isRaised
-      colors["$#{color.base}Text"]
+      color.text
     else
-      colors["$#{color.base}"]
+      color.base
 
 getRippleColor = ({color, isRaised}) ->
   if isRaised
-    colors["$#{color.base}Text"]
+    color.text
   else
-    colors["$#{color.base}"]
+    color.base
 
 module.exports = class Button
   constructor: ->
@@ -38,16 +38,18 @@ module.exports = class Button
   render: ({children, onclick, type, isDisabled, isRaised, color, isFlex}) =>
     {isHovered, isActive} = @state.getValue()
     type ?= 'button'
-    color ?=
-      base: 'blue500'
-      active: 'blue700'
-      hovered: 'blue600'
+    color ?= 'blue'
 
     if _.isString color
       color =
         base: "#{color}500"
-        active: "#{color}700"
         hovered: "#{color}600"
+        active: "#{color}700"
+        text: "#{color}500Text"
+
+    color = _.assign {text: colors["$#{color.base}Text"]}, color
+    color = _.mapValues color, (col) ->
+      if colors['$' + col]? then colors['$' + col] else col
 
     z '.zp-button',
       className: z.classKebab {

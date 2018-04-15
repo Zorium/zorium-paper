@@ -8,7 +8,7 @@ if window?
 
 module.exports = class Textarea
   constructor: ({value} = {}) ->
-    value ?= new Rx.BehaviorSubject null
+    value ?= new Rx.BehaviorSubject ''
     @valueWrite = new Rx.ReplaySubject 1
     @valueRead = Rx.Observable.merge @valueWrite, value
 

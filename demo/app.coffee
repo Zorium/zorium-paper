@@ -61,10 +61,12 @@ module.exports = class App
             z Button,
               isRaised: true
               isFlex: true
+              # https://github.com/fireflight1/mcg
               color:
-                base: 'greenA200'
-                active: 'greenA400'
-                hovered: 'greenA700'
+                base: 'greenA700'
+                hovered: '#00b657'
+                active: '#00a24e'
+                text: 'white'
               'custom color'
         z 'h2',
           'Input'
