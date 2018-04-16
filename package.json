@@ -4,7 +4,7 @@
   "description": "core",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-serve --port 50310"
+    "serve": "webpack-serve --port 50310 --content demo"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,6 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "webpack": "^4.1.1",
-    "webpack-serve": "^0.2.0"
+    "webpack-serve": "^0.3.1"
   }
 }

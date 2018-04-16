@@ -7,8 +7,7 @@ module.exports =
   devtool: 'inline-source-map'
   entry: './demo/index.coffee'
   output:
-    path: path.resolve(__dirname, 'dist')
-    filename: 'demo.bundle.js'
+    filename: 'bundle.js'
   resolve:
     extensions: ['.coffee', '.js', '.json', '.styl']
   module:
