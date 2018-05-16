@@ -8,36 +8,53 @@ if window?
   require './index.styl'
 
 module.exports = class Ripple
-  ripple: ({$$el, color, isCenter, mouseX, mouseY}) ->
-    {width, height, top, left} = $$el.getBoundingClientRect()
+  constructor: ->
+    @state = z.state
+      waves: []
 
-    if isCenter
-      x = width / 2
-      y = height / 2
-    else
-      x = mouseX - left
-      y = mouseY - top
+  beforeUnmount: =>
+    {waves} = @state.getValue()
+    now = Date.now()
 
-    $$wave = document.createElement 'div'
-    $$wave.className = 'wave'
-    $$wave.style.top = "#{y}px"
-    $$wave.style.left = "#{x}px"
-    $$wave.style.background = "#{color}"
-
-    $$el.appendChild $$wave
-
-    setTimeout ->
-      $$el.removeChild $$wave
-    , 1400
+    # remove waves which have already started their animation
+    @state.set
+      waves: _.filter waves, ({startTime}) ->
+        startTime + 100 > now
 
   render: ({color, isCircle, isCenter}) =>
+    {waves} = @state.getValue()
+    color ?= 'blue'
+    if colors["$#{color}500"]?
+      color = colors["$#{color}500"]
+
     z '.zp-ripple',
       className: z.classKebab {isCircle}
       onmousedown: (e) =>
-        @ripple {
-          $$el: e.currentTarget
-          color
-          isCenter
-          mouseX: e.clientX
-          mouseY: e.clientY
+        {width, height, top, left} = e.currentTarget.getBoundingClientRect()
+
+        if isCenter
+          x = width / 2
+          y = height / 2
+        else
+          x = e.clientX - left
+          y = e.clientY - top
+
+        wave = {
+          startTime: Date.now()
+          $: z '.wave',
+            key: "#{x}_#{y}"
+            style:
+              top: "#{y}px"
+              left: "#{x}px"
+              background: "#{color}"
         }
+
+        @state.set
+          waves: waves.concat [wave]
+
+        setTimeout =>
+          {waves} = @state.getValue()
+          @state.set
+            waves: _.without waves, wave
+        , 1400
+      _.map waves, '$'
