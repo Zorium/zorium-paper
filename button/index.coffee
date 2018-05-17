@@ -8,17 +8,23 @@ if window?
   require './index.styl'
 
 getBackgroundColor = ({color, isRaised, isActive, isHovered, isDisabled}) ->
-  if isRaised and not isDisabled
-    if isActive
-      color.active
-    else if isHovered
-      color.hovered
-    else
-      color.base
+  if isRaised
+    switch
+      when isDisabled
+        color.disabled
+      when isActive
+        color.active
+      when isHovered
+        color.hovered
+      else
+        color.base
+
 
 getTextColor = ({color, isRaised, isDisabled}) ->
-  if not isDisabled
-    if isRaised
+  switch
+    when isDisabled
+      color.disabledText
+    when isRaised
       color.text
     else
       color.base
@@ -38,7 +44,6 @@ module.exports = class Button
   render: ({children, onclick, type, isDisabled, isRaised, color, isFlex}) =>
     {isHovered, isActive} = @state.getValue()
     type ?= 'button'
-    color ?= 'blue'
 
     if _.isString color
       color =
@@ -47,7 +52,15 @@ module.exports = class Button
         active: "#{color}700"
         text: "#{color}500Text"
 
-    color = _.assign {text: colors["$#{color.base}Text"]}, color
+    color = _.assign {
+      base: 'blue500'
+      hovered: 'blue600'
+      active: 'blue700'
+      text: 'blue500Text'
+      disabled: 'rgba(0, 0, 0, 0.12)'
+      disabledText: 'rgba(0, 0, 0, 0.26)'
+    }, color
+
     color = _.mapValues color, (col) ->
       if colors['$' + col]? then colors['$' + col] else col
 

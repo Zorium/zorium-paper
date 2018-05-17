@@ -54,6 +54,14 @@ module.exports = class App
           z '.item',
             z Button,
               isRaised: true
+              isDisabled: true
+              color:
+                disabled: 'brown500'
+                disabledText: 'green500'
+              'disabled color'
+          z '.item',
+            z Button,
+              isRaised: true
               isFlex: true
               color: 'teal'
               'raised flex'
