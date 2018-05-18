@@ -23,7 +23,7 @@ module.exports = class Ripple
 
   render: ({color, isCircle, isCenter}) =>
     {waves} = @state.getValue()
-    color ?= 'blue'
+    color ?= 'white'
     if colors["$#{color}500"]?
       color = colors["$#{color}500"]
 
