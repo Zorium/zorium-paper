@@ -159,8 +159,8 @@ json('../colors.json')
       stroke: currentColor
       stroke-width: 1
       fill: transparent
-      transition: stroke .3s cubic-bezier(.4,0,.2,1)
-      // transitioning stroke-width artifacts on chrome
+      transition: stroke .3s cubic-bezier(.4,0,.2,1),
+                  stroke-width .3s cubic-bezier(.4,0,.2,1)
 
   &.is-focused
     > svg
