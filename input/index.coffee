@@ -211,8 +211,18 @@ module.exports = class Input
               isFocused: false
             onblur? e
           onkeydown: onkeydown
+        z '.underlines',
+          z '.static'
+          z '.dynamic',
+            style:
+              background: switch
+                when error?
+                  colors["$error"]
+                when isFocused
+                  colors["$#{color}500"]
         z @$notchedOutline,
           isFocused: isFocused
+          # TODO: darken on hover
           color: switch
             when isDisabled
               colors['$black26']

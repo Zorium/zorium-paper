@@ -46,6 +46,7 @@ json('../colors.json')
       text-align: inherit
       background: transparent
       padding: 0 8px 0 14px
+      box-sizing: border-box
       border: none
       outline: none
       -webkit-tap-highlight-color: transparent
@@ -81,6 +82,65 @@ json('../colors.json')
 
     > .helper
       color: $black26
+
+  &.is-filled
+    height: 72px // input 56px, helper 16px
+
+    > .input
+      background: $black6
+      border-top-left-radius: 4px
+      border-top-right-radius: 4px
+
+      > .label
+        left: 12px
+        top: 21px
+
+      > input
+        padding-left: 12px
+        padding-top: 14px
+
+      > .underlines
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+
+        > .static
+          position: absolute
+          bottom: 0
+          left: 0
+          width: 100%
+          height: 1px
+          background: $black12
+
+        > .dynamic
+          position: absolute
+          bottom: 0
+          left: 50%
+          width: 0
+          height: 2px
+          transition: width 0.1s ease-in-out,
+                      left 0.1s ease-in-out
+          transform-origin: center
+
+      > .zp-input_notched-outline
+        display: none
+
+  &.is-filled:hover&:not(.is-disabled)
+    > .input
+      background: $black12
+
+  &.is-filled&.is-focused, &.is-filled&.has-value
+    > .input
+      > .label
+        top: 6px
+
+  &.is-filled&.is-focused
+    > .input
+      > .underlines
+        > .dynamic
+          width: 100%
+          left: 0
 
 .zp-input_notched-outline
   position: absolute

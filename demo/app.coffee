@@ -114,18 +114,6 @@ module.exports = class App
                 label: 'Disabled'
                 isDisabled: true
                 helper: 'helper'
-            # FIXME
-            # z '.item',
-            #   z Input,
-            #     color: 'lightBlue'
-            #     label: 'floating prefixed'
-            #     isFloating: true
-            #     $prefix:
-            #       z 'div',
-            #         style:
-            #           width: '1em'
-            #           height: '1em'
-            #           background: 'red'
         # z 'h2',
         #   'Textarea'
         # z '.set',
