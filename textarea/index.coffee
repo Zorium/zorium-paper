@@ -70,7 +70,7 @@ module.exports = class Textarea
         style:
           borderColor: if isFocused and not error? \
                        then colors["$#{color}500"]
-      z 'textarea.textarea',
+      z 'textarea',
         disabled: if isDisabled then true
         name: name
         tabindex: tabindex
