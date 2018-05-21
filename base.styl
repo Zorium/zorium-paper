@@ -1,117 +1,155 @@
 json('./colors.json')
 
-zp-shadow-1()
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37)
+// updated 5/20/2018
+// https://fonts.googleapis.com/css?family=Roboto:300,400,500
+// curl -H 'User-Agent: Firefox 36.0' # woff
+// curl -H 'User-Agent: Firefox 43.0' # woff2
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light')
+    , url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2')
+    , url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc-.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular')
+    , url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2')
+    , url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium')
+    , url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2')
+    , url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc-.woff) format('woff');
+}
+
+// https://github.com/PolymerElements/paper-styles
+
+zp-shadow-transition()
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)
 
 zp-shadow-2()
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3)
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12),
+              0 3px 1px -2px rgba(0, 0, 0, 0.2)
 
 zp-shadow-3()
-  box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3)
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+              0 1px 8px 0 rgba(0, 0, 0, 0.12),
+              0 3px 3px -2px rgba(0, 0, 0, 0.4)
 
 zp-shadow-4()
-  box-shadow: 0 14px 12px 0 rgba(0, 0, 0, 0.17), 0 20px 40px 0 rgba(0, 0, 0, 0.3)
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+              0 1px 10px 0 rgba(0, 0, 0, 0.12),
+              0 2px 4px -1px rgba(0, 0, 0, 0.4)
 
-zp-shadow-5()
-  box-shadow: 0 17px 17px 0 rgba(0, 0, 0, 0.15), 0 27px 55px 0 rgba(0, 0, 0, 0.3)
+zp-shadow-6()
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+              0 1px 18px 0 rgba(0, 0, 0, 0.12),
+              0 3px 5px -1px rgba(0, 0, 0, 0.4)
 
-zp-font-display4()
+zp-shadow-8()
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12),
+              0 5px 5px -3px rgba(0, 0, 0, 0.4)
+
+zp-shadow-12()
+  box-shadow: 0 12px 16px 1px rgba(0, 0, 0, 0.14),
+              0 4px 22px 3px rgba(0, 0, 0, 0.12),
+              0 6px 7px -4px rgba(0, 0, 0, 0.4)
+
+zp-shadow-16()
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+              0  6px 30px 5px rgba(0, 0, 0, 0.12),
+              0  8px 10px -5px rgba(0, 0, 0, 0.4)
+
+zp-shadow-24()
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+              0 9px 46px 8px rgba(0, 0, 0, 0.12),
+              0 11px 15px -7px rgba(0, 0, 0, 0.4)
+
+zp-font-h1()
   font-family: Roboto
-  font-size: 112px
   font-weight: 300
-  color: $black54
-  letter-spacing: -0.01rem
+  font-size: 96 * 0.0625rem
+  letter-spacing: -1.5px
 
-zp-font-display3()
+zp-font-h2()
   font-family: Roboto
-  font-size: 56px
+  font-weight: 300
+  font-size: 60 * 0.0625rem
+  letter-spacing: -0.5 * 0.0625rem
+
+zp-font-h3()
+  font-family: Roboto
   font-weight: 400
-  color: $black54
-  letter-spacing: -0.005rem
+  font-size: 48 * 0.0625rem
+  letter-spacing: 0
 
-zp-font-display2()
+zp-font-h4()
   font-family: Roboto
-  font-size: 45px
   font-weight: 400
-  color: $black54
-  letter-spacing: 0rem
+  font-size: 34 * 0.0625rem
+  letter-spacing: 0.25 * 0.0625rem
 
-zp-font-display1()
+zp-font-h5()
   font-family: Roboto
-  font-size: 34px
   font-weight: 400
-  color: $black54
-  letter-spacing: 0rem
+  font-size: 24 * 0.0625rem
+  letter-spacing: 0
 
-zp-font-headline()
+zp-font-h6()
   font-family: Roboto
-  font-size: 24px
-  font-weight: 400
-  color: $black87
-  letter-spacing: 0rem
-
-zp-font-title()
-  font-family: Roboto
-  font-size: 20px
   font-weight: 500
-  color: $black87
-  letter-spacing: 0.005rem
+  font-size: 20 * 0.0625rem
+  letter-spacing: 0.15 * 0.0625rem
 
-zp-font-subhead()
+zp-font-subtitle1()
   font-family: Roboto
-  font-size: 16px
   font-weight: 400
-  color: $black87
-  letter-spacing: 0.01rem
+  font-size: 16 * 0.0625rem
+  letter-spacing: 0.15 * 0.0625rem
 
-  @media only screen and (min-width: 1224px)
-    font-size: 15px
-
-zp-font-body2()
+zp-font-subtitle2()
   font-family: Roboto
-  font-size: 14px
   font-weight: 500
-  color: $black87
-  letter-spacing: 0.01rem
-
-  @media only screen and (min-width: 1224px)
-    font-size: 13px
+  font-size: 14 * 0.0625rem
+  letter-spacing: 0.1 * 0.0625rem
 
 zp-font-body1()
   font-family: Roboto
-  font-size: 14px
   font-weight: 400
-  color: $black87
-  letter-spacing: 0.01rem
+  font-size: 16 * 0.0625rem
+  letter-spacing: 0.5 * 0.0625rem
 
-  @media only screen and (min-width: 1224px)
-    font-size: 13px
-
-zp-font-caption()
+zp-font-body2()
   font-family: Roboto
-  font-size: 12px
   font-weight: 400
-  color: $black54
-  letter-spacing: 0.01rem
+  font-size: 14 * 0.0625rem
+  letter-spacing: 0.25 * 0.0625rem
 
 zp-font-button()
   font-family: Roboto
-  font-size: 14px
   font-weight: 500
-  color: $black87
-  letter-spacing: 0.01rem
+  font-size: 14 * 0.0625rem
   text-transform: uppercase
+  letter-spacing: 0.75 * 0.0625rem
 
-zp-snackbar()
-  height: 48px
-  background: #323232
-  padding: 14px 24px
-  color: $white
-  box-sizing: border-box
+zp-font-caption()
+  font-family: Roboto
+  font-weight: 400
+  font-size: 12 * 0.0625rem
+  letter-spacing: 0.4 * 0.0625rem
+
+zp-font-overline()
+  font-family: Roboto
+  font-weight: 400
+  font-size: 10 * 0.0625rem
   text-transform: uppercase
-
-  @media only screen and (min-width: 1224px)
-    zp-shadow-1()
-    min-width: 288px
-    max-width: 568px
-    border-radius: 2px
+  letter-spacing: 1.5 * 0.0625rem

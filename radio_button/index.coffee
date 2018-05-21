@@ -7,6 +7,7 @@ Ripple = require '../ripple'
 if window?
   require './index.styl'
 
+# FIXME: upgrade to new material design
 module.exports = class RadioButton
   constructor: ({@isChecked, color, isDisabled, onToggle} = {}) ->
     if not @isChecked?.subscribe?

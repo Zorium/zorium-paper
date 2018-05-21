@@ -3,10 +3,9 @@ json('../colors.json')
 
 @keyframes zp-ripple-animation
   from
-    opacity: 0.25
     transform: scale(12)
   to
-    transform: scale(1000)
+    transform: scale(500)
     opacity: 0
 
 .zp-ripple
@@ -25,7 +24,6 @@ json('../colors.json')
     background: $white
     animation: zp-ripple-animation 1.2s
     pointer-events: none
-    opacity: 0
 
   &.is-circle
     // fix chrome border-radius clipping

@@ -7,58 +7,80 @@ Ripple = require '../ripple'
 if window?
   require './index.styl'
 
-getBackgroundColor = ({color, isRaised, isActive, isHovered, isDisabled}) ->
-  if isRaised
+getBackgroundColor = ({color, isFlat, isDisabled}) ->
+  if not isFlat
     switch
       when isDisabled
         color.disabled
-      when isActive
-        color.active
-      when isHovered
-        color.hovered
       else
         color.base
 
-
-getTextColor = ({color, isRaised, isDisabled}) ->
+getTextColor = ({color, isFlat, isDisabled}) ->
   switch
     when isDisabled
       color.disabledText
-    when isRaised
-      color.text
-    else
+    when isFlat
       color.base
+    else
+      color.text
 
-getRippleColor = ({color, isRaised}) ->
-  if isRaised
-    color.text
-  else
+getRippleColor = ({color, isFlat}) ->
+  if isFlat
     color.base
+  else
+    color.text
+
+getOverlayOpacity = ({isFlat, isHovered}) ->
+  if isFlat
+    switch
+      when isHovered
+        0.04
+      else
+        0
+  else
+    switch
+      when isHovered
+        0.08
+      else
+        0
+
+getOverlayColor = ({color, isFlat}) ->
+  if isFlat
+    color.base
+  else
+    color.text
 
 module.exports = class Button
   constructor: ->
     @state = z.state
       isHovered: false
-      isActive: false
 
-  render: ({children, onclick, type, isDisabled, isRaised, color, isFlex}) =>
-    {isHovered, isActive} = @state.getValue()
+  render: ({
+    children
+    onclick
+    type
+    color
+    isDisabled
+    isFlat
+    isOutlined
+    isFlex
+  }) =>
+    {isHovered} = @state.getValue()
     type ?= 'button'
+
+    if isOutlined and not isFlat
+      throw new Error 'isOutlined requires isFlat'
 
     if _.isString color
       color =
         base: "#{color}500"
-        hovered: "#{color}600"
-        active: "#{color}700"
         text: "#{color}500Text"
 
     color = _.assign {
       base: 'blue500'
-      hovered: 'blue600'
-      active: 'blue700'
       text: 'blue500Text'
-      disabled: 'rgba(0, 0, 0, 0.12)'
-      disabledText: 'rgba(0, 0, 0, 0.26)'
+      disabled: 'black12'
+      disabledText: 'black26'
     }, color
 
     color = _.mapValues color, (col) ->
@@ -67,38 +89,38 @@ module.exports = class Button
     z '.zp-button',
       className: z.classKebab {
         isDisabled
-        isHovered
-        isActive
-        isRaised
+        isFlat
+        isOutlined
         isFlex
       }
-      ontouchstart: =>
-        @state.set isActive: true
       ontouchend: =>
-        @state.set isActive: false, isHovered: false
+        @state.set isHovered: false
       onmouseover: =>
         @state.set isHovered: true
       onmouseout: =>
         @state.set isHovered: false
-      onmouseup: =>
-        @state.set isActive: false
-      onclick: (e) =>
-        @state.set isHovered: false
-        onclick?(e)
-      onmousedown: =>
-        @state.set isActive: true, isHovered: false
+      onclick: onclick
       z 'button.button',
         disabled: if isDisabled then true else undefined
         type: type
         style:
           background: getBackgroundColor {
             color
-            isRaised
-            isActive
-            isHovered
+            isFlat
             isDisabled
           }
-          color: getTextColor {color, isRaised, isDisabled}
+          color: getTextColor {color, isFlat, isDisabled}
         [
-          z Ripple, {color: getRippleColor {color, isRaised}}
+          z '.overlay',
+            style:
+              background: getOverlayColor {color, isFlat}
+              opacity: getOverlayOpacity {
+                isFlat
+                isHovered
+              }
+          z Ripple, {
+            color: getRippleColor {color, isFlat}
+            opacity: if isFlat
+              0.16
+          }
         ].concat children

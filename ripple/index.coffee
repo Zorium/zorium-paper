@@ -21,9 +21,10 @@ module.exports = class Ripple
       waves: _.filter waves, ({startTime}) ->
         startTime + 100 > now
 
-  render: ({color, isCircle, isCenter}) =>
+  render: ({color, opacity, isCircle, isCenter}) =>
     {waves} = @state.getValue()
     color ?= 'white'
+    opacity ?= 0.32
     if colors["$#{color}500"]?
       color = colors["$#{color}500"]
 
@@ -39,13 +40,15 @@ module.exports = class Ripple
           x = e.clientX - left
           y = e.clientY - top
 
+        startTime = Date.now()
         wave = {
-          startTime: Date.now()
+          startTime: startTime
           $: z '.wave',
-            key: "#{x}_#{y}"
+            key: startTime
             style:
               top: "#{y}px"
               left: "#{x}px"
+              opacity: opacity
               background: "#{color}"
         }
 

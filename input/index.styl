@@ -3,28 +3,31 @@ json('../colors.json')
 
 
 .zp-input
-  zp-font-subhead()
-  height: 40px // top 16px, text 16px, bottom 8px, under-line 8px
-  margin-bottom: 20px // under-line 8px, error-text 12px
-  display: block
-  outline: none
-  text-align: inherit
-  position: relative
-
-  > .hint
-    pointer-events: none
-    position: absolute
-    background: transparent
-    top: 16px
-    color: $grey600
-
-    transform-origin: 0% 0%
-    transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  height: 64px // top 16px, text 16px, bottom 16px, helper 16px
+  display: flex
+  flex-direction: column
 
   > .input
+    flex: 1
     display: flex
-    padding: 16px 0 8px 0
+    height: 100%
+    position: relative
+
+    > .label-width
+      zp-font-caption()
+      visibility: hidden
+      position: absolute
+
+    > .label
+      pointer-events: none
+      position: absolute
+      background: transparent
+      top: 16px
+      left: 14px
+      color: $black54
+      transform-origin: 0% 0%
+      transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                  font-size 0.25s cubic-bezier(0.4, 0, 0.2, 1)
 
     > .prefix
       display: none
@@ -40,7 +43,9 @@ json('../colors.json')
       max-width: 100%
       font: inherit
       color: inherit
-      background-color: transparent
+      text-align: inherit
+      background: transparent
+      padding: 0 8px 0 14px
       border: none
       outline: none
       -webkit-tap-highlight-color: transparent
@@ -50,107 +55,54 @@ json('../colors.json')
         -webkit-appearance: none
         margin: 0
 
-  > .underline-wrapper
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    overflow: hidden
-    pointer-events: none
-
-    > .underline
-      position: absolute
-      bottom: 0
-      left: 0
-      height: 1px
-      width: 100%
-      background: $grey600
-
-  > .error
+  > .helper
     zp-font-caption()
-    color: $red500
-    margin-top: 8px
-    position: absolute
-    pointer-events: none
-    background: transparent
-
-  &.is-dark
-    color: $white
-
-    > .hint
-      color: $white70
-
-    > .underline-wrapper
-      > .underline
-        background: $white70
-
-  &.is-floating
-    height: 60px // top 16px, label 12px, pre-text 8px, text 16px, post-text 8px
-
-    > .hint
-      top: 32px
-
-    > .input
-      padding: 32px 0 8px 0 // top 8px, label 12px, pre-text 8px
-
-  &.is-floating&.is-focused, &.is-floating&.has-value
-    > .hint
-      font-size: 12px
-      top: 12px
-      display: block
-
-  &:not(.is-floating)&.has-value
-    > .hint
-      display: none
-
-  &.is-focused, &:hover:not(.is-disabled)
-    > .underline-wrapper
-      > .underline
-        height: 2px
+    margin: 2px 0 0 12px
+    color: $black54
 
   &.is-error
-    > .hint
-      color: $red500
-
     > .input
-      > input
-        caret-color: $red500
+      > .label
+        color: $error
 
-    > .underline-wrapper
-      > .underline
-        background: $red500
+    > .helper
+      color: $error
+
+  &.is-focused, &.has-value
+    > .input
+      > .label
+        zp-font-caption()
+        top: -6px
 
   &.is-disabled
-    > .underline-wrapper
-      > .underline
-        background: none
-        border-bottom: 1px dashed $grey600
-
-  &.is-boxed
-    background: $black6
-    border-radius: 4px
-    padding: 0 12px
-    box-sizing: border-box
-
     > .input
-      padding: 12px 0 8px 0
+      > .label
+        color: $black26
 
-    > .hint
-      top: 12px
+    > .helper
+      color: $black26
 
-    > .underline-wrapper
-      border-radius: 4px
+.zp-input_notched-outline
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
 
-  &.is-boxed&.is-floating
-    height: 54px // top 8px, label 12px, pre-text 8px, text 16px, post-text 8px, underline 2px
+  > svg
+    position: absolute
+    width: 100%
+    height: 100%
 
-    > .input
-      padding: 26px 0 8px 0
+    > path
+      stroke: currentColor
+      stroke-width: 1
+      fill: transparent
+      transition: stroke .3s cubic-bezier(.4,0,.2,1)
+      // transitioning stroke-width artifacts on chrome
 
-    > .hint
-      top: 20px
-
-    &.is-focused, &.has-value
-      > .hint
-        top: 8px
+  &.is-focused
+    > svg
+      > path
+        stroke-width: 2

@@ -29,157 +29,117 @@ module.exports = class App
         z 'h1',
           'Zorium Paper - Demo'
         z 'h2',
-          'Button'
+          'Shadow'
         z '.set',
-          z '.item',
-            z Button,
-              color: 'teal'
-              'flat'
-          z '.item',
-            z Button,
-              isDisabled: true
-              color: 'red'
-              'disabled'
-          z '.item',
-            z Button,
-              isRaised: true
-              color: 'green'
-              'raised'
-          z '.item',
-            z Button,
-              isRaised: true
-              isDisabled: true
-              color: 'orange'
-              'raised disabled'
-          z '.item',
-            z Button,
-              isRaised: true
-              isDisabled: true
-              color:
-                disabled: 'brown500'
-                disabledText: 'green500'
-              'disabled color'
-          z '.item',
-            z Button,
-              isRaised: true
-              isFlex: true
-              color: 'teal'
-              'raised flex'
-          z '.item',
-            z Button,
-              isRaised: true
-              isFlex: true
-              # https://github.com/fireflight1/mcg
-              color:
-                base: 'greenA700'
-                hovered: '#00b657'
-                active: '#00a24e'
-                text: 'white'
-              'custom color'
+          _.map ['2', '3', '4', '6', '8', '12', '16', '24'], (n) ->
+            z '.item',
+              z '.card.shadow-' + n,
+                n
+        z 'h2',
+          'Font'
+        z '.set',
+          _.map [
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'subtitle1', 'subtitle2', 'body1', 'body2',
+            'button', 'caption', 'overline'
+          ], (font) ->
+            z '.item-block',
+              z '.font-' + font,
+                font
+                ' - Hello World'
+        z 'h2',
+          'Button'
+        _.map ['normal', 'isFlat', 'isOutlined'], (flavor) ->
+          z '.set',
+            z '.item',
+              z Button,
+                isFlat: flavor is 'isFlat' or flavor is 'isOutlined'
+                isOutlined: flavor is 'isOutlined'
+                color: 'teal'
+                'normal'
+            z '.item',
+              z Button,
+                isFlat: flavor is 'isFlat' or flavor is 'isOutlined'
+                isOutlined: flavor is 'isOutlined'
+                # https://github.com/fireflight1/mcg
+                color:
+                  base: 'greenA700'
+                  hovered: '#00b657'
+                  active: '#00a24e'
+                  text: 'white'
+                'custom color'
+            z '.item',
+              z Button,
+                isFlat: flavor is 'isFlat' or flavor is 'isOutlined'
+                isOutlined: flavor is 'isOutlined'
+                isDisabled: true
+                color: 'red'
+                'disabled'
+            z '.item',
+              z Button,
+                isFlat: flavor is 'isFlat' or flavor is 'isOutlined'
+                isOutlined: flavor is 'isOutlined'
+                isDisabled: true
+                color:
+                  disabled: 'brown500'
+                  disabledText: 'green500'
+                'disabled color'
+            z '.item',
+              z Button,
+                isFlat: flavor is 'isFlat' or flavor is 'isOutlined'
+                isOutlined: flavor is 'isOutlined'
+                isFlex: true
+                color: 'teal'
+                'flex'
         z 'h2',
           'Input'
-        z '.set',
-          z '.item',
-            z Input,
-              color: 'deepPurple'
-              label: 'flat'
-          z '.item',
-            z @$errorInput(),
-              color: 'deepPurple'
-              label: 'flat error'
-          z '.item',
-            z Input,
-              color: 'deepPurple'
-              label: 'disabled'
-              isDisabled: true
-          z '.item',
-            z Input,
-              color: 'orange'
-              label: 'floating'
-              isFloating: true
-          z '.item',
-            z @$errorInput(),
-              color: 'orange'
-              label: 'floating'
-              isFloating: true
-          z '.item',
-            z Input,
-              color: 'lightBlue'
-              label: 'floating disabled'
-              isFloating: true
-              isDisabled: true
-          z '.item',
-            z Input,
-              color: 'lightBlue'
-              label: 'floating prefixed'
-              isFloating: true
-              $prefix:
-                z 'div',
-                  style:
-                    width: '1em'
-                    height: '1em'
-                    background: 'red'
-          z '.item',
-            z Input,
-              color: 'blue'
-              label: 'boxed'
-              isBoxed: true
-          z '.item',
-            z @$errorInput(),
-              color: 'blue'
-              label: 'error'
-              isBoxed: true
-          z '.item',
-            z Input,
-              color: 'blue'
-              label: 'boxed disabled'
-              isBoxed: true
-              isDisabled: true
-          z '.item',
-            z Input,
-              color: 'blue'
-              label: 'floating boxed'
-              isFloating: true
-              isBoxed: true
-          z '.item',
-            z @$errorInput(),
-              color: 'blue'
-              label: 'floating boxed'
-              isFloating: true
-              isBoxed: true
-          z '.item',
-            z Input,
-              color: 'blue'
-              label: 'floating boxed disabled'
-              isFloating: true
-              isBoxed: true
-              isDisabled: true
-          z '.item',
-            z Input,
-              color: 'blue'
-              label: 'floating boxed prefixed'
-              isFloating: true
-              isBoxed: true
-              $prefix:
-                z 'div',
-                  style:
-                    width: '1em'
-                    height: '1em'
-                    background: 'red'
-        z 'h2',
-          'Textarea'
-        z '.set',
-          z '.item.box',
-            z Textarea,
-              color: 'green'
-              label: 'Textarea'
-          z '.item.box',
-            z @$errorTextarea(),
-              color: 'blue'
-              label: 'error'
-          z '.item.box',
-            z Textarea,
-              color: 'orange'
-              label: 'boxed disabled'
-              isDisabled: true
+        _.map ['normal', 'isFilled'], (flavor) =>
+          z '.set',
+            z '.item',
+              z Input,
+                isFilled: flavor is 'isFilled'
+                color: 'deepPurple'
+                label: 'Normal'
+                helper: 'helper'
+            z '.item',
+              z @$errorInput(),
+                isFilled: flavor is 'isFilled'
+                color: 'deepPurple'
+                label: 'Error'
+                helper: 'helper'
+            z '.item',
+              z Input,
+                isFilled: flavor is 'isFilled'
+                color: 'deepPurple'
+                label: 'Disabled'
+                isDisabled: true
+                helper: 'helper'
+            # FIXME
+            # z '.item',
+            #   z Input,
+            #     color: 'lightBlue'
+            #     label: 'floating prefixed'
+            #     isFloating: true
+            #     $prefix:
+            #       z 'div',
+            #         style:
+            #           width: '1em'
+            #           height: '1em'
+            #           background: 'red'
+        # z 'h2',
+        #   'Textarea'
+        # z '.set',
+        #   z '.item.box',
+        #     z Textarea,
+        #       color: 'green'
+        #       label: 'Textarea'
+        #   z '.item.box',
+        #     z @$errorTextarea(),
+        #       color: 'blue'
+        #       label: 'error'
+        #   z '.item.box',
+        #     z Textarea,
+        #       color: 'orange'
+        #       label: 'boxed disabled'
+        #       isDisabled: true
     ]

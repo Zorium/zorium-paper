@@ -14,6 +14,8 @@ json('../colors.json')
   -webkit-tap-highlight-color: transparent
 
   > .button
+    zp-shadow-2()
+    zp-shadow-transition()
     zp-font-button()
     flex: 1
     display: flex
@@ -24,13 +26,13 @@ json('../colors.json')
     padding: 0 16px
     vertical-align: middle
     min-height: 36px
-    min-width: 88px
+    min-width: 64px
     max-width: 100%
     line-height: 36px
     background: transparent
     text-align: center
     outline: none
-    border-radius: 2px
+    border-radius: 4px
     user-select: none
     cursor: pointer
     overflow: hidden
@@ -40,33 +42,37 @@ json('../colors.json')
     -webkit-tap-highlight-color: transparent
     transition: background 0.25s, box-shadow 0.25s
 
+    > .overlay
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      pointer-events: none
+
+  &:hover
+    > .button
+      zp-shadow-3()
+
+  &:active
+    > .button
+      zp-shadow-4()
+
   &.is-disabled
     cursor: default
     pointer-events: none
 
     > .button
+      box-shadow: none
       color: $black26
 
-  &.is-hovered
-    > .button
-      background: rgba(153, 153, 153, 0.20)
-
-  &.is-active
-    > .button
-      background: rgba(153, 153, 153, 0.40)
-
-  &.is-raised
-    > .button
-      zp-shadow-1()
-
-  &.is-raised.is-disabled
+  &.is-flat
     > .button
       box-shadow: none
-      background: rgba(0, 0, 0, 0.12)
 
-  &.is-raised&.is-active
+  &.is-outlined
     > .button
-      zp-shadow-2()
+      border: 1px solid $black12
 
   &.is-flex
     flex: 1
