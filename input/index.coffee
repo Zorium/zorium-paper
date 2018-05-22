@@ -23,30 +23,11 @@ animate = (fromValue, toValue, duration, set) ->
 
   requestAnimationFrame render
 
-class NotchedOutline
-  constructor: ->
-    @lastPathLength = null
-    @lastSmallPathLength = null
-    @d = ''
-    @dSmall = ''
-
-  afterMount: (@$$el) => null
-  beforeUnmount: => @$$el = null
-
-  # https://github.com/material-components/material-components-web/blob/master/packages/mdc-notched-outline/foundation.js
-  setNotchWidth: (notchWidth) =>
-    unless @$$el?
-      throw new Error 'Component not yet mounted'
-
-    radius = 4
-    {width, height} = @$$el.getBoundingClientRect()
-
-    smallPathLength = 18
-    cornerWidth = radius + 1.2
-    leadingStrokeLength = Math.abs(11 - cornerWidth)
-    paddedNotchWidth = if notchWidth is 0 then 0 else notchWidth + 8
-
-    @d = "
+calculatePath = ({
+  cornerWidth, leadingStrokeLength, radius, height, width, smallPathLength
+}) ->
+  {
+    large: "
       M #{cornerWidth + leadingStrokeLength}, 1
       h #{-leadingStrokeLength}
       a #{radius}, #{radius} 0 0 0 #{-radius}, #{radius}
@@ -58,33 +39,88 @@ class NotchedOutline
       a #{radius}, #{radius} 0 0 0 #{-radius}, #{-radius}
       h #{-width + 2 * cornerWidth + leadingStrokeLength + smallPathLength}
     "
-    @dSmall = "
+    small: "
       M #{cornerWidth + leadingStrokeLength}, 1
       h #{smallPathLength}
     "
+  }
+
+# XXX
+class NotchedOutline
+  constructor: ->
+    @d = ''
+    @dSmall = ''
+    @notchWidth = 0
+    @targetPathLength = 0
+    @targetSmallPathLength = 0
+    @pathLength = 0
+    @smallPathLength = 18
+    @resize = _.throttle @_resize, 100
+
+  afterMount: (@$$el) =>
+    window.addEventListener 'resize', @resize
+
+  beforeUnmount: =>
+    window.removeEventListener 'resize', @resize
+    @$$el = null
+
+  _resize: =>
+    @setNotchWidth @notchWidth
+
+  # https://github.com/material-components/material-components-web/blob/master/packages/mdc-notched-outline/foundation.js
+  setNotchWidth: (notchWidth) =>
+    prevNotchWidth = @notchWidth
+    @notchWidth = notchWidth
+    if prevNotchWidth is notchWidth and @d isnt ''
+      return
+
+    unless @$$el?
+      throw new Error 'Component not yet mounted'
 
     $$large = @$$el.querySelector '.zp-input_notched-outline > svg > .large'
     $$small = @$$el.querySelector '.zp-input_notched-outline > svg > .small'
     unless $$large? and $$small?
       throw new Error '$$large and/or $$small not found'
+
+    radius = 4
+    {width, height} = @$$el.getBoundingClientRect()
+
+    cornerWidth = radius + 1.2
+    leadingStrokeLength = Math.abs(11 - cornerWidth)
+    paddedNotchWidth = if @notchWidth is 0 then 0 else @notchWidth + 8
+
+    {large, small} = calculatePath {
+      cornerWidth
+      leadingStrokeLength
+      radius
+      height
+      width
+      @smallPathLength
+    }
+
+    isInitial = @d is ''
+    @d = large
+    @dSmall = small
     $$large.setAttribute 'd', @d
     $$small.setAttribute 'd', @dSmall
-    pathLength = $$large.getTotalLength()
-    targetPathLength = pathLength - (paddedNotchWidth - smallPathLength)
 
-    @lastPathLength ?= pathLength
-    @lastSmallPathLength ?= smallPathLength
+    @pathLength = $$large.getTotalLength()
+    paddedPrevNotchWidth = if prevNotchWidth is 0 then 0 else prevNotchWidth + 8
+    prevPathLength = @pathLength - (paddedPrevNotchWidth - @smallPathLength)
+    @targetPathLength = @pathLength - (paddedNotchWidth - @smallPathLength)
+    prevSmallPathLength = if prevNotchWidth is 0 then @smallPathLength else 0
+    @targetSmallPathLength = if notchWidth is 0 then @smallPathLength else 0
 
-    if @lastPathLength isnt targetPathLength
-      animate @lastPathLength, targetPathLength, 150, (x) ->
-        $$large.style.strokeDasharray = [x, pathLength].join ' '
+    if isInitial
+      $$large.style.strokeDasharray = [@targetPathLength, @pathLength].join ' '
+      $$small.style.strokeDasharray =
+        [@targetSmallPathLength, @smallPathLength].join ' '
+    else
+      animate prevPathLength, @targetPathLength, 150, (x) =>
+        $$large.style.strokeDasharray = [x, @pathLength].join ' '
 
-      toSmallPath = if notchWidth > 0 then 0 else smallPathLength
-      animate @lastSmallPathLength, toSmallPath, 150, (x) ->
-        $$small.style.strokeDasharray = [x, smallPathLength].join ' '
-
-      @lastPathLength = targetPathLength
-      @lastSmallPathLength = toSmallPath
+      animate prevSmallPathLength, @targetSmallPathLength, 150, (x) =>
+        $$small.style.strokeDasharray = [x, @smallPathLength].join ' '
 
   render: ({color, isFocused}) =>
     z '.zp-input_notched-outline',
@@ -95,10 +131,12 @@ class NotchedOutline
       <svg>
         <path
           class="large"
+          style="stroke-dasharray:#{@targetPathLength},#{@pathLength}"
           d="#{@d}"
         />
         <path
           class="small"
+          style="stroke-dasharray:#{@targetSmallPathLength},#{@smallPathLength}"
           d="#{@dSmall}"
         />
       </svg>
@@ -156,7 +194,7 @@ module.exports = class Input
     helper
     isFilled
     isDisabled
-    $prefix
+    $icon
     type
     name
     autocapitalize
@@ -177,6 +215,7 @@ module.exports = class Input
     z '.zp-input',
       className: z.classKebab {
         hasValue
+        hasIcon: $icon?
         isFilled
         isFocused
         isDisabled
@@ -190,6 +229,9 @@ module.exports = class Input
         },
           label
         z '.label-width', label
+        if $icon?
+          z '.icon',
+            $icon
         z 'input',
           disabled: if isDisabled then true
           type: type

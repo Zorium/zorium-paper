@@ -1,4 +1,5 @@
 z = require 'zorium'
+Rx = require 'rxjs/Rx'
 
 Button = require '../button'
 Input = require '../input'
@@ -8,6 +9,10 @@ if window?
   require './app.styl'
 
 module.exports = class App
+  $valueInput: (val) ->
+    $ = new Input({value: Rx.Observable.of val})
+    return $
+
   $errorInput: ->
     $ = new Input()
     $.setError 'error message here'
@@ -92,6 +97,12 @@ module.exports = class App
                   isFlex: true
                   color: 'teal'
                   'flex'
+              z '.item',
+                z Button,
+                  isFlat: flavor is 'isFlat' or flavor is 'isOutlined'
+                  isOutlined: flavor is 'isOutlined'
+                  color: 'teal'
+                  'x' # trigger min-width
           z 'h2',
             'Input'
           _.map ['normal', 'isFilled'], (flavor) =>
@@ -101,7 +112,34 @@ module.exports = class App
                   isFilled: flavor is 'isFilled'
                   color: 'deepPurple'
                   label: 'Normal'
-                  helper: 'helper'
+                  helper: 'Helper'
+              z '.item',
+                z Input,
+                  isFilled: flavor is 'isFilled'
+                  color: 'orange'
+                  label: 'Icon'
+                  $icon: z 'div',
+                    style:
+                      width: '24px'
+                      height: '24px'
+                      background: 'red'
+              z '.item',
+                z Input,
+                  isFilled: flavor is 'isFilled'
+                  color: 'pink'
+                  label: 'no helper'
+              z '.item',
+                style:
+                  textAlign: 'right'
+                z Input,
+                  isFilled: flavor is 'isFilled'
+                  color: 'lightBlue'
+                  label: 'text-align right'
+              z '.item',
+                z @$valueInput('pre filled'),
+                  isFilled: flavor is 'isFilled'
+                  color: 'teal'
+                  label: 'pre filled'
               z '.item',
                 z @$errorInput(),
                   isFilled: flavor is 'isFilled'
