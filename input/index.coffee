@@ -1,3 +1,4 @@
+_ = require 'lodash'
 z = require 'zorium'
 Rx = require 'rxjs/Rx'
 
