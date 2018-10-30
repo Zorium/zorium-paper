@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/Zorium/zorium-paper",
   "dependencies": {
-    "coffee-script": "^1.9.2",
     "lodash": "^4.17.4",
     "rxjs": "^5.2.0",
     "zorium": "^2.0.0"
