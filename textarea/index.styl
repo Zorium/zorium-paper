@@ -4,7 +4,6 @@ json('../colors.json')
 
 .zp-textarea
   margin-bottom: 20px // under-line 8px, error-text 12px
-  display: block
   position: relative
   width: 100%
   height: 100%
@@ -34,6 +33,7 @@ json('../colors.json')
     height: calc(100% - 2px)
 
   > textarea
+    flex: 1
     resize: none
     padding: 0 16px 16px 16px
     box-sizing: border-box
