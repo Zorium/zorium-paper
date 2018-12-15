@@ -70,13 +70,11 @@ class NotchedOutline
 
   # https://github.com/material-components/material-components-web/blob/master/packages/mdc-notched-outline/foundation.js
   setNotchWidth: (notchWidth) =>
-    prevNotchWidth = @notchWidth
-    @notchWidth = notchWidth
-    if prevNotchWidth is notchWidth and @d isnt ''
+    unless @$$el?
       return
 
-    unless @$$el?
-      throw new Error 'Component not yet mounted'
+    prevNotchWidth = @notchWidth
+    @notchWidth = notchWidth
 
     $$large = @$$el.querySelector '.zp-input_notched-outline > svg > .large'
     $$small = @$$el.querySelector '.zp-input_notched-outline > svg > .small'
