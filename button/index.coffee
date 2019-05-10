@@ -110,6 +110,7 @@ module.exports = class Button
             isDisabled
           }
           color: getTextColor {color, isFlat, isDisabled}
+          borderColor: if isOutlined and not isDisabled then color.base
         [
           z '.overlay',
             style:
