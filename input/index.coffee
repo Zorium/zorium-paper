@@ -199,6 +199,7 @@ module.exports = class Input
     autocapitalize
     autocomplete
     onblur
+    onfocus
     onkeydown
     oninput
     tabindex
@@ -244,9 +245,10 @@ module.exports = class Input
           oninput: (e) =>
             @valueWrite.next e.currentTarget.value
             oninput? e
-          onfocus: =>
+          onfocus: (e) =>
             @state.set
               isFocused: true
+            onfocus? e
           onblur: (e) =>
             @state.set
               isFocused: false
