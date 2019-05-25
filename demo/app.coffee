@@ -3,15 +3,14 @@ Rx = require 'rxjs/Rx'
 
 Button = require '../button'
 Input = require '../input'
+RadioButton = require '../radio_button'
 Textarea = require '../textarea'
 
 if window?
   require './app.styl'
 
 module.exports = class App
-  $valueInput: (val) ->
-    $ = new Input({value: Rx.Observable.of val})
-    return $
+  $valueInput: (val) -> new Input({value: Rx.Observable.of val})
 
   $errorInput: ->
     $ = new Input()
@@ -22,6 +21,8 @@ module.exports = class App
     $ = new Textarea()
     $.setError 'error message here'
     return $
+
+  $checkedRadioButton: -> new RadioButton {isChecked: Rx.Observable.of true}
 
   render: ->
     [
@@ -103,6 +104,23 @@ module.exports = class App
                   isOutlined: flavor is 'isOutlined'
                   color: 'teal'
                   'x' # trigger min-width
+          z 'h2',
+            'Radio Button'
+          z '.set',
+            z '.item',
+              z @$checkedRadioButton(),
+                color: 'blue'
+            z '.item',
+              z @$checkedRadioButton(),
+                isDisabled: true
+                color: 'blue'
+            z '.item',
+              z RadioButton,
+                color: 'orange'
+            z '.item',
+              z RadioButton,
+                isDisabled: true
+                color: 'teal'
           z 'h2',
             'Input'
           _.map ['normal', 'isFilled'], (flavor) =>

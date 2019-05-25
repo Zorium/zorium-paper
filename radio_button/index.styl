@@ -4,23 +4,30 @@ json('../colors.json')
 .zp-radio-button
   display: inline-block
   white-space: nowrap
-  min-height: 48px
-  min-width: 48px
-  line-height: 48px
+  min-height: 40px
+  min-width: 40px
+  line-height: 40px
   border-radius: 50%
   position: relative
   cursor: pointer
   overflow: hidden
   -webkit-tap-highlight-color: transparent
 
+  > input
+    opacity: 0
+    cursor: pointer
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
   > .ring
     position: absolute
-    top: 50%
-    left: 50%
-    margin-top: -8px
-    margin-left: -8px
-    width: 12px
-    height: 12px
+    top: 25%
+    left: 25%
+    width: calc(50% - 4px)
+    height: calc(50% - 4px)
     border-radius: 50%
     border: solid 2px
     transition: border-color 0.28s
@@ -28,24 +35,40 @@ json('../colors.json')
 
   > .fill
     position: absolute
-    top: 50%
-    left: 50%
-    margin-top: -4px
-    margin-left: -4px
-    width: 8px
-    height: 8px
+    top: 37.5%
+    left: 37.5%
+    width: 25%
+    height: 25%
     border-radius: 50%
     transform: scale(0)
     transition: transform ease 0.28s
 
-  &[checked]
+  > .background
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    opacity: 0
+    transition: opacity ease 0.21s
+
+  &:hover
+    > .background
+      opacity: 0.1
+
+  &.is-focused
+    > .background
+      opacity: 0.2
+
+  &.is-checked
     > .ring
       border-color: #009688
 
     > .fill
       transform: scale(1)
 
-  &[disabled]
+  &.is-disabled
     pointer-events: none
 
     > .ring

@@ -8,6 +8,7 @@ module.exports =
   entry: './demo/index.coffee'
   output:
     filename: 'bundle.js'
+    path: path.resolve './dist'
   resolve:
     extensions: ['.coffee', '.js', '.json', '.styl']
   module:

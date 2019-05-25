@@ -1,3 +1,4 @@
+_ = require 'lodash'
 z = require 'zorium'
 Rx = require 'rxjs/Rx'
 
@@ -7,52 +8,63 @@ Ripple = require '../ripple'
 if window?
   require './index.styl'
 
-# FIXME: upgrade to new material design
 module.exports = class RadioButton
-  constructor: ({@isChecked, color, isDisabled, onToggle} = {}) ->
-    if not @isChecked?.subscribe?
-      @isChecked = new Rx.BehaviorSubject(@isChecked or false)
+  constructor: ({isChecked} = {}) ->
+    isChecked ?= new Rx.BehaviorSubject false
+    @isCheckedWrite = new Rx.ReplaySubject 1
+    @isCheckedRead = Rx.Observable.merge isChecked, @isCheckedWrite
 
-    if not @isChecked?.next? and not onToggle?
-      throw new Error 'Must use onToggle if isChecked not writeable'
-    else if not onToggle?
-      onToggle = (isChecked) => @isChecked.next isChecked
+    @state = z.state
+      isFocused: false
+      isChecked: @isCheckedRead
+
+  stream: => @isCheckedRead
+
+  render: ({color, isDisabled, name, onclick} = {}) =>
+    {isChecked, isFocused} = @state.getValue()
 
     color ?= 'blue'
-    isDisabled ?= false
 
-    @$ripple = new Ripple {
-      color: @isChecked.map (isChecked) ->
-        if isChecked
-          colors.$grey800
-        else
-          colors["$#{color}500"]
-      isCenter: true
-      isCircle: true
-    }
+    if _.isString color
+      color =
+        base: "#{color}500"
 
-    @state = z.state {
-      @isChecked
-      color
-      isDisabled
-      onToggle
-    }
+    color = _.assign {
+      base: 'blue500'
+      disabled: 'black12'
+    }, color
 
-  render: =>
-    {isChecked, color, isDisabled, onToggle} = @state.getValue()
+    color = _.mapValues color, (col) ->
+      if colors['$' + col]? then colors['$' + col] else col
 
     z '.zp-radio-button',
-      checked: if isChecked then true
-      disabled: if isDisabled then true
-      onmousedown: ->
-        unless isDisabled
-          onToggle(not isChecked)
+      className: z.classKebab {
+        isDisabled
+        isChecked
+        isFocused
+      }
+      z '.background',
+        style:
+          backgroundColor: if not isDisabled then color.base
       z '.ring',
         style:
-          borderColor: if isChecked and not isDisabled \
-                       then colors["$#{color}500"]
+          borderColor: if isChecked and not isDisabled then color.base
       z '.fill',
         style:
-          backgroundColor: if not isDisabled
-            colors["$#{color}500"]
-      @$ripple
+          backgroundColor: if not isDisabled then color.base
+      z Ripple,
+        color: color.base
+      z 'input',
+        type: 'radio'
+        checked: if isChecked then true
+        disabled: if isDisabled then true
+        name: name
+        onfocus: (e) =>
+          @state.set
+            isFocused: true
+        onblur: (e) =>
+          @state.set
+            isFocused: false
+        onclick: (e) ->
+          e.preventDefault()
+          onclick? e
