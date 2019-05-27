@@ -2,7 +2,7 @@
 json('../colors.json')
 
 
-.zp-input
+.zp-select
   height: 64px // top 16px, text 16px, bottom 16px, helper 16px
   display: flex
   flex-direction: column
@@ -14,11 +14,23 @@ json('../colors.json')
     height: 100%
     position: relative
     align-items: center
+    outline: 0
+    cursor: pointer
+
+    > select
+      position: absolute
+      visibility: hidden
 
     > .label-width
+      visibility: hidden
+      position: absolute
+      white-space: nowrap
+
+    > .label-width-shrunk
       zp-font-caption()
       visibility: hidden
       position: absolute
+      white-space: nowrap
 
     > .label
       pointer-events: none
@@ -31,6 +43,7 @@ json('../colors.json')
       transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                   left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                   font-size 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+      z-index: 1000 // over icon
 
     > .icon
       font-size: 24px
@@ -42,24 +55,56 @@ json('../colors.json')
       align-items: center
       justify-content: center
 
-    > input
-      flex: 1
-      width: 100%
-      max-width: 100%
-      font: inherit
-      color: inherit
-      text-align: inherit
-      background: transparent
-      padding: 12px 8px 12px 14px
-      box-sizing: border-box
-      border: none
-      outline: none
-      -webkit-tap-highlight-color: transparent
-      appearance: textfield
+    > .value
+      height: 1em
+      margin-left: 12px
 
-      &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
-        -webkit-appearance: none
-        margin: 0
+    > .triangle
+      position: absolute
+      right: 12px
+      width: 0
+      height: 0
+      border-left: 5px solid transparent
+      border-right: 5px solid transparent
+      border-top: 5px solid $black54
+      transition: transform 0.2s ease-in-out
+
+    > .options
+      pointer-events: none
+      opacity: 0
+      position: absolute
+      top: 100%
+      width: 100%
+      background: $white
+      z-index: 10000
+      transition: opacity 0.2s ease-in-out, box-shadow 0.2s ease-in-out
+      padding: 8px 0
+      border-radius: 3px
+
+      > .option
+        position: relative
+        padding: 12px
+        cursor: pointer
+        height: 1em
+
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          background: var(--color-base)
+          z-index: -1
+          opacity: 0
+
+        &:hover
+          &::before
+            opacity: 0.07
+
+        &.is-selected
+          &::before
+            opacity: 0.2
 
   > .helper
     zp-font-caption()
@@ -67,18 +112,40 @@ json('../colors.json')
     color: $black54
     height: 14px
 
+  &.is-at-bottom
+    > .input > .options
+      top: 0
+      transform: translateY(-100%)
+
+  &.is-focused
+    overflow: visible
+
+    > .input
+      > .triangle
+        border-top-color: var(--color-base)
+        transform: rotate(180deg)
+
+      > .options
+        pointer-events: auto
+        opacity: 1
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                    0 3px 5px -1px rgba(0, 0, 0, 0.4)
+
   &.has-icon
     > .input
       > .label
         left: 46px
 
-      > input
-        padding-left: 46px
+      > .value
+        padding-left: 34px
 
   &.is-error
     > .input
       > .label
         color: $error
+
+      > .triangle
+        border-top-color: $error
 
     > .helper
       color: $error
@@ -91,9 +158,14 @@ json('../colors.json')
         left: 14px
 
   &.is-disabled
+    pointer-events: none
+
     > .input
       > .label
         color: $black26
+
+      > .triangle
+        border-top-color: $black26
 
     > .helper
       color: $black26
@@ -110,8 +182,8 @@ json('../colors.json')
         left: 12px
         top: 21px
 
-      > input
-        padding-top: 26px
+      > .value
+        padding-top: 8px
 
       > .underlines
         position: absolute
@@ -145,9 +217,6 @@ json('../colors.json')
       > .label
         left: 46px
 
-      > input
-        padding-left: 46px
-
   &.is-filled:hover&:not(.is-disabled)
     > .input
       background: $black12
@@ -170,29 +239,3 @@ json('../colors.json')
         > .dynamic
           width: 100%
           left: 0
-
-.zp-input_notched-outline
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  pointer-events: none
-  text-align: left
-
-  > svg
-    position: absolute
-    width: 100%
-    height: 100%
-
-    > path
-      stroke: currentColor
-      stroke-width: 1
-      fill: transparent
-      transition: stroke .3s cubic-bezier(.4,0,.2,1),
-                  stroke-width .3s cubic-bezier(.4,0,.2,1)
-
-  &.is-focused
-    > svg
-      > path
-        stroke-width: 2

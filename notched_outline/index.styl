@@ -1,0 +1,25 @@
+.zp-notched-outline
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  text-align: left
+  pointer-events: none
+
+  > svg
+    position: absolute
+    width: 100%
+    height: 100%
+
+    > path
+      stroke: currentColor
+      stroke-width: 1
+      fill: transparent
+      transition: stroke .3s cubic-bezier(.4,0,.2,1),
+                  stroke-width .3s cubic-bezier(.4,0,.2,1)
+
+  &.is-focused
+    > svg
+      > path
+        stroke-width: 2

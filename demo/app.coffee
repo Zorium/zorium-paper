@@ -5,6 +5,7 @@ Button = require '../button'
 Input = require '../input'
 RadioButton = require '../radio_button'
 Textarea = require '../textarea'
+Select = require '../select'
 
 if window?
   require './app.styl'
@@ -23,6 +24,14 @@ module.exports = class App
     return $
 
   $checkedRadioButton: -> new RadioButton {isChecked: Rx.Observable.of true}
+
+  $valueSelect: (val) ->
+    new Select({value: Rx.Observable.of val})
+
+  $errorSelect: ->
+    $ = new Select()
+    $.setError 'error message here'
+    return $
 
   render: ->
     [
@@ -121,6 +130,92 @@ module.exports = class App
               z RadioButton,
                 isDisabled: true
                 color: 'teal'
+          z 'h2',
+            'Select'
+          _.map ['normal', 'isFilled'], (flavor) =>
+            z '.set',
+              z '.item',
+                z Select,
+                  isFilled: flavor is 'isFilled'
+                  color: 'deepPurple'
+                  label: 'Normal'
+                  helper: 'Helper'
+                  options: [
+                    {value: null}
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
+              z '.item',
+                z Select,
+                  isFilled: flavor is 'isFilled'
+                  color: 'orange'
+                  label: 'Icon'
+                  $icon: z 'div',
+                    style:
+                      width: '24px'
+                      height: '24px'
+                      background: 'red'
+                  options: [
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
+              z '.item',
+                z Select,
+                  isFilled: flavor is 'isFilled'
+                  color: 'pink'
+                  label: 's'
+                  options: [
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
+              z '.item',
+                style:
+                  textAlign: 'right'
+                z Select,
+                  isFilled: flavor is 'isFilled'
+                  color: 'lightBlue'
+                  label: 'text-align right'
+                  options: [
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
+              z '.item',
+                z @$valueSelect('abc'),
+                  isFilled: flavor is 'isFilled'
+                  color: 'teal'
+                  label: 'pre filled'
+                  options: [
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
+              z '.item',
+                z @$errorSelect(),
+                  isFilled: flavor is 'isFilled'
+                  color: 'deepPurple'
+                  label: 'Error'
+                  helper: 'helper'
+                  options: [
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
+              z '.item',
+                z Select,
+                  isFilled: flavor is 'isFilled'
+                  color: 'deepPurple'
+                  label: 'Disabled'
+                  isDisabled: true
+                  helper: 'helper'
+                  options: [
+                    {value: 'abc', label: 'abc'}
+                    {value: 'xyz', label: 'xyz'}
+                    {value: 'xxx', label: 'xxx'}
+                  ]
           z 'h2',
             'Input'
           _.map ['normal', 'isFilled'], (flavor) =>
