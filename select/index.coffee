@@ -79,6 +79,7 @@ module.exports = class Select
     name
     onblur
     onfocus
+    onvalue
     tabindex
     options
   }) =>
@@ -152,7 +153,9 @@ module.exports = class Select
 
           if selectedIndex < 0
             selectedIndex = options.length + selectedIndex
-          @valueWrite.next options[selectedIndex % options.length].value
+          nextValue = options[selectedIndex % options.length].value
+          @valueWrite.next nextValue
+          onvalue? nextValue
         z 'select',
           disabled: if isDisabled then true
           name: name
@@ -202,6 +205,7 @@ module.exports = class Select
                 isSelected: (option.value or null) is value
               onclick: (e) =>
                 @valueWrite.next option.value
+                onvalue? option.value
                 e.currentTarget.parentElement.parentElement.blur()
               option.label
       z '.helper',
