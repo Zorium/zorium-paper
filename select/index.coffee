@@ -99,10 +99,11 @@ module.exports = class Select
         isAtBottom
       }
       style:
-        width: if $icon?
-          width + 36 + 'px'
-        else
-          width + 'px'
+        width: if width?
+          if $icon?
+            width + 36 + 'px'
+          else
+            width + 'px'
         '--color-base': colors["$#{color}500"]
       z '.input',
         tabindex: tabindex or 0
