@@ -13,7 +13,7 @@ module.exports = class Input
     @stateSubscription = null
     value ?= new Rx.BehaviorSubject ''
     @valueWrite = new Rx.ReplaySubject 1
-    @valueRead = Rx.Observable.merge @valueWrite, value
+    @valueRead = Rx.Observable.merge value, @valueWrite
 
     @$notchedOutline = new NotchedOutline()
 
