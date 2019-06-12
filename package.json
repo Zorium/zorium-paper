@@ -1,6 +1,6 @@
 {
   "name": "zorium-paper",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "core",
   "main": "index.js",
   "scripts": {
