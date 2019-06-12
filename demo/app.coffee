@@ -51,6 +51,11 @@ module.exports = class App
               z '.item',
                 z '.card.shadow-' + n,
                   n
+          z '.set',
+            _.map ['2', '3', '4', '6', '8', '12', '16', '24'], (n) ->
+              z '.item',
+                z '.card.shadow-' + n + '-filter',
+                  n
           z 'h2',
             'Font'
           z '.set',
