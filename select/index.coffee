@@ -19,6 +19,7 @@ module.exports = class Select
 
     @state = z.state {
       isFocused: false
+      isClosed: true
       isAtBottom: false
       error: null
       width: null
@@ -64,6 +65,7 @@ module.exports = class Select
     @$$el = null
     @state.set
       isFocused: false
+      isClosed: true
 
   setError: (error) => @state.set {error}
 
@@ -83,7 +85,7 @@ module.exports = class Select
     tabindex
     options
   }) =>
-    {value, error, isFocused, isAtBottom, width}  = @state.getValue()
+    {value, error, isFocused, isClosed, isAtBottom, width}  = @state.getValue()
     color ?= 'blue'
     label ?= ''
     isDisabled ?= false
@@ -94,6 +96,7 @@ module.exports = class Select
         hasIcon: $icon?
         isFilled
         isFocused
+        isClosed
         isDisabled
         isError: error?
         isAtBottom
@@ -112,14 +115,17 @@ module.exports = class Select
           unless $$options?
             throw new Error '.options not found'
 
+          console.log 'onfocus'
           @state.set
             isFocused: true
+            isClosed: false
             isAtBottom:
               $$options.getBoundingClientRect().bottom > window.innerHeight
           onfocus? e
         onblur: (e) =>
           @state.set
             isFocused: false
+            isClosed: true
 
           # XXX: closing animation
           setTimeout =>
@@ -128,6 +134,11 @@ module.exports = class Select
           , 200
 
           onblur? e
+        # XXX: to beat onfocus
+        onmousedown: (e) =>
+          if isFocused and z.isSimpleClick e
+            @state.set
+              isClosed: not isClosed
         onkeydown: (e) =>
           keys =
             40: 'down'
@@ -204,10 +215,16 @@ module.exports = class Select
             z '.option',
               className: z.classKebab
                 isSelected: (option.value or null) is value
+              # XXX: because of onmousedown above
+              onmousedown: (e) ->
+                if z.isSimpleClick e
+                  e.stopPropagation()
               onclick: (e) =>
-                @valueWrite.next option.value
-                onvalue? option.value
-                e.currentTarget.parentElement.parentElement.blur()
+                if z.isSimpleClick e
+                  e.stopPropagation()
+                  @valueWrite.next option.value
+                  onvalue? option.value
+                  e.currentTarget.parentElement.parentElement.blur()
               option.label
       z '.helper',
         error or helper
