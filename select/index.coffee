@@ -115,7 +115,6 @@ module.exports = class Select
           unless $$options?
             throw new Error '.options not found'
 
-          console.log 'onfocus'
           @state.set
             isFocused: true
             isClosed: false
