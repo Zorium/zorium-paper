@@ -1,12 +1,12 @@
 # Zorium Paper
 
-#### Material design components for the [Zorium](https://zorium.org) framework
+#### Material design components for the [Zorium](https://zorium.zolmeister.com) framework
 
-[![material design components](./images/example.png)](https://zorium.org/paper)
+[![material design components](./images/example.png)](https://zorium.zolmeister.com)
 
 ### Documentation
 
-[zorium.org/paper](https://zorium.org/paper)
+[zorium.org/paper](https://zorium.zolmeister.com/paper)
 
 ### Install
 
