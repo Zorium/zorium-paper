@@ -6,7 +6,7 @@
 
 ### Documentation
 
-[zorium.org/paper](https://zorium.zolmeister.com/paper)
+[zorium.zolmeister.com/paper](https://zorium.zolmeister.com/paper)
 
 ### Install
 
